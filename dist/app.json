@@ -1,0 +1,42 @@
+{
+  "pages": [
+    "pages/user/index",
+    "pages/news/index",
+    "pages/shopping-cart/index",
+    "pages/index/index"
+  ],
+  "window": {
+    "navigationStyle": "custom",
+    "backgroundTextStyle": "dark",
+    "backgroundColor": "#efefef",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "TouchUI",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/news/index",
+        "text": "最新动态"
+      },
+      {
+        "pagePath": "pages/shopping-cart/index",
+        "text": "购物车"
+      },
+      {
+        "pagePath": "pages/user/index",
+        "text": "我"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000
+  },
+  "theme": {
+    "theme-color": "#39f"
+  }
+}
