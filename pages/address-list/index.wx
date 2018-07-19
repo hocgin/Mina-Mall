@@ -1,0 +1,60 @@
+<template>
+  <view class="address-list">
+
+    <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#fff'} }}">
+        <ui-row height="46">
+          <ui-col vertical-align="middle" align="center" width="60" bindtap="navigateBack">
+              <ui-icon type="arrow-left" size="16" color="#333"></ui-icon>
+          </ui-col>
+          <ui-col vertical-align="middle" align="center">
+            <view>我的地址</view>
+          </ui-col>
+          <ui-col vertical-align="middle" align="center" width="60"></ui-col>
+        </ui-row>
+    </ui-nav-bar>
+    <view class="appbar" style="height:{{NAV_HEIGHT}}"></view>
+
+    <view class="addresses">
+      <address-item></address-item>
+      <address-item></address-item>
+      <address-item></address-item>
+      <address-item></address-item>
+    </view>
+
+    <!-- 底部按钮 -->
+    <view class="btn-save">
+      <navigator url="/pages/new-address/index">
+        <button class="button-style-1">新建收货地址</button>
+      </navigator>
+    </view>
+  </view>
+</template>
+
+<script>
+export default {
+  config: {
+    usingComponents: {
+      'address-item': '../../packages/address-item'
+    },
+    navigationBarTitleText: '我的地址'
+  },
+  data: {
+    NAV_HEIGHT:wx.STATUS_BAR_HEIGHT+wx.DEFAULT_HEADER_HEIGHT+'px'
+  },
+  navigateBack () {
+    wx.navigateBack()
+  }
+}
+</script>
+
+<style lang="less">
+@import "static/styles/variables.less";
+page {
+  background-color: #F7F7F7;
+}
+.addresses {
+}
+.btn-save {
+  margin-top: 150rpx;
+}
+</style>

@@ -1,0 +1,104 @@
+<template>
+  
+  <view class="order-manager">
+    <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#fff'} }}">
+        <ui-row height="46">
+          <ui-col vertical-align="middle" align="center" width="60" bindtap="navigateBack">
+              <ui-icon type="arrow-left" size="16" color="#333"></ui-icon>
+          </ui-col>
+          <ui-col vertical-align="middle" align="center">
+            <view>我的订单</view>
+          </ui-col>
+          <ui-col vertical-align="middle" align="center" width="60"></ui-col>
+        </ui-row>
+      </ui-nav-bar>
+    <view style="height:{{NAV_HEIGHT}}"></view>
+
+    <!-- 消息顶部 -->
+        <ui-tabs class="tabs" probe="1" ink-bar index="{{ current }}"  bindchange="handleChange">
+          <ui-tab>
+            <view class="item item-right">全部</view>
+          </ui-tab>
+          <ui-tab>
+            <view class="item item-left">
+              待付款
+              <ui-badge custom-style="padding:3px;top:-5px" wx:if="{{ true }}"></ui-badge>
+            </view>
+          </ui-tab>
+          <ui-tab>
+            <view class="item item-right">待发货</view>
+          </ui-tab>
+          <ui-tab>
+            <view class="item item-right">待收货</view>
+          </ui-tab>
+        </ui-tabs>
+
+    <!-- 消息内容 -->
+    <swiper class="content" current="{{ current }}" bindchange="handleContentChange" style="height:{{ height }}px">
+      <swiper-item class="letter">
+        <order></order>
+
+      </swiper-item>
+      <swiper-item>
+        内容二
+      </swiper-item>
+      <swiper-item>
+        内容三
+      </swiper-item>
+      <swiper-item>
+        内容四
+      </swiper-item>
+    </swiper>
+
+
+  </view>
+</template>
+
+<script>
+export default {
+  config: {
+    usingComponents: {
+      'order': '../../packages/order'
+    },
+    navigationBarTitleText: '我的订单'
+  },
+  data: {
+      current: 0,
+      height: wx.DEFAULT_CONTENT_HEIGHT,
+      NAV_HEIGHT:wx.STATUS_BAR_HEIGHT+wx.DEFAULT_HEADER_HEIGHT+'px'
+    },
+  navigateBack () {
+    wx.navigateBack()
+  },
+  /**
+   * Tab改变监听
+   */
+  handleChange (e) {
+    let index = e.detail.index
+    this.setData({
+      current:index
+    })
+  },
+  /**
+   * Tab Content 滑动监听
+   */
+  handleContentChange (e) {
+    let current = e.detail.current
+    this.setData({
+      current
+    })
+  }
+}
+</script>
+
+<style lang="less">
+page {
+   background-color: #F2F4F6;
+}
+.order-manager {
+    .tabs {
+      background-color: #fff;
+      border-bottom: 1px solid rgba(231, 231, 231, 0.6)
+    }
+}
+</style>

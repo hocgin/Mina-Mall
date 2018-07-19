@@ -1,0 +1,58 @@
+<view class="order-manager">
+  <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#fff'} }}" _pid="{{_pid}}">
+    <view class="ui-row" style="height:46px;">
+      <view bindtap="navigateBack" class="ui-col ui-col-align-center align-center valign-middle" style="flex:0 0 60px;">
+        <view class="ui-col-content align-center valign-middle">
+          <span type="arrow-left" size="16" color="#333" class="ui-icon icon-arrow-left" style="color: #333;font-size: 16px;"></span>
+        </view>
+      </view>
+      <view class="ui-col ui-col-align-center align-center valign-middle" style="">
+        <view class="ui-col-content align-center valign-middle">
+          <view>我的订单</view>
+        </view>
+      </view>
+      <view class="ui-col ui-col-align-center align-center valign-middle" style="flex:0 0 60px;">
+        <view class="ui-col-content align-center valign-middle"></view>
+      </view>
+    </view>
+  </ui-nav-bar>
+  <view style="height:{{NAV_HEIGHT}}"></view>
+
+  <!-- 消息顶部 -->
+  <ui-tabs class="tabs" probe="1" ink-bar="true" index="{{ current }}" bindchange="handleChange" _pid="{{_pid}}">
+    <ui-tab _pid="{{_pid}}">
+      <view class="item item-right">全部</view>
+    </ui-tab>
+    <ui-tab _pid="{{_pid}}">
+      <view class="item item-left">
+        待付款
+        <ui-badge custom-style="padding:3px;top:-5px" wx:if="{{ true }}" _pid="{{_pid}}"></ui-badge>
+      </view>
+    </ui-tab>
+    <ui-tab _pid="{{_pid}}">
+      <view class="item item-right">待发货</view>
+    </ui-tab>
+    <ui-tab _pid="{{_pid}}">
+      <view class="item item-right">待收货</view>
+    </ui-tab>
+  </ui-tabs>
+
+  <!-- 消息内容 -->
+  <swiper class="content" current="{{ current }}" bindchange="handleContentChange" style="height:{{ height }}px">
+    <swiper-item class="letter">
+      <order _pid="{{_pid}}"></order>
+
+    </swiper-item>
+    <swiper-item>
+      内容二
+    </swiper-item>
+    <swiper-item>
+      内容三
+    </swiper-item>
+    <swiper-item>
+      内容四
+    </swiper-item>
+  </swiper>
+
+
+</view>

@@ -1,9 +1,92 @@
-<view>
-  <view class="starContent" wx:if="{{ isShow }}">
-    <ui-star _pid="{{_pid}}"></ui-star>
+<view class="body">
+
+  <!-- 自定义导航 -->
+  <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#fff'} }}" _pid="{{_pid}}">
+    <view class="ui-row" style="height:46px;">
+      <view class="ui-col ui-col-align-center align-center valign-middle" style="">
+        <view class="ui-col-content align-center valign-middle">
+          <view>购物车</view>
+        </view>
+      </view>
+    </view>
+  </ui-nav-bar>
+
+  <!-- 设置内容距离nav-bar高度占位 -->
+  <view style="height:{{NAV_HEIGHT}}"></view>
+
+  <!-- 商品项 -->
+  <view class="shopping-cart-items">
+    <view class="product" wx:for="{{ shoppingCarts }}" wx:for-item="item">
+      <view class="mix-1px-bottom-top ui-row-list" style="margin-top:10px;">
+        <view class="ui-row" style="height:40px;">
+          <view class="ui-col ui-col-align-left align-left valign-middle" style="padding-left: 10px;">
+            <view class="ui-col-content align-left valign-middle">
+              <label class="store-name">
+                <radio class="mini" value="{{ item.store.id }}" color="#3A84EF">{{ item.store.name }}
+                </radio>
+              </label>
+            </view>
+          </view>
+        </view>
+        <!-- 商品单项 -->
+        <view wx:for="{{ item.productes }}" wx:for-item="product" class="ui-row" style="height:120px;">
+          <view class="ui-col ui-col-align-left align-left valign-middle" style="padding-left: 10px;flex:0 0 40px;">
+            <view class="ui-col-content align-left valign-middle">
+              <radio value="{{ product.id }}" color="#3A84EF">
+              </radio>
+            </view>
+          </view>
+          <view class="ui-col ui-col-align-center align-center valign-middle" style="flex:0 0 100px;">
+            <view class="ui-col-content align-center valign-middle">
+              <image class="image" src="http://placehold.it/80x100" model="aspectFill" style="width:80px;height:100px" />
+            </view>
+          </view>
+          <view class="ui-col ui-col-align-left align-left valign-middle" style="">
+            <view class="ui-col-content align-left valign-middle">
+              <view style="height: 100px" class="info">
+                <view class="line-2-ellipsis title">{{ product.name }}</view>
+                <view class="tags"> {{ product.tags }} </view>
+                <view class="price-pannel">
+                  <text class="price">¥{{ product.price }}</text>
+                  <ui-stepper class="stepper" min="1" value="{{ product.number }}" _pid="{{_pid}}">
+                  </ui-stepper>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <!-- /商品单项 -->
+      </view>
+    </view>
   </view>
 
-  <view class="buttonContent">
-    <button type="primary" bindtap="starShow">创建评分控件</button>
-  </view>
+  <!-- 工具栏 -->
+  <ui-fixed-view bottom="0" left="0" right="0" _pid="{{_pid}}">
+    <view class="fixed_bottom ui-row" style="height:50px;">
+      <view class="ui-col ui-col-3 ui-col-align-left align-left valign-middle" style="flex: 0 0 25%;padding-left: 10px;">
+        <view class="ui-col-content align-left valign-middle">
+          <label>
+            <radio value="全选" color="#3A84EF">全选
+            </radio>
+          </label>
+        </view>
+      </view>
+      <view class="ui-col ui-col-align-right align-right valign-middle" style="padding-right: 10px;">
+        <view class="ui-col-content align-right valign-middle">
+          <view class="total">总计：
+            <text class="price">¥575.37</text>
+          </view>
+          <!-- <view style="color:#FE6A3C;">（满1200元可免邮费）</view> -->
+        </view>
+      </view>
+      <view class="ui-col valign-middle" style="flex:0 0 80px;">
+        <view class="ui-col-content valign-middle">
+          <view class="form_list">去结算</view>
+        </view>
+      </view>
+    </view>
+    <view class="iphonex-bottom"></view>
+  </ui-fixed-view>
+
+
 </view>

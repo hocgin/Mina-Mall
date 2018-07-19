@@ -1,0 +1,183 @@
+<template>
+  <view class="order">
+    <view class="source">
+        <view class="store">
+          <text class="name">唯品会自营</text>
+          <text class="no">订单编号 18976543289</text>
+        </view>
+        <text class="state">已取消</text>
+    </view>
+    <view class="detailed">
+        <image class="cover" src="https://hocg.in/Resume/img/avatar.png"></image>
+        <view class="description">
+            <text class="name">第一本书第一本书第一本书第一本书第一本书第一本书第一本书第一本书第一本书第一本书</text>
+            <text>信息</text>
+            <text>黑色/XXL</text>
+        </view>
+        <view class="price-pannel">
+          <view class="price">¥1209.00</view>
+          <view class="offer-price">优惠后¥1009.00</view>
+        </view>
+    </view>
+    <view class="price-span">
+        <text>共</text><text class="number">1</text><text>件商品</text><text class="price-title">订单金额</text><text class="price">¥1009</text><text class="small">.00</text>
+    </view>
+    <view class="toolbar">
+        <view class="btn">查看发票</view>
+        <view class="btn">卖了换钱</view>
+        <view class="btn blue">再次购买</view>
+    </view>
+  </view>
+</template>
+<script>
+export default {
+  data: {
+    msg: 'This is a test msg!'
+  },
+  methods: {
+    handleTap () {
+      console.log(this.data.msg)
+    }
+  }
+}
+</script>
+<style lang="less">
+@themeColor: #3A84EF;
+@bg-color: #F6F6F6;
+@instructions-color: rgba(75, 75, 75, 0.98);
+.order {
+    border-top: 1px solid rgba(231, 231, 231, 0.6);
+    border-bottom: 1px solid rgba(231, 231, 231, 0.6);
+    background-color: #fff;
+    display: flex;
+    margin-top: 15rpx;
+    flex-direction: column;
+    .source{
+      padding-left: 20rpx;
+      padding-right: 20rpx;
+      padding-bottom: 10rpx;
+      padding-top: 10rpx;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      .store {
+        display: flex;
+        flex-direction: column;
+        .name {
+          font-size: 10pt;
+          font-weight: 500;
+          color: #000;
+        }
+        .no {
+          font-size: 9pt;
+          color: #99999A;
+        }
+      }
+      .state {
+        font-size: 10pt;
+        font-weight: 400;
+        color: #99999A;
+      }
+    }
+    .detailed {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      border-top: 1px solid rgba(231, 231, 231, 0.6);
+      // background-color: #FAFAFA;
+      padding-top: 20rpx;
+      padding-bottom: 20rpx;
+      padding-left: 20rpx;
+      .cover {
+        flex-shrink: 0;
+        height: 150rpx;
+        width: 150rpx;
+        margin-right: 20rpx;
+      }
+      .description {
+        display: flex;
+        flex-direction: column;
+        font-weight: 400;
+        font-size: 10pt;
+        .name {
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+      .price-pannel {
+        flex-shrink: 0;
+        height: 100%;
+        margin-left: 10rpx;
+        margin-right: 20rpx;
+        align-self: flex-start;
+        text-align: right;
+        .offer-price {
+          font-size: 9pt;
+          color: #99999A;
+        }
+      }
+    }
+    .price-span{
+      padding-bottom: 10rpx;
+      padding-top: 10rpx;
+      text-align: right;
+      padding-right: 20rpx;
+      font-size: 9pt;
+      color: #99999A;
+      font-weight: 400;
+      border-bottom: dashed 1rpx rgba(231, 231, 231, 1);
+      .number {
+        color: #000;
+        margin-left: 10rpx;
+        margin-right: 10rpx;
+        font-weight: 500;
+      }
+      .price-title {
+        margin-left: 20rpx;
+        margin-right: 20rpx;
+        color: #000;
+        font-size: 12pt;
+        font-weight: 700;
+      }
+      .price {
+        color: #000;
+        font-size: 12pt;
+        font-weight: 700;
+      }
+      .small {
+        color: #000;
+        font-size: 9pt;
+        font-weight: 700;
+      }
+    }
+    .toolbar {
+      display: flex;
+      flex-direction: row;
+      padding-top: 20rpx;
+      padding-bottom: 20rpx;
+      justify-content: flex-end;
+      padding-right: 20rpx;
+      .btn {
+        margin-right: 5rpx;
+        margin-left: 5rpx;
+        padding-top: 5rpx;
+        padding-bottom: 5rpx;
+        padding-left: 15rpx;
+        padding-right: 15rpx;
+        border-radius: 5rpx;
+        font-size: 9pt;
+        font-weight: 400;
+        color: @instructions-color;
+        border: solid 1rpx #F6F6F6;
+        &.blue {
+          color: @themeColor;
+          border: solid 1rpx @themeColor;
+        }
+      }
+    }
+  }
+</style>

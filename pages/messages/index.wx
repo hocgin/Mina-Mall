@@ -1,0 +1,183 @@
+<template>
+  <view class="messages">
+
+    <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#fff'} }}">
+        <ui-row height="46">
+          <ui-col vertical-align="middle" align="center" width="60" bindtap="navigateBack">
+              <ui-icon type="arrow-left" size="16" color="#333"></ui-icon>
+          </ui-col>
+          <ui-col vertical-align="middle" align="center">
+            <view>我的消息</view>
+          </ui-col>
+          <ui-col vertical-align="middle" align="center" width="60"></ui-col>
+        </ui-row>
+    </ui-nav-bar>
+    <view style="height:{{NAV_HEIGHT}}"></view>
+
+    <!-- 消息顶部 -->
+        <ui-tabs class="tabs" probe="1" ink-bar index="{{ current }}"  bindchange="handleChange">
+          <ui-tab>
+            <view class="item item-right">私信</view>
+          </ui-tab>
+          <ui-tab>
+            <view class="item item-left">
+              评论
+              <ui-badge custom-style="padding: 3px;top:-5px" wx:if="{{true}}"></ui-badge>
+            </view>
+          </ui-tab>
+          <ui-tab>
+            <view class="item item-right">@我</view>
+          </ui-tab>
+          <ui-tab>
+            <view class="item item-right">通知</view>
+          </ui-tab>
+        </ui-tabs>
+
+    <!-- 消息内容 -->
+    <swiper class="content" current="{{ current }}" bindchange="handleContentChange" style="height:{{ height }}px">
+      <swiper-item class="letter">
+      <!-- 私信 -->
+      <ui-row-list border-bottom style="height:{{NAV_HEIGHT}}">
+        <ui-row height="80">
+          <ui-col vertical-align="middle" width="80">
+            <view class="avatar-box">
+              <image class="avatar" mode="scaleToFill"
+                style="height:60px;width:60px;margin-left:10px"
+                src="https://hocg.in/Resume/img/avatar.png"/>
+              <ui-badge custom-style="{{ badgeStyle }}" text="店"></ui-badge>
+            </view>
+          </ui-col>
+          <ui-col vertical-align="middle" class="row-box">
+            <view class="box">
+              <view class="nickname">东京塔子</view>
+              <view class="time">2018年7月7日</view>
+            </view>
+            <view class="box">
+              <view class="message line-1-ellipsis">东京塔子东京塔子东京塔子东京塔子东京塔子东京塔子东京塔子东京塔子</view>
+              <ui-badge text="99"></ui-badge>
+            </view>
+          </ui-col>
+        </ui-row>
+
+        <ui-row height="80">
+          <ui-col vertical-align="middle" width="80">
+            <view class="avatar-box">
+              <image class="avatar" mode="scaleToFill"
+                style="height:60px;width:60px;margin-left:10px"
+                src="https://hocg.in/Resume/img/avatar.png"/>
+            </view>
+          </ui-col>
+          <ui-col vertical-align="middle" class="row-box">
+            <view class="box">
+              <view class="nickname">东塔子</view>
+              <view class="time">7月7日</view>
+            </view>
+            <view class="box">
+              <view class="message line-1-ellipsis">东京塔子东京塔子东京塔子东京塔子东京塔子东京塔子东京塔子东京塔子</view>
+              <ui-badge text="1"></ui-badge>
+            </view>
+          </ui-col>
+        </ui-row>
+
+       </ui-row-list>
+
+      </swiper-item>
+      <swiper-item>
+        内容二
+      </swiper-item>
+      <swiper-item>
+        内容三
+      </swiper-item>
+      <swiper-item>
+        内容四
+      </swiper-item>
+    </swiper>
+
+
+  </view>
+</template>
+
+<script>
+export default {
+  config: {
+    navigationBarTitleText: '我的消息',
+    disableScroll: true
+  },
+  data: {
+    current: 0,
+    height: wx.DEFAULT_CONTENT_HEIGHT,
+    NAV_HEIGHT:wx.STATUS_BAR_HEIGHT+wx.DEFAULT_HEADER_HEIGHT+'px',
+    badgeStyle: {
+      'background-color': '#3A84EF',
+      'position': 'absolute',
+      'bottom': '0px',
+      'right': '0px',
+      'border': '1px solid #fff'
+    }
+  },
+  navigateBack () {
+    wx.navigateBack()
+  },
+  /**
+   * Tab改变监听
+   */
+  handleChange (e) {
+    let index = e.detail.index
+    this.setData({
+      current:index
+    })
+  },
+  /**
+   * Tab Content 滑动监听
+   */
+  handleContentChange (e) {
+    let current = e.detail.current
+    this.setData({
+      current
+    })
+  }
+}
+</script>
+
+<style lang="less">
+@import "static/styles/variables.less";
+
+.messages {
+  .tabs {
+    border-bottom: 1px solid rgba(231, 231, 231, 0.6)
+  }
+  .content {
+    z-index: -1;
+    // 私信
+    .letter {
+      .avatar-box {
+        position: relative;
+        .avatar {
+          border-radius: 50%;
+        }
+      }
+      .box {
+        margin-top: 5rpx;
+        margin-right: @box-width;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        align-items: center;
+        align-content: center;
+        .nickname {
+          font-weight: 500;
+          font-size: 14pt;
+        }
+        .time {
+          font-size: 8pt;
+          color: #A5A6A6;
+        }
+        .message {
+          font-size: 10pt;
+          color: #A5A6A6;
+        }
+      }
+    }
+  }
+}
+</style>

@@ -1,8 +1,11 @@
 {
   "usingComponents": {
-    "ui-star": "../../packages/touchui-wx-components/ui-star/dist/index"
+    "ui-nav-bar": "../../packages/touchui-wx-components/ui-nav-bar/dist/index",
+    "icon-item": "../../packages/icon-item/index"
   },
   "navigationBarTitleText": "首页",
-  "backgroundColor": "#F4F4F4",
-  "navigationBarTextStyle": "black"
+  "backgroundColor": "#3A84EF",
+  "navigationBarBackgroundColor": "#3A84EF",
+  "navigationBarTextStyle": "black",
+  "disableScroll": true
 }

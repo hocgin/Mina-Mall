@@ -1,41 +1,187 @@
 <template>
-  <view>
-    <view class="starContent" wx:if="{{ isShow }}">
-      <ui-star></ui-star>
+  <view class="body">
+
+    <!-- 自定义导航 -->
+    <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#fff'} }}">
+      <ui-row height="46">
+        <ui-col vertical-align="middle" align="center">
+          <view>购物车</view>
+        </ui-col>
+      </ui-row>
+    </ui-nav-bar>
+
+    <!-- 设置内容距离nav-bar高度占位 -->
+    <view style="height:{{NAV_HEIGHT}}"></view>
+
+    <!-- 商品项 -->
+    <view class="shopping-cart-items">
+      <view class="product" wx:for="{{ shoppingCarts }}" wx:for-item="item">
+        <ui-row-list class="mix-1px-bottom-top" style="margin-top:10px">
+          <ui-row height="40">
+            <ui-col align="left" vertical-align="middle" space-left="10">
+              <label class="store-name">
+                <radio class="mini" value="{{ item.store.id }}"/>{{ item.store.name }}
+              </label>
+            </ui-col>
+          </ui-row>
+          <!-- 商品单项 -->
+          <ui-row height="120"  wx:for="{{ item.productes }}" wx:for-item="product">
+            <ui-col vertical-align="middle" align="left" space-left="10" width="40">
+                <radio value="{{ product.id }}"/>
+            </ui-col>
+            <ui-col vertical-align="middle" align="center" width="100">
+                <image class="image" src="http://placehold.it/80x100" model="aspectFill"
+                style="width:80px;height:100px">
+            </ui-col>
+            <ui-col vertical-align="middle" align="left">
+              <view style="height: 100px" class="info">
+                  <view class="line-2-ellipsis title">{{ product.name }}</view>
+                  <view class="tags"> {{ product.tags }} </view>
+                  <view class="price-pannel">
+                    <text class="price">¥{{ product.price }}</text>
+                    <ui-stepper class="stepper" min="1" value="{{ product.number }}"/>
+                  </view>
+              </view>
+            </ui-col>
+          </ui-row>
+          <!-- /商品单项 -->
+        </ui-row-list>
+      </view>
     </view>
 
-    <view class="buttonContent">
-      <button type="primary" bindtap="starShow">创建评分控件</button>
-    </view> 
+    <!-- 工具栏 -->
+    <ui-fixed-view bottom="0" left="0" right="0">
+      <ui-row height="50" class="fixed_bottom" >
+        <ui-col align="left" vertical-align="middle" space-left="10" span="3">
+          <label>
+            <radio value="全选"/>全选
+          </label>
+        </ui-col>
+        <ui-col align="right" vertical-align="middle" space-right="10">
+          <view class="total">总计：<text class="price">¥575.37</text></view>
+          <!-- <view style="color:#FE6A3C;">（满1200元可免邮费）</view> -->
+        </ui-col>
+        <ui-col vertical-align="middle" width="80">
+          <view class="form_list">去结算</view>
+        </ui-col>
+      </ui-row>
+      <view class="iphonex-bottom"></view>
+    </ui-fixed-view>
+
+
   </view>
 </template>
 
 <script>
 export default {
   config: {
-    navigationBarTitleText: '首页',
-    backgroundColor: '#F4F4F4',
-    navigationBarTextStyle: 'black'
+    usingComponents: {
+    },
+    navigationBarTitleText: "首页",
+    backgroundColor: "#F7F7F7",
+    navigationBarTextStyle: "black"
   },
   data: {
-    isShow:false
+    NAV_HEIGHT: wx.STATUS_BAR_HEIGHT + wx.DEFAULT_HEADER_HEIGHT + "px",
+    isShow: false,
+    shoppingCarts: [{
+      store: {
+        id: "1",
+        name: "康爱多大药房旗舰店"
+      },
+      productes: [{
+        id: "1",
+        name: "挺好用,就是 vscode 中 tab 变成ab了,不知道你是不是也挺好用,就是 vscode 中 tab 变成ab了,不知道你是不是也挺好用,就是 vscode 中 tab 变成ab了,不知道你是不是也",
+        tags: ["XXL", "黑色"],
+        price: 575.34,
+        number: 12
+      },{
+        id: "1",
+        name: "挺好用,就是 vscode 中 tab 变成ab了,不知道你是不是也挺好用,就是 vscode 中 tab 变成ab了,不知道你是不是也挺好用,就是 vscode 中 tab 变成ab了,不知道你是不是也",
+        tags: ["XXL", "黑色"],
+        price: 575.34,
+        number: 12
+      }]
+    },{
+      store: {
+        id: "1",
+        name: "康爱多大药房旗舰店"
+      },
+      productes: [{
+        id: "1",
+        name: "挺好用,就是 vscode 中 tab 变成ab了,不知道你是不是也挺好用,就是 vscode 中 tab 变成ab了,不知道你是不是也挺好用,就是 vscode 中 tab 变成ab了,不知道你是不是也",
+        tags: ["XXL", "黑色"],
+        price: 575.34,
+        number: 12
+      },{
+        id: "1",
+        name: "挺好用,就是 vscode 中 tab 变成ab了,不知道你是不是也挺好用,就是 vscode 中 tab 变成ab了,不知道你是不是也挺好用,就是 vscode 中 tab 变成ab了,不知道你是不是也",
+        tags: ["XXL", "黑色"],
+        price: 575.34,
+        number: 12
+      }]
+    }]
   },
-  starShow () {
-    this.setData({ 
+  navigateBack() {
+    wx.navigateBack();
+  },
+  starShow() {
+    this.setData({
       isShow: true
-    })
+    });
   }
-}
+};
 </script>
 
 <style lang="less">
-.content{
-  .mix-flex-center();
+@import "static/styles/variables.less";
+page {
+  background-color: @bodyColor;
 }
-.starContent{
-  padding:50px 50px 0px 50px;
+.shopping-cart-items {
+  padding-bottom: 50px;
+  .product {
+    background-color: #fff;
+    .store-name{
+        font-weight: 700;
+    }
+    .info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: space-between;
+      .title {
+
+      }
+      .tags {
+        color: #B6B7B6;
+      }
+      .price-pannel {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+          .stepper {
+            margin-right: 30rpx;
+          }
+      }
+    }
+  }
 }
-.buttonContent{
-  padding:50px;
+
+.fixed_bottom {
+  background: #fff;
+  box-shadow: 0 0px 15px 0 #eaeaea;
+  .form_list {
+    background: @themeColor;
+    color: #fff;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    font-size: 14px;
+  }
+  .total {
+    font-weight: 700;
+  }
 }
 </style>

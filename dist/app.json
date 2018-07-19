@@ -3,7 +3,11 @@
     "pages/user/index",
     "pages/news/index",
     "pages/shopping-cart/index",
-    "pages/index/index"
+    "pages/index/index",
+    "pages/messages/index",
+    "pages/order-manager/index",
+    "pages/new-address/index",
+    "pages/address-list/index"
   ],
   "window": {
     "navigationStyle": "custom",
@@ -14,21 +18,30 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
+    "selectedColor": "#4C81C6",
     "list": [
       {
         "pagePath": "pages/index/index",
+        "iconPath": "static/asserts/home.png",
+        "selectedIconPath": "static/asserts/home_selected.png",
         "text": "首页"
       },
       {
         "pagePath": "pages/news/index",
+        "iconPath": "static/asserts/home.png",
+        "selectedIconPath": "static/asserts/home_selected.png",
         "text": "最新动态"
       },
       {
         "pagePath": "pages/shopping-cart/index",
+        "iconPath": "static/asserts/home.png",
+        "selectedIconPath": "static/asserts/home_selected.png",
         "text": "购物车"
       },
       {
         "pagePath": "pages/user/index",
+        "iconPath": "static/asserts/home.png",
+        "selectedIconPath": "static/asserts/home_selected.png",
         "text": "我"
       }
     ]
@@ -37,6 +50,6 @@
     "request": 10000
   },
   "theme": {
-    "theme-color": "#39f"
+    "theme-color": "#3A84EF"
   }
 }

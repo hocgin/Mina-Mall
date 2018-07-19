@@ -1,0 +1,106 @@
+<view class="messages">
+
+  <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#fff'} }}" _pid="{{_pid}}">
+    <view class="ui-row" style="height:46px;">
+      <view bindtap="navigateBack" class="ui-col ui-col-align-center align-center valign-middle" style="flex:0 0 60px;">
+        <view class="ui-col-content align-center valign-middle">
+          <span type="arrow-left" size="16" color="#333" class="ui-icon icon-arrow-left" style="color: #333;font-size: 16px;"></span>
+        </view>
+      </view>
+      <view class="ui-col ui-col-align-center align-center valign-middle" style="">
+        <view class="ui-col-content align-center valign-middle">
+          <view>我的消息</view>
+        </view>
+      </view>
+      <view class="ui-col ui-col-align-center align-center valign-middle" style="flex:0 0 60px;">
+        <view class="ui-col-content align-center valign-middle"></view>
+      </view>
+    </view>
+  </ui-nav-bar>
+  <view style="height:{{NAV_HEIGHT}}"></view>
+
+  <!-- 消息顶部 -->
+  <ui-tabs class="tabs" probe="1" ink-bar="true" index="{{ current }}" bindchange="handleChange" _pid="{{_pid}}">
+    <ui-tab _pid="{{_pid}}">
+      <view class="item item-right">私信</view>
+    </ui-tab>
+    <ui-tab _pid="{{_pid}}">
+      <view class="item item-left">
+        评论
+        <ui-badge custom-style="padding: 3px;top:-5px" wx:if="{{true}}" _pid="{{_pid}}"></ui-badge>
+      </view>
+    </ui-tab>
+    <ui-tab _pid="{{_pid}}">
+      <view class="item item-right">@我</view>
+    </ui-tab>
+    <ui-tab _pid="{{_pid}}">
+      <view class="item item-right">通知</view>
+    </ui-tab>
+  </ui-tabs>
+
+  <!-- 消息内容 -->
+  <swiper class="content" current="{{ current }}" bindchange="handleContentChange" style="height:{{ height }}px">
+    <swiper-item class="letter">
+      <!-- 私信 -->
+      <view border-bottom style="height:{{NAV_HEIGHT}};" class="ui-row-list">
+        <view class="ui-row" style="height:80px;">
+          <view class="ui-col valign-middle" style="flex:0 0 80px;">
+            <view class="ui-col-content valign-middle">
+              <view class="avatar-box">
+                <image class="avatar" mode="scaleToFill" style="height:60px;width:60px;margin-left:10px" src="https://hocg.in/Resume/img/avatar.png" />
+                <ui-badge custom-style="{{ badgeStyle }}" text="店" _pid="{{_pid}}"></ui-badge>
+              </view>
+            </view>
+          </view>
+          <view class="row-box ui-col valign-middle" style="">
+            <view class="ui-col-content valign-middle">
+              <view class="box">
+                <view class="nickname">东京塔子</view>
+                <view class="time">2018年7月7日</view>
+              </view>
+              <view class="box">
+                <view class="message line-1-ellipsis">东京塔子东京塔子东京塔子东京塔子东京塔子东京塔子东京塔子东京塔子</view>
+                <ui-badge text="99" _pid="{{_pid}}"></ui-badge>
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <view class="ui-row" style="height:80px;">
+          <view class="ui-col valign-middle" style="flex:0 0 80px;">
+            <view class="ui-col-content valign-middle">
+              <view class="avatar-box">
+                <image class="avatar" mode="scaleToFill" style="height:60px;width:60px;margin-left:10px" src="https://hocg.in/Resume/img/avatar.png" />
+              </view>
+            </view>
+          </view>
+          <view class="row-box ui-col valign-middle" style="">
+            <view class="ui-col-content valign-middle">
+              <view class="box">
+                <view class="nickname">东塔子</view>
+                <view class="time">7月7日</view>
+              </view>
+              <view class="box">
+                <view class="message line-1-ellipsis">东京塔子东京塔子东京塔子东京塔子东京塔子东京塔子东京塔子东京塔子</view>
+                <ui-badge text="1" _pid="{{_pid}}"></ui-badge>
+              </view>
+            </view>
+          </view>
+        </view>
+
+      </view>
+
+    </swiper-item>
+    <swiper-item>
+      内容二
+    </swiper-item>
+    <swiper-item>
+      内容三
+    </swiper-item>
+    <swiper-item>
+      内容四
+    </swiper-item>
+  </swiper>
+
+
+</view>

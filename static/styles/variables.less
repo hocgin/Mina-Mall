@@ -1,0 +1,90 @@
+@themeColor: #3A84EF;
+
+@googleBlueColor: #3A84EF;
+@googleRedColor: #F1423C;
+@googleYellowColor: #FFBF33;
+@googleGreenColor: #10AB56;
+@priceColor: #E92E3A;
+@bodyColor: #F7F7F7;
+
+@box-width: 20rpx;
+
+@instructions-color: rgba(75, 75, 75, 0.98);
+
+@aid-color: #6E80A1;
+
+@minor-color: #8B8B8B;
+
+@line-color: #D9D9D9;
+
+@bg-color: #F6F6F6;
+
+@screen-width: 750rpx;
+
+
+// 700
+.price {
+    color: @priceColor;
+    font-weight: 700;
+}
+
+.line-2-ellipsis {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.line-1-ellipsis {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.mix-1px-bottom {
+    .mix-1px(0, 0, 1, 0, #ccc);
+}
+
+.mix-1px-bottom-top {
+    .mix-1px(1, 0, 1, 0, #ccc);
+}
+
+.mix-1px-bottom-1 {
+  border-bottom: solid 1px rgba(213, 213, 213, 0.31);
+} 
+.mix-1px-top-1 {
+  border-top: solid 1px rgba(213, 213, 213, 0.31);
+} 
+.bg-white {
+    background-color: #fff;
+}
+.bold-5 {
+    font-weight: 500;
+}
+.margin-top-10 {
+    margin-top: 10rpx;
+}
+.margin-top-20 {
+    margin-top: 20rpx;
+}
+.button-style-1 {
+    background-color: @themeColor;
+    border-radius: 20rpx;
+    border-color: @themeColor;
+    box-shadow: 3rpx 3rpx 8rpx @themeColor;
+    color: #fff;
+    margin-left: 10rpx;
+    margin-right: 10rpx;
+    &::after{
+        border: none;
+    }
+}
+.appbar {
+    margin-top: 1px;
+    border-bottom: solid 1px rgba(213, 213, 213, 0.31);
+}
+navigator {
+    width: 100%;
+}
