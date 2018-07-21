@@ -1,0 +1,36 @@
+.goods-item {
+  display: flex;
+  flex-direction: row;
+  padding: 20rpx;
+  background-color: #fff;
+  border-bottom: 1px solid rgba(231, 231, 231, 0.6);
+}
+.goods-item .image {
+  box-sizing: border-box;
+}
+.goods-item .body {
+  display: flex;
+  padding-left: 30rpx;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.goods-item .body .title {
+  font-size: 11pt;
+  font-weight: 700;
+}
+.goods-item .body .price {
+  color: #E92E3A;
+  font-weight: 700;
+  font-size: 11pt;
+}
+.goods-item .toolbar {
+  display: flex;
+  flex-direction: row;
+}
+.goods-item .toolbar .btn {
+  border: solid 1px #3A84EF;
+  border-radius: 10rpx;
+  color: #3A84EF;
+  padding: 5rpx;
+  font-size: 8pt;
+}

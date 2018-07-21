@@ -1,0 +1,177 @@
+<template>
+  <view class="collection">
+
+    <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#fff'} }}">
+        <ui-row height="46">
+          <ui-col vertical-align="middle" align="center" width="60" bindtap="navigateBack">
+              <ui-icon type="arrow-left" size="16" color="#333"></ui-icon>
+          </ui-col>
+          <ui-col vertical-align="middle" align="center">
+            <view style="width:120px;margin:0 auto;">
+              <ui-tabs width="120" tab-style="{{tabStyle}}" auto-width="{{false}}" index="{{ current }}"  bindchange="changTab">
+                <ui-tab>商品</ui-tab>
+                <ui-tab>店铺</ui-tab>
+              </ui-tabs>
+            </view>
+          </ui-col>
+          <ui-col vertical-align="middle" align="center" width="60"></ui-col>
+        </ui-row>
+    </ui-nav-bar>
+    <view class="appbar" style="height:{{NAV_HEIGHT}}"></view>
+
+    <!-- 内容 -->
+    <view class="content">
+      <!-- 商品 -->
+      <scroll-view wx:if="{{current == 0}}"
+      scroll-y="true"
+      style="height:{{ height }}px;">
+        <ui-swipe-out operate-width="80" can-swipe="{{true}}" 
+        style="height: {{ goods_item_height }}; display: block;"
+        bindchange="deleteGoodsChange"
+        wx:for="{{ [1,2,3,4,5,5,5] }}">
+          <goods-item class="goods-item" slot="content"></goods-item>
+          <view slot="operate">
+              <view class="delete" style="line-height: {{goods_item_height}}">删除</view>
+          </view>
+        </ui-swipe-out>
+      </scroll-view>
+      <!-- 店铺 -->
+      <scroll-view wx:if="{{current == 1}}"
+      scroll-y="true"
+      style="height:{{ height }}px;">
+        <ui-swipe-out operate-width="80" can-swipe="{{true}}"  
+        style="height: {{ shop_item_height }};display: block;"
+        bindchange="deleteShopChange"
+        wx:for="{{ [1,2,3,4,5,2,3,4,5] }}">
+          <shop-item class="shop-item" slot="content"></shop-item>
+          <view slot="operate">
+              <view class="delete" style="line-height: {{shop_item_height}}">取消</view>
+          </view>
+        </ui-swipe-out>
+      </scroll-view>
+    </view>
+
+  </view>
+</template>
+
+<script>
+export default {
+  config: {
+    usingComponents: {
+      'shop-item': '../../packages/shop-item',
+      'goods-item': '../../packages/goods-item'
+    },
+    navigationBarTitleText: '收藏',
+    disableScroll: true
+  },
+  data: {
+    current: 1,
+    height: wx.DEFAULT_CONTENT_HEIGHT,
+    NAV_HEIGHT:wx.STATUS_BAR_HEIGHT+wx.DEFAULT_HEADER_HEIGHT+'px',
+    goods_item_height: 10 + 'px',
+    shop_item_height: 10 + 'px',
+    tabStyle:{
+    },
+    activeItemStyle:{
+    }
+  },
+  onLoad: function(options) {  
+    this.setData({  
+      current: options.current  
+    });
+    this.refreshWidgetHeight();
+  },
+  refreshWidgetHeight(){
+    // 刷新组件高度
+    let query = wx.createSelectorQuery(),
+        that = this,
+        current = this.data.current
+        ;
+
+    if (current == 0){
+      query.select('.goods-item').boundingClientRect(function (rect) {
+      console.log('goods', rect);
+        that.setData({
+          goods_item_height: rect.height + 'px'
+        });
+      }).exec();
+    }else if(current == 1){
+      query.select('.shop-item').boundingClientRect(function (rect) {
+      console.log('shop', rect.height);
+        that.setData({
+          shop_item_height: rect.height + 'px'
+        });
+      }).exec();
+    }
+  },
+  navigateBack () {
+    wx.navigateBack()
+  },
+  deleteGoodsChange(){
+  },
+  deleteShopChange(){
+  },
+  /**
+   * Tab改变监听
+   */
+  changTab (e) {
+    let index = e.detail.index
+    this.setData({
+      current:index
+    });
+    this.refreshWidgetHeight();
+  }
+}
+</script>
+
+<style lang="less">
+@import "static/styles/variables.less";
+page {
+  background-color: #F3F3F3;
+}
+.collection {
+  .tabs {
+    border-bottom: 1px solid rgba(231, 231, 231, 0.6);
+  }
+  .content {
+    z-index: -1;
+    // 私信
+    .letter {
+      .avatar-box {
+        position: relative;
+        .avatar {
+          border-radius: 50%;
+        }
+      }
+      .box {
+        margin-top: 5rpx;
+        margin-right: @box-width;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        align-items: center;
+        align-content: center;
+        .nickname {
+          font-weight: 500;
+          font-size: 14pt;
+        }
+        .time {
+          font-size: 8pt;
+          color: #A5A6A6;
+        }
+        .message {
+          font-size: 10pt;
+          color: #A5A6A6;
+        }
+      }
+    }
+  }
+}
+.delete {
+    width: 80px;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+    background: #f22;
+}
+</style>

@@ -3,16 +3,24 @@
   <!-- 自定义导航 -->
   <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#fff'} }}" _pid="{{_pid}}">
     <view class="ui-row" style="height:46px;">
+      <view class="ui-col valign-middle" style="">
+        <view class="ui-col-content valign-middle">
+          <text class="edit">编辑</text>
+        </view>
+      </view>
       <view class="ui-col ui-col-align-center align-center valign-middle" style="">
         <view class="ui-col-content align-center valign-middle">
           <view>购物车</view>
         </view>
       </view>
+      <view class="ui-col" style="">
+        <view class="ui-col-content"></view>
+      </view>
     </view>
   </ui-nav-bar>
 
   <!-- 设置内容距离nav-bar高度占位 -->
-  <view style="height:{{NAV_HEIGHT}}"></view>
+  <view class="appbar" style="height:{{NAV_HEIGHT}}"></view>
 
   <!-- 商品项 -->
   <view class="shopping-cart-items">

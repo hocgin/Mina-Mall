@@ -43,7 +43,7 @@
     <swiper-item class="letter">
       <!-- 私信 -->
       <view border-bottom style="height:{{NAV_HEIGHT}};" class="ui-row-list">
-        <view class="ui-row" style="height:80px;">
+        <navigator url="/pages/chat/index" class="ui-row" style="height:80px;">
           <view class="ui-col valign-middle" style="flex:0 0 80px;">
             <view class="ui-col-content valign-middle">
               <view class="avatar-box">
@@ -64,7 +64,7 @@
               </view>
             </view>
           </view>
-        </view>
+        </navigator>
 
         <view class="ui-row" style="height:80px;">
           <view class="ui-col valign-middle" style="flex:0 0 80px;">

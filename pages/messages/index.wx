@@ -38,26 +38,26 @@
       <swiper-item class="letter">
       <!-- 私信 -->
       <ui-row-list border-bottom style="height:{{NAV_HEIGHT}}">
-        <ui-row height="80">
-          <ui-col vertical-align="middle" width="80">
-            <view class="avatar-box">
-              <image class="avatar" mode="scaleToFill"
-                style="height:60px;width:60px;margin-left:10px"
-                src="https://hocg.in/Resume/img/avatar.png"/>
-              <ui-badge custom-style="{{ badgeStyle }}" text="店"></ui-badge>
-            </view>
-          </ui-col>
-          <ui-col vertical-align="middle" class="row-box">
-            <view class="box">
-              <view class="nickname">东京塔子</view>
-              <view class="time">2018年7月7日</view>
-            </view>
-            <view class="box">
-              <view class="message line-1-ellipsis">东京塔子东京塔子东京塔子东京塔子东京塔子东京塔子东京塔子东京塔子</view>
-              <ui-badge text="99"></ui-badge>
-            </view>
-          </ui-col>
-        </ui-row>
+          <ui-row height="80" url="/pages/chat/index">
+            <ui-col vertical-align="middle" width="80">
+              <view class="avatar-box">
+                <image class="avatar" mode="scaleToFill"
+                  style="height:60px;width:60px;margin-left:10px"
+                  src="https://hocg.in/Resume/img/avatar.png"/>
+                <ui-badge custom-style="{{ badgeStyle }}" text="店"></ui-badge>
+              </view>
+            </ui-col>
+            <ui-col vertical-align="middle" class="row-box">
+              <view class="box">
+                <view class="nickname">东京塔子</view>
+                <view class="time">2018年7月7日</view>
+              </view>
+              <view class="box">
+                <view class="message line-1-ellipsis">东京塔子东京塔子东京塔子东京塔子东京塔子东京塔子东京塔子东京塔子</view>
+                <ui-badge text="99"></ui-badge>
+              </view>
+            </ui-col>
+          </ui-row>
 
         <ui-row height="80">
           <ui-col vertical-align="middle" width="80">

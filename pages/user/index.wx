@@ -24,14 +24,14 @@
 
     <!-- 显示面板 -->
     <view class="user-tab">
-        <view class="tab-item">
+        <navigator class="tab-item" url="/pages/collection/index?current=0">
             <text>99+</text>
             <text class="title">收藏</text>
-        </view>
-        <view class="tab-item">
+        </navigator>
+        <navigator class="tab-item" url="/pages/collection/index?current=1">
             <text>12</text>
             <text class="title">关注</text>
-        </view>
+        </navigator>
         <navigator class="tab-item" url="/pages/messages/index">
             <text>0</text>
             <text class="title">消息</text>

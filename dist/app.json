@@ -5,8 +5,10 @@
     "pages/shopping-cart/index",
     "pages/index/index",
     "pages/messages/index",
+    "pages/chat/index",
     "pages/order-manager/index",
     "pages/new-address/index",
+    "pages/collection/index",
     "pages/address-list/index"
   ],
   "window": {

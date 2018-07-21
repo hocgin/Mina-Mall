@@ -8,7 +8,7 @@
         <text class="state">已取消</text>
     </view>
     <view class="detailed">
-        <image class="cover" src="https://hocg.in/Resume/img/avatar.png"></image>
+        <image class="cover" src="https://hocg.in/Resume/img/avatar.png"/>
         <view class="description">
             <text class="name">第一本书第一本书第一本书第一本书第一本书第一本书第一本书第一本书第一本书第一本书</text>
             <text>信息</text>

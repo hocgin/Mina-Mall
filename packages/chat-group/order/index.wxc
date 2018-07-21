@@ -1,0 +1,83 @@
+<template>
+  <view class="order">
+    <view class="detailed">
+        <image class="cover" src="https://hocg.in/Resume/img/avatar.png"/>
+        <view class="description">
+            <text class="name">第一本书第一本书第一本书第一本书第一本书第一本书第一本书第一本书第一本书第一本书</text>
+            <text>黑色/XXL</text>
+          <view class="price">¥1209.00</view>
+        </view>
+    </view>
+    <view class="toolbar">
+      发送链接
+    </view>
+  </view>
+</template>
+<script>
+export default {
+  data: {
+    msg: 'This is a test msg!'
+  },
+  methods: {
+    handleTap () {
+      console.log(this.data.msg)
+    }
+  }
+}
+</script>
+<style lang="less">
+@themeColor: #3A84EF;
+@bg-color: #F6F6F6;
+@instructions-color: rgba(75, 75, 75, 0.98);
+.order {
+    border-top: 1px solid rgba(231, 231, 231, 0.6);
+    border-bottom: 1px solid rgba(231, 231, 231, 0.6);
+    box-shadow: 0 5rpx 5rpx 0 rgba(248, 248, 248, 0.16),
+                0 5rpx 10rpx 0 rgba(255, 255, 255, 0.13);
+    background-color: #fff;
+    display: flex;
+    margin-top: 15rpx;
+    flex-direction: column;
+    .detailed {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      // background-color: #FAFAFA;
+      padding-top: 20rpx;
+      padding-bottom: 20rpx;
+      padding-left: 20rpx;
+      padding-right: 20rpx;
+      .cover {
+        flex-shrink: 0;
+        height: 150rpx;
+        width: 150rpx;
+        margin-right: 20rpx;
+      }
+      .description {
+        display: flex;
+        flex-direction: column;
+        font-weight: 400;
+        font-size: 10pt;
+        .name {
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+      .price {
+        color: #E92E3A;
+        font-size: 12pt;
+        font-weight: 700;
+      }
+    }
+    .toolbar {
+      border-top: 1px solid rgba(231, 231, 231, 0.6);
+      text-align: center;
+      padding-top: 20rpx;
+      padding-bottom: 20rpx;
+      color: #3A84EF;
+    }
+  }
+</style>

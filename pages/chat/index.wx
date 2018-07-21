@@ -1,0 +1,194 @@
+<template>
+  <view>
+
+    <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#fff'} }}">
+        <ui-row height="46">
+          <ui-col vertical-align="middle" align="center" width="60" bindtap="navigateBack">
+              <ui-icon type="arrow-left" size="16" color="#333"></ui-icon>
+          </ui-col>
+          <ui-col vertical-align="middle" align="center">
+            <view>康爱多大药房旗舰店<ui-badge text="店" custom-style="{{badgeStyle}}" maxlength = 3></ui-badge></view>
+          </ui-col>
+          <ui-col vertical-align="middle" align="center" width="60"></ui-col>
+        </ui-row>
+    </ui-nav-bar>
+    <view class="appbar" style="height:{{NAV_HEIGHT}}"></view>
+    
+    <!-- 内容 -->
+    <div class="chat">
+    <scroll-view 
+      class="body"
+      style="bottom: {{chat_style.bottom}};top: {{chat_style.top}}"
+          scroll-y="true">
+          <view class="box">
+            <left-message msg="和关键字 hidden 类似，不显示边框。在这种情况下，如果没有设定背景图片，border-width 计算后的值将是 0，即使先前已经指定过它的值。在单元格边框重叠情况下，none 值优先级最低，意味着如果存在其他的重叠边框，则会显示为那个边框"></left-message>
+            <ui-divider padding="20">2018-01-21</ui-divider>
+            <right-message></right-message>
+            <left-message></left-message>
+            <ui-divider padding="20">以下为新消息</ui-divider>
+            <chat-order></chat-order>
+          </view>
+    </scroll-view>
+
+    <view class="footer">
+        <view class="tool-1"></view>
+        <view class="tool-2">
+          <view class="text">
+            <input type="text" confirm-type="发送" cursor-spacing="10" placeholder="请输入您要咨询的问题"/>
+            <view class="phiz">图</view>
+          </view>
+          <view class="other">
+            <!-- <view>发送</view> -->
+            <view class="more">+</view>
+          </view>
+        </view>
+        <view class="tool-3">
+          <view class="row">
+            <icon-item text="相册"></icon-item>
+            <icon-item text="拍照"></icon-item>
+            <icon-item text="订单"></icon-item>
+            <icon-item text="浏览"></icon-item>
+          </view>
+          <view class="row">
+            <icon-item text="评价"></icon-item>
+          </view>
+        </view>
+    </view>
+    </div>
+  </view>
+</template>
+
+<script>
+export default {
+  config: {
+    usingComponents: {
+      'icon-item': '../../packages/icon-item',
+      'left-message': '../../packages/chat-group/left-message',
+      'right-message': '../../packages/chat-group/right-message',
+      'chat-order': '../../packages/chat-group/order'
+    },
+    navigationBarTitleText: '聊天',
+    disableScroll: true
+  },
+  data: {
+    current: 0,
+    height: wx.DEFAULT_CONTENT_HEIGHT,
+    NAV_HEIGHT:wx.STATUS_BAR_HEIGHT+wx.DEFAULT_HEADER_HEIGHT+'px',
+    chat_style: {
+      bottom: 0+'px',
+      top: 0+'px'
+    },
+    badgeStyle: {
+      'background-color': '#3A84EF'
+    }
+  },
+  onLoad: function(options) {  
+    this.refreshChatWidget();
+  },
+  navigateBack () {
+    wx.navigateBack()
+  },
+  refreshChatWidget(){
+    let that = this,
+        query = wx.createSelectorQuery();
+
+      query.select('.footer').boundingClientRect(function (rect) {
+        that.setData({
+          'chat_style.bottom':rect.height + 'px'
+        });
+      }).exec();
+
+      query.select('.appbar').boundingClientRect(function (rect) {
+        that.setData({
+          'chat_style.top': rect.height + 'px'
+        });
+      }).exec();
+  }
+}
+</script>
+
+<style lang="less">
+@import "static/styles/variables.less";
+page {
+    background-color: #ECEEF1;
+}
+.chat {
+  height: 100%;
+  .body {
+    box-sizing: border-box;
+    position: relative;
+    top: 0;
+    position: fixed;
+    .box {
+      padding-left: 20rpx; 
+      padding-right: 20rpx; 
+      padding-bottom:  20rpx; 
+    }
+  }
+  .footer {
+    border-top: solid 1px rgba(213, 213, 213, 0.31);
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    .tool-2 {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      .text {
+        flex-grow: 1;
+        background-color: #FBFBFB;
+        border-radius: 100rpx;
+        padding-left: 30rpx;
+        padding-right: 10rpx;
+        padding-top: 10rpx;
+        padding-bottom: 10rpx;
+        margin: 10rpx;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        .phiz {
+          display: inline-block;
+          border-radius: 50%;
+          height: 60rpx;
+          width: 60rpx;
+          line-height: 60rpx;
+          background-color: yellow;
+          text-align: center;
+        }
+      }
+      .other {
+        margin: 10rpx;
+        width: 100rpx;
+        text-align: center;
+        .more {
+          border-radius: 50%;
+          height: 60rpx;
+          width: 60rpx;
+          line-height: 60rpx;
+          background-color: @themeColor;
+          color: #fff;
+          margin: 0 auto;
+        }
+      }
+    }
+    .tool-3 {
+      .row {
+        display: flex;
+        flex-direction: row;
+        icon-item {
+          width: 25%;
+          text-align: center;
+          box-sizing: border-box;
+          margin-top: 20rpx;
+          margin-bottom: 20rpx;
+        }
+      }
+    }
+  }
+}
+</style>

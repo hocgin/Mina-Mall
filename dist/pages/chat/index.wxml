@@ -1,0 +1,62 @@
+<view>
+
+  <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#fff'} }}" _pid="{{_pid}}">
+    <view class="ui-row" style="height:46px;">
+      <view bindtap="navigateBack" class="ui-col ui-col-align-center align-center valign-middle" style="flex:0 0 60px;">
+        <view class="ui-col-content align-center valign-middle">
+          <span type="arrow-left" size="16" color="#333" class="ui-icon icon-arrow-left" style="color: #333;font-size: 16px;"></span>
+        </view>
+      </view>
+      <view class="ui-col ui-col-align-center align-center valign-middle" style="">
+        <view class="ui-col-content align-center valign-middle">
+          <view>康爱多大药房旗舰店
+            <ui-badge text="店" custom-style="{{badgeStyle}}" maxlength="3" _pid="{{_pid}}"></ui-badge>
+          </view>
+        </view>
+      </view>
+      <view class="ui-col ui-col-align-center align-center valign-middle" style="flex:0 0 60px;">
+        <view class="ui-col-content align-center valign-middle"></view>
+      </view>
+    </view>
+  </ui-nav-bar>
+  <view class="appbar" style="height:{{NAV_HEIGHT}}"></view>
+
+  <!-- 内容 -->
+  <div class="chat">
+    <scroll-view class="body" style="bottom: {{chat_style.bottom}};top: {{chat_style.top}}" scroll-y="true">
+      <view class="box">
+        <left-message msg="和关键字 hidden 类似，不显示边框。在这种情况下，如果没有设定背景图片，border-width 计算后的值将是 0，即使先前已经指定过它的值。在单元格边框重叠情况下，none 值优先级最低，意味着如果存在其他的重叠边框，则会显示为那个边框" _pid="{{_pid}}"></left-message>
+        <ui-divider padding="20" _pid="{{_pid}}">2018-01-21</ui-divider>
+        <right-message _pid="{{_pid}}"></right-message>
+        <left-message _pid="{{_pid}}"></left-message>
+        <ui-divider padding="20" _pid="{{_pid}}">以下为新消息</ui-divider>
+        <chat-order _pid="{{_pid}}"></chat-order>
+      </view>
+    </scroll-view>
+
+    <view class="footer">
+      <view class="tool-1"></view>
+      <view class="tool-2">
+        <view class="text">
+          <input type="text" confirm-type="发送" cursor-spacing="10" placeholder="请输入您要咨询的问题"></input>
+          <view class="phiz">图</view>
+        </view>
+        <view class="other">
+          <!-- <view>发送</view> -->
+          <view class="more">+</view>
+        </view>
+      </view>
+      <view class="tool-3">
+        <view class="row">
+          <icon-item text="相册" _pid="{{_pid}}"></icon-item>
+          <icon-item text="拍照" _pid="{{_pid}}"></icon-item>
+          <icon-item text="订单" _pid="{{_pid}}"></icon-item>
+          <icon-item text="浏览" _pid="{{_pid}}"></icon-item>
+        </view>
+        <view class="row">
+          <icon-item text="评价" _pid="{{_pid}}"></icon-item>
+        </view>
+      </view>
+    </view>
+  </div>
+</view>

@@ -1,0 +1,33 @@
+.left-message {
+  margin-top: 30rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.left-message .user image {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+.left-message .text {
+  margin-left: 20rpx;
+  border-radius: 5rpx;
+  background-color: #fff;
+  padding: 8rpx 15rpx;
+  position: relative;
+  word-break: break-all;
+  box-shadow: 0 5rpx 5rpx 0 rgba(248, 248, 248, 0.16), 0 5rpx 10rpx 0 rgba(255, 255, 255, 0.13);
+}
+.left-message .text::after {
+  content: '';
+  position: absolute;
+  left: -20rpx;
+  top: 10rpx;
+  width: 0;
+  height: 0;
+  border-style: solid dashed dashed;
+  border-color: #fff transparent transparent;
+  transform: rotateZ(90deg);
+  overflow: hidden;
+  border-width: 10rpx;
+}

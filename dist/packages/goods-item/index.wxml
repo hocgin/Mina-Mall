@@ -1,0 +1,12 @@
+<view class="goods-item">
+  <image class="image" src="http://placehold.it/80x100" model="aspectFill" style="width:80px;height:100px" />
+  <view class="body">
+    <view class="title">分布式服务架构：原理、设计与实战</view>
+    <view class="price">
+      <view>¥70.10</view>
+    </view>
+    <view class="toolbar">
+      <view class="btn">加入购物车</view>
+    </view>
+  </view>
+</view>

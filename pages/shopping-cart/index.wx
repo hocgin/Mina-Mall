@@ -4,14 +4,18 @@
     <!-- 自定义导航 -->
     <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#fff'} }}">
       <ui-row height="46">
+        <ui-col vertical-align="middle">
+          <text class="edit">编辑</text>
+        </ui-col>
         <ui-col vertical-align="middle" align="center">
           <view>购物车</view>
         </ui-col>
+        <ui-col></ui-col>
       </ui-row>
     </ui-nav-bar>
 
     <!-- 设置内容距离nav-bar高度占位 -->
-    <view style="height:{{NAV_HEIGHT}}"></view>
+    <view class="appbar" style="height:{{NAV_HEIGHT}}"></view>
 
     <!-- 商品项 -->
     <view class="shopping-cart-items">
@@ -137,6 +141,11 @@ export default {
 @import "static/styles/variables.less";
 page {
   background-color: @bodyColor;
+}
+.edit {
+  color: @themeColor;
+  margin-left: 20rpx;
+  font-size: 12pt;
 }
 .shopping-cart-items {
   padding-bottom: 50px;
