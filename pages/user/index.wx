@@ -79,7 +79,9 @@
           </navigator>
         </ui-col>
         <ui-col align="center">
-          <icon-item text="待发货"></icon-item>
+          <navigator url="/pages/logistics-details/index">
+            <icon-item text="物流跟踪"></icon-item>
+          </navigator>
         </ui-col>
         <ui-col align="center">
           <icon-item text="待收货"></icon-item>

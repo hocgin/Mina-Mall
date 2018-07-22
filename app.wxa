@@ -16,8 +16,10 @@ export default {
       "pages/messages/index",
       "pages/chat/index",
       "pages/order-manager/index",
+      "pages/order-details/index",
       "pages/new-address/index",
       "pages/collection/index",
+      "pages/confirm-order/index",
       "pages/address-list/index"
     ],
     window: {

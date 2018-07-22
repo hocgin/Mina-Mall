@@ -9,6 +9,10 @@ exports.default = Component({
     msg: {
       type: String,
       value: 'This is a test msg!'
+    },
+    reverse: {
+      type: Boolean,
+      value: false
     }
   },
   methods: {}

@@ -4,8 +4,7 @@
     "ui-badge": "../../packages/touchui-wx-components/ui-badge/dist/index",
     "ui-divider": "../../packages/touchui-wx-components/ui-divider/dist/index",
     "icon-item": "../../packages/icon-item/index",
-    "left-message": "../../packages/chat-group/left-message/index",
-    "right-message": "../../packages/chat-group/right-message/index",
+    "message": "../../packages/chat-group/message/index",
     "chat-order": "../../packages/chat-group/order/index"
   },
   "navigationBarTitleText": "聊天",

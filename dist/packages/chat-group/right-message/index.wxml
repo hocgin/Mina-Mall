@@ -1,8 +1,0 @@
-<view class="message">
-  <view class="user">
-    <image mode="scaleToFill" src="https://hocg.in/Resume/img/avatar.png" />
-  </view>
-  <view class="text">
-    {{ msg }}
-  </view>
-</view>

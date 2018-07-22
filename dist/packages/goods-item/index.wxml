@@ -1,4 +1,4 @@
-<view class="goods-item">
+<view class="mix-1px-bottom-1 goods-item">
   <image class="image" src="http://placehold.it/80x100" model="aspectFill" style="width:80px;height:100px" />
   <view class="body">
     <view class="title">分布式服务架构：原理、设计与实战</view>

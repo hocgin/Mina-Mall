@@ -1,0 +1,55 @@
+<view>
+
+  <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#fff'} }}" _pid="{{_pid}}">
+    <view class="ui-row" style="height:46px;">
+      <view bindtap="navigateBack" class="ui-col ui-col-align-center align-center valign-middle" style="flex:0 0 60px;">
+        <view class="ui-col-content align-center valign-middle">
+          <span type="arrow-left" size="16" color="#333" class="ui-icon icon-arrow-left" style="color: #333;font-size: 16px;"></span>
+        </view>
+      </view>
+      <view class="ui-col ui-col-align-center align-center valign-middle" style="">
+        <view class="ui-col-content align-center valign-middle">
+          <view>订单跟踪</view>
+        </view>
+      </view>
+      <view class="ui-col ui-col-align-center align-center valign-middle" style="flex:0 0 60px;">
+        <view class="ui-col-content align-center valign-middle"></view>
+      </view>
+    </view>
+  </ui-nav-bar>
+  <view style="height:{{NAV_HEIGHT}}"></view>
+
+  <!-- 订单信息 -->
+  <view class="column logistics">
+    <view class="row">
+      <view class="key">订单编号:</view>
+      <view class="value">1234567890</view>
+    </view>
+    <view class="row">
+      <view class="key">货运方式(国内):</view>
+      <view class="value">顺丰</view>
+    </view>
+    <view class="row">
+      <view class="key">货运方式(国际):</view>
+      <view class="value">EMS</view>
+    </view>
+  </view>
+
+  <!-- 物流阶段信息 -->
+  <view class="mix-1px-box logistics-time">
+    <ui-timeline _pid="{{_pid}}">
+      <ui-timeline-item wx:for="{{list}}" wx:key="index" point-color="#3A84EF" line-color="#dfe2e5" show-line shadow="{{index == 0}}" _pid="{{_pid}}">
+        <view class="item-content">
+          <view class="title">
+            <view class="title-date">{{item.date}}</view>
+          </view>
+          <view class="content">
+            <view class="content-info">{{item.info}}</view>
+          </view>
+        </view>
+      </ui-timeline-item>
+    </ui-timeline>
+  </view>
+
+
+</view>

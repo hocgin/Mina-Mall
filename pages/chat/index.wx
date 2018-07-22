@@ -21,10 +21,11 @@
       style="bottom: {{chat_style.bottom}};top: {{chat_style.top}}"
           scroll-y="true">
           <view class="box">
-            <left-message msg="和关键字 hidden 类似，不显示边框。在这种情况下，如果没有设定背景图片，border-width 计算后的值将是 0，即使先前已经指定过它的值。在单元格边框重叠情况下，none 值优先级最低，意味着如果存在其他的重叠边框，则会显示为那个边框"></left-message>
+            <message msg="和关键字 hidden 类似，不显示边框。在这种情况下，如果没有设定背景图片，border-width 计算后的值将是 0，即使先前已经指定过它的值。在单元格边框重叠情况下，none 值优先级最低，意味着如果存在其他的重叠边框，则会显示为那个边框"></message>
             <ui-divider padding="20">2018-01-21</ui-divider>
-            <right-message></right-message>
-            <left-message></left-message>
+            <message reverse="{{true}}"></message>
+            <message></message>
+            <message reverse="{{true}}"></message>
             <ui-divider padding="20">以下为新消息</ui-divider>
             <chat-order></chat-order>
           </view>
@@ -39,10 +40,10 @@
           </view>
           <view class="other">
             <!-- <view>发送</view> -->
-            <view class="more">+</view>
+            <view class="more" bindtap="showMore">+</view>
           </view>
         </view>
-        <view class="tool-3">
+        <view class="tool-3" wx:if="{{showMore}}">
           <view class="row">
             <icon-item text="相册"></icon-item>
             <icon-item text="拍照"></icon-item>
@@ -63,8 +64,7 @@ export default {
   config: {
     usingComponents: {
       'icon-item': '../../packages/icon-item',
-      'left-message': '../../packages/chat-group/left-message',
-      'right-message': '../../packages/chat-group/right-message',
+      'message': '../../packages/chat-group/message',
       'chat-order': '../../packages/chat-group/order'
     },
     navigationBarTitleText: '聊天',
@@ -78,6 +78,7 @@ export default {
       bottom: 0+'px',
       top: 0+'px'
     },
+    showMore: false,
     badgeStyle: {
       'background-color': '#3A84EF'
     }
@@ -103,6 +104,12 @@ export default {
           'chat_style.top': rect.height + 'px'
         });
       }).exec();
+  },
+  showMore(){
+    let that = this;
+    that.setData({
+          showMore: !that.data.showMore
+    });
   }
 }
 </script>
@@ -140,7 +147,7 @@ page {
       align-items: center;
       .text {
         flex-grow: 1;
-        background-color: #FBFBFB;
+        background-color: rgb(251, 251, 251);
         border-radius: 100rpx;
         padding-left: 30rpx;
         padding-right: 10rpx;

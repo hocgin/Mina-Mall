@@ -89,7 +89,7 @@
       </view>
       <view class="ui-col valign-middle" style="flex:0 0 80px;">
         <view class="ui-col-content valign-middle">
-          <view class="form_list">去结算</view>
+          <navigator class="form_list" url="/pages/confirm-order/index">去结算</navigator>
         </view>
       </view>
     </view>

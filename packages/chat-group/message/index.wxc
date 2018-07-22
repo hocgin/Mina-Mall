@@ -1,9 +1,9 @@
 <template>
-  <view class="left-message">
+  <view class="message" style="flex-direction: {{reverse?'row-reverse':'row'}}">
     <view class="user">
       <image mode="scaleToFill" src="https://hocg.in/Resume/img/avatar.png"/>
     </view>
-    <view class="text">
+    <view class="text {{reverse?'reverse': ''}}">
         {{ msg }}
     </view>
   </view>
@@ -11,44 +11,49 @@
 <script>
 export default {
   data: {
-
+    
   },
   properties: {
     msg: {
         type: String,
         value: 'This is a test msg!'
-      }
+    },
+    reverse: {
+        type: Boolean,
+        value: false
+    }
   },
   methods: {
   }
 }
 </script>
 <style lang="less">
-.left-message {
+.message {
   margin-top: 30rpx;
   display: flex;
   flex-direction: row;
-  align-items:center;
+  align-items: flex-start;
   .user {
     image {
       border-radius: 50%;
-      width: 40px;
-      height: 40px;
+      width: 100rpx;
+      height: 100rpx;
     }
   }
   .text {
     margin-left: 20rpx;
-    border-radius: 5rpx;
+    border-radius: 10rpx;
     background-color: #fff;
-    padding: 8rpx 15rpx;
+    padding: 20rpx 15rpx;
     position: relative;
     word-break: break-all;
+    font-size: 11pt;
     box-shadow: 0 5rpx 5rpx 0 rgba(248, 248, 248, 0.16),
                 0 5rpx 10rpx 0 rgba(255, 255, 255, 0.13);
     &::after {
         content: '';
         position: absolute;
-        left: -20rpx;
+        right: none;
         top: 10rpx;
         width: 0;
         height: 0;
@@ -57,6 +62,22 @@ export default {
         transform: rotateZ(90deg);
         overflow: hidden;
         border-width: 10rpx;
+    }
+    &:not(.reverse){
+      &::after{
+        left: -20rpx;
+      }
+    }
+    // 反向
+    &.reverse {
+      margin-right: 20rpx;
+      background-color: #3A84EF;
+      color: #fff;
+      &::after {
+        left: none;
+        right: -20rpx;
+        border-color: transparent transparent #3A84EF;
+      }
     }
   }
 }

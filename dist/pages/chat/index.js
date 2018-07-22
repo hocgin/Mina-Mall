@@ -12,6 +12,7 @@ exports.default = Page({
       bottom: 0 + 'px',
       top: 0 + 'px'
     },
+    showMore: false,
     badgeStyle: {
       'background-color': '#3A84EF'
     }
@@ -37,5 +38,11 @@ exports.default = Page({
         'chat_style.top': rect.height + 'px'
       });
     }).exec();
+  },
+  showMore: function showMore() {
+    var that = this;
+    that.setData({
+      showMore: !that.data.showMore
+    });
   }
 });

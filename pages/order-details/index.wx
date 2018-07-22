@@ -1,0 +1,290 @@
+<template>
+  <view>
+
+    <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#fff',borderBottom: 'solid 1px #F0F0F0'} }}">
+        <ui-row height="46">
+          <ui-col vertical-align="middle" align="center" width="60" bindtap="navigateBack">
+              <ui-icon type="arrow-left" size="16" color="#333"></ui-icon>
+          </ui-col>
+          <ui-col vertical-align="middle" align="center">
+            <view>订单详情</view>
+          </ui-col>
+          <ui-col vertical-align="middle" align="center" width="60"></ui-col>
+        </ui-row>
+    </ui-nav-bar>
+    <view style="height:{{NAV_HEIGHT}}"></view>
+
+    <view class="order-details">
+      <!-- 物流信息 -->
+      <view class="bg">
+        <text class="state">完成</text>
+        <view class="logistics">
+          <view>图</view>
+          <view class="text">感谢您在代购网购物，欢迎再次光临！</view>
+          <view>></view>
+        </view>
+      </view>
+
+      <!-- 订单信息 -->
+      <view class="shopping-items">
+        <view class="mix-1px-box product">
+          <!-- 店铺名 -->
+          <view class="head">
+            <label class="store-name line-1-ellipsis">
+                  {{ order.store.name }}
+            </label>
+          </view>
+
+          <view class="item-group">
+            <!-- 商品单项 -->
+            <view class="item"
+            wx:for="{{ order.productes }}" 
+            wx:for-item="product">
+              <image class="image" 
+              src="http://placehold.it/80x100" 
+              model="aspectFill"/>
+              <view class="details">
+                  <view class="line-1-ellipsis title">{{ product.name }}</view>
+                  <view class="tags"> 数量:{{product.number}} 型号:{{ product.tags }} </view>
+                  <view class="price-pannel">
+                    <text class="price">¥{{ product.price }}</text>
+                  </view>
+              </view>
+            </view>
+          </view>
+          
+          <view class="link">
+            联系客服
+          </view>
+        </view>
+      </view>
+
+      <!-- 支付信息 -->
+      <view class="column payment-info mix-1px-box">
+        <view class="row">
+          <view class="key">订单编号:</view>
+          <view class="value">1234567890</view>
+        </view>
+        <view class="row mix-1px-bottom-1">
+          <view class="key">下单时间:</view>
+          <view class="value">2018-05-17 12:65:90</view>
+        </view>
+        <view class="row">
+          <view class="key">支付方式:</view>
+          <view class="value">微信支付</view>
+        </view>
+        <view class="row">
+          <view class="key">支付时间:</view>
+          <view class="value">2018-05-17 12:65:90</view>
+        </view>
+      </view>
+
+      <!-- 收货地址 -->
+      <address-one></address-one>
+
+      <!-- 金额信息 -->
+      <view class="column price-info mix-1px-box">
+        <view class="row">
+          <view class="key">商品总额:</view>
+          <view class="value">¥75.00</view>
+        </view>
+        <view class="row">
+          <view class="key">运费:</view>
+          <view class="value">+¥5.00</view>
+        </view>
+        <view class="row mix-1px-bottom-1">
+          <view class="key">税费:</view>
+          <view class="value">+¥5.00</view>
+        </view>
+        <view class="row all-price">
+          实付款: <text class="price">¥85.00</text>
+        </view>
+      </view>
+
+      <ui-divider>我是有底线的</ui-divider>
+
+    </view>
+
+  </view>
+</template>
+
+<script>
+export default {
+  config: {
+    usingComponents: {
+      'address-one': '../../packages/address-one'
+    },
+    navigationBarTitleText: '订单详情'
+  },
+  data: {
+    NAV_HEIGHT:wx.STATUS_BAR_HEIGHT+wx.DEFAULT_HEADER_HEIGHT+'px',
+    order:{
+      store: {
+        id: "1",
+        name: "康爱多大药房旗舰店"
+      },
+      productes: [{
+        id: "1",
+        name: "挺好用,就是 vscode 中 tab 变成ab了,不知道你是不是也挺好用,就是 vscode 中 tab 变成ab了,不知道你是不是也挺好用,就是 vscode 中 tab 变成ab了,不知道你是不是也",
+        tags: ["XXL", "黑色"],
+        price: 575.34,
+        number: 12
+      },{
+        id: "1",
+        name: "挺好用,就是 vscode 中 tab 变成ab了,不知道你是不是也挺好用,就是 vscode 中 tab 变成ab了,不知道你是不是也挺好用,就是 vscode 中 tab 变成ab了,不知道你是不是也",
+        tags: ["XXL", "黑色"],
+        price: 575.34,
+        number: 12
+      }]
+    }
+  },
+  navigateBack () {
+    wx.navigateBack()
+  }
+}
+</script>
+
+<style lang="less">
+@import "static/styles/variables.less";
+page {
+  background-color: @bg-color;
+}
+.order-details {
+  .bg {
+    height: 180rpx;
+    background-color: @themeColor;
+    position: relative;
+    margin-bottom: 80rpx;
+    .state {
+      top: 40rpx;
+      position: relative;
+      color: #fff;
+      font-weight: 700;
+      font-size: 12pt;
+      margin-left: 40rpx;
+    }
+    .logistics {
+      top: 60rpx;
+      position: relative;
+      border-radius: 15rpx;
+      padding: 40rpx 20rpx;
+      margin: 10rpx 20rpx;
+      background-color: #fff;
+      display: flex;
+      flex-direction: row;
+      box-shadow: 0 5rpx 5rpx 0 rgba(184, 212, 255, 0.16),
+                  0 5rpx 10rpx 0 rgba(174, 209, 255, 0.13);
+      .text {
+        flex-grow: 1;
+      }
+    }
+  }
+
+  .shopping-items {
+    margin-bottom: 20rpx;
+    .product {
+      margin-bottom: 20rpx;
+      background-color: #fff;
+      .head {
+        padding-left: 20rpx;
+        padding-top: 20rpx;
+        padding-bottom: 20rpx;
+        .store-name{
+          font-weight: 700;
+        }
+      }
+      .item-group {
+        margin-left: 20rpx;
+        margin-right: 20rpx;
+        .item {
+          flex-grow: 1;
+          flex-shrink: 1;
+          display: flex;
+          flex-direction: row;
+          padding-top: 20rpx;
+          padding-bottom: 20rpx;
+          border-top: solid 1rpx #F0F0F0;
+          .image {
+            width:160rpx;
+            height:200rpx;
+            flex-grow: 0;
+            flex-shrink: 0;
+          }
+          .details {
+            margin-left: 20rpx;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            .tags {
+              color: #B6B7B6;
+            }
+            .price-pannel {
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
+              .number {
+                margin-right: 30rpx;
+                font-size: 13pt;
+                font-weight: 700;
+              }
+            }
+          }
+        }
+      }
+      .text {
+        background-color: #F6F6F6;
+        border-radius: 100rpx;
+        padding-left: 30rpx;
+        padding-right: 10rpx;
+        padding-top: 10rpx;
+        padding-bottom: 10rpx;
+        margin-top: 20rpx;
+        margin-bottom: 20rpx;
+        margin-left: 20rpx;
+        margin-right: 20rpx;
+        box-sizing: border-box;
+      }
+
+    }
+    .link {
+      border-top: solid 1rpx #F0F0F0;
+      text-align: center;
+      padding-top: 10rpx;
+      padding-bottom: 10rpx;
+      font-weight: 700;
+    }
+  }
+
+  .payment-info {
+    background-color: #fff;
+    margin-bottom: 20rpx;
+    .row {
+      padding: 10rpx 20rpx;
+      .key {
+          font-weight: 700;
+          margin-right: 20rpx;
+      }
+    }
+  }
+
+  .price-info {
+    font-weight: 700;
+    font-size: 10pt;
+    background-color: #fff;
+    padding: 10rpx 0;
+    margin-bottom: 40rpx;
+    .row {
+      padding: 5rpx 20rpx;
+      justify-content: space-between;
+    }
+    .all-price {
+      justify-content: flex-end;
+      align-items: center;
+      .price {
+        margin-left: 10rpx;
+        font-size: 12pt;
+      }
+    }
+  }
+}
+</style>

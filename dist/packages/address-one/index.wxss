@@ -1,0 +1,61 @@
+.mix-1px-box {
+  border: solid 1px #F0F0F0;
+}
+.address {
+  border-top: none;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20rpx;
+  padding-top: 10rpx;
+}
+.address .col-2 {
+  display: flex;
+  flex-direction: column;
+}
+.address .col-2 .head {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.address .col-2 .head .name {
+  margin-right: 10rpx;
+  font-weight: 700;
+  font-size: 12pt;
+}
+.address .col-2 .head .phone {
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+  font-weight: 700;
+  font-size: 12pt;
+}
+.address .col-2 .body {
+  color: #777;
+  font-size: 9pt;
+  font-weight: 200;
+  margin-bottom: 10rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.address .col-2 .body .bagde {
+  border: solid 1px #3A84EF;
+  border-radius: 8rpx;
+  margin-right: 10rpx;
+  font-size: 8pt;
+  color: #fff;
+  background-color: #3A84EF;
+  padding-left: 5rpx;
+  padding-right: 5rpx;
+  box-sizing: border-box;
+}
+.address .col-2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

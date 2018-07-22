@@ -66,7 +66,7 @@
           <!-- <view style="color:#FE6A3C;">（满1200元可免邮费）</view> -->
         </ui-col>
         <ui-col vertical-align="middle" width="80">
-          <view class="form_list">去结算</view>
+          <navigator class="form_list" url="/pages/confirm-order/index">去结算</navigator>
         </ui-col>
       </ui-row>
       <view class="iphonex-bottom"></view>
@@ -160,7 +160,7 @@ page {
         justify-content: center;
         align-content: space-between;
       .title {
-
+          padding-left: 20rpx;
       }
       .tags {
         color: #B6B7B6;

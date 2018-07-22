@@ -98,7 +98,9 @@
       </view>
       <view class="ui-col ui-col-align-center align-center" style="">
         <view class="ui-col-content align-center">
-          <icon-item text="待发货" _pid="{{_pid}}"></icon-item>
+          <navigator url="/pages/logistics-details/index">
+            <icon-item text="物流跟踪" _pid="{{_pid}}"></icon-item>
+          </navigator>
         </view>
       </view>
       <view class="ui-col ui-col-align-center align-center" style="">

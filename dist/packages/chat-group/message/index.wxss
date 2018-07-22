@@ -1,27 +1,28 @@
-.left-message {
+.message {
   margin-top: 30rpx;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
 }
-.left-message .user image {
+.message .user image {
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 100rpx;
+  height: 100rpx;
 }
-.left-message .text {
+.message .text {
   margin-left: 20rpx;
-  border-radius: 5rpx;
+  border-radius: 10rpx;
   background-color: #fff;
-  padding: 8rpx 15rpx;
+  padding: 20rpx 15rpx;
   position: relative;
   word-break: break-all;
+  font-size: 11pt;
   box-shadow: 0 5rpx 5rpx 0 rgba(248, 248, 248, 0.16), 0 5rpx 10rpx 0 rgba(255, 255, 255, 0.13);
 }
-.left-message .text::after {
+.message .text::after {
   content: '';
   position: absolute;
-  left: -20rpx;
+  right: none;
   top: 10rpx;
   width: 0;
   height: 0;
@@ -30,4 +31,17 @@
   transform: rotateZ(90deg);
   overflow: hidden;
   border-width: 10rpx;
+}
+.message .text:not(.reverse)::after {
+  left: -20rpx;
+}
+.message .text.reverse {
+  margin-right: 20rpx;
+  background-color: #3A84EF;
+  color: #fff;
+}
+.message .text.reverse::after {
+  left: none;
+  right: -20rpx;
+  border-color: transparent transparent #3A84EF;
 }

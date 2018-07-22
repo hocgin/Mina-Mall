@@ -1,8 +1,8 @@
-<view class="left-message">
+<view class="message" style="flex-direction: {{reverse?'row-reverse':'row'}}">
   <view class="user">
     <image mode="scaleToFill" src="https://hocg.in/Resume/img/avatar.png" />
   </view>
-  <view class="text">
+  <view class="text {{reverse?'reverse': ''}}">
     {{ msg }}
   </view>
 </view>

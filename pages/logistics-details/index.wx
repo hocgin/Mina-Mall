@@ -1,0 +1,145 @@
+<template>
+  <view>
+
+    <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#fff'} }}">
+        <ui-row height="46">
+          <ui-col vertical-align="middle" align="center" width="60" bindtap="navigateBack">
+              <ui-icon type="arrow-left" size="16" color="#333"></ui-icon>
+          </ui-col>
+          <ui-col vertical-align="middle" align="center">
+            <view>订单跟踪</view>
+          </ui-col>
+          <ui-col vertical-align="middle" align="center" width="60"></ui-col>
+        </ui-row>
+    </ui-nav-bar>
+    <view style="height:{{NAV_HEIGHT}}"></view>
+
+    <!-- 订单信息 -->
+    <view class="column logistics">
+      <view class="row">
+        <view class="key">订单编号:</view>
+        <view class="value">1234567890</view>
+      </view>
+      <view class="row">
+        <view class="key">货运方式(国内):</view>
+        <view class="value">顺丰</view>
+      </view>
+      <view class="row">
+        <view class="key">货运方式(国际):</view>
+        <view class="value">EMS</view>
+      </view>
+    </view>
+
+    <!-- 物流阶段信息 -->
+    <view class="mix-1px-box logistics-time">
+      <ui-timeline>
+        <ui-timeline-item
+          wx:for="{{list}}"
+          wx:key="index"
+          point-color="#3A84EF"
+          line-color="#dfe2e5"
+          show-line
+          shadow="{{index == 0}}"
+          >
+          <view class="item-content">
+            <view class="title">
+              <view class="title-date">{{item.date}}</view>
+            </view>
+            <view class="content">
+              <view class="content-info">{{item.info}}</view>
+            </view>
+          </view>
+        </ui-timeline-item>
+      </ui-timeline>
+    </view>
+
+
+  </view>
+</template>
+
+<script>
+export default {
+  config: {
+    navigationBarTitleText: '订单跟踪'
+  },
+  data: {
+    NAV_HEIGHT:wx.STATUS_BAR_HEIGHT+wx.DEFAULT_HEADER_HEIGHT+'px',
+    list: [
+      {
+        date: '2017-10-16',
+        info: '【厦门】正在配送中'
+      },
+      {
+        date: '2017-10-15',
+        info: '【厦门】厦门T4机场'
+      },
+      {
+        date: '2017-10-16',
+        info: '《羞羞的铁拳》也在上映第15天时，票房突破16.15亿（不含电商服务费），打破了2015年《港囧》的票房纪录，成为新的国产2D票房冠军。'
+      },
+      {
+        date: '2017-10-16',
+        info: '《羞羞的铁拳》也在上映第15天时，票房突破16.15亿（不含电商服务费），打破了2015年《港囧》的票房纪录，成为新的国产2D票房冠军。'
+      }
+    ]
+  },
+  navigateBack () {
+    wx.navigateBack()
+  }
+}
+</script>
+
+<style lang="less">
+@import "static/styles/variables.less";
+page {
+  background-color: @bg-color;
+}
+.logistics {
+  background-color: #fff;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  border-bottom: solid 1px #F0F0F0;
+  font-size: 11pt;
+  font-weight: 500;
+  margin-bottom: 20rpx;
+  .row {
+    padding: 2rpx 0;
+    .key {
+      margin-right: 10rpx;
+    }
+  }
+}
+.logistics-time {
+  background-color: #fff;
+  .item-content {
+    margin-left: 30px;
+    padding: 0 15px 10px 5px;
+
+  }
+  .title-date {
+    display: inline-block;
+    font-size: 12px;
+    line-height: 12px;
+    color: #919090;
+    vertical-align: top;
+  }
+
+  .head {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &-info {
+        width: 270px;
+        color: #222;
+        font-size: 16px;
+    }
+  }
+
+  .content-info {
+    color: #000;
+  }
+}
+</style>
