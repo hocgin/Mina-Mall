@@ -1,0 +1,84 @@
+.column {
+  display: flex;
+  flex-direction: column;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+}
+.news-card {
+  background-color: #fff;
+  padding: 20rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  margin-bottom: 20rpx;
+  border-radius: 10rpx;
+  border: solid 1px #F0F0F0;
+  box-shadow: 0 5rpx 5rpx 0 rgba(165, 165, 165, 0.16), 0 5rpx 10rpx 0 rgba(165, 165, 165, 0.13);
+}
+.news-card .head {
+  align-items: center;
+  justify-content: space-between;
+}
+.news-card .head .shop-image {
+  width: 128rpx;
+  height: 128rpx;
+  border-radius: 50%;
+  border: solid 4rpx #fff;
+  margin-right: 20rpx;
+}
+.news-card .head .shop-info {
+  flex-grow: 1;
+}
+.news-card .head .shop-info .name {
+  font-size: 12pt;
+}
+.news-card .head .shop-info .tags {
+  margin-left: 20rpx;
+}
+.news-card .head .shop-info .tags .tag {
+  font-size: 8pt;
+  font-weight: 400;
+  padding: 2rpx 20rpx;
+  border-radius: 50rpx;
+  background-color: rgba(58, 133, 239, 0.2);
+  color: #3A84EF;
+}
+.news-card .head .shop-info .attention-number {
+  color: #A4A4A4;
+  font-size: 9pt;
+}
+.news-card .head .btn {
+  background-color: #3A84EF;
+  color: #fff;
+  padding: 0 20rpx;
+  border-radius: 50rpx;
+}
+.news-card .body .text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #6F6F6F;
+  font-weight: 400;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+.news-card .body .image {
+  width: 100%;
+  height: 350rpx;
+}
+.news-card .footer {
+  justify-content: space-between;
+  color: #A4A4A4;
+  font-weight: 350;
+  margin-top: 20rpx;
+  align-items: center;
+}
+.news-card .footer .left {
+  font-size: 9pt;
+}
+.news-card .footer .right .btn {
+  margin: 0 10rpx;
+}

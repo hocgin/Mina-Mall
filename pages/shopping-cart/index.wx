@@ -2,7 +2,7 @@
   <view class="body">
 
     <!-- 自定义导航 -->
-    <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#fff'} }}">
+    <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#fff',borderBottom: 'solid 1px #F0F0F0'} }}">
       <ui-row height="46">
         <ui-col vertical-align="middle">
           <text class="edit">编辑</text>

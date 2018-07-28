@@ -1,9 +1,10 @@
-<view class="news">
+<view>
   <ui-nav-bar slot="nav-bar" class="nav_bar" custom-style="{{ navBarStyle }}" _pid="{{_pid}}">
     <view class="ui-row" style="height:46px;">
-      <view class="news-title">
-        <text class="t1">动</text>
-        <text class="t2">态</text>
+      <view bindtap="navigateBack" class="ui-col ui-col-align-center align-center valign-middle" style="flex:0 0 35px;">
+        <view class="ui-col-content align-center valign-middle">
+          <text class="news-title">动态</text>
+        </view>
       </view>
       <view class="ui-col valign-middle" style="">
         <view class="ui-col-content valign-middle">
@@ -12,13 +13,25 @@
               <view class="">推荐</view>
             </ui-tab>
             <ui-tab _pid="{{_pid}}">
-              <view class="">关注</view>
+              <view class="">热点</view>
             </ui-tab>
             <ui-tab _pid="{{_pid}}">
-              <view class="">直播</view>
+              <view class="">视频</view>
             </ui-tab>
             <ui-tab _pid="{{_pid}}">
-              <view class="">小贴士</view>
+              <view class="">问答</view>
+            </ui-tab>
+            <ui-tab _pid="{{_pid}}">
+              <view class="">社会</view>
+            </ui-tab>
+            <ui-tab _pid="{{_pid}}">
+              <view class="">娱乐</view>
+            </ui-tab>
+            <ui-tab _pid="{{_pid}}">
+              <view class="">科技</view>
+            </ui-tab>
+            <ui-tab _pid="{{_pid}}">
+              <view class="">汽车</view>
             </ui-tab>
           </ui-tabs>
         </view>
@@ -29,20 +42,9 @@
         </view>
       </view>
     </view>
+
   </ui-nav-bar>
-  <view style="height:{{NAV_HEIGHT}}"></view>
-  <view class="top-banner"></view>
-  <view class="body">
-    <swiper style="height:{{ contentHeight }}px" class="content" current="{{ current }}" bindchange="handleContentChange">
-      <swiper-item class="content" wx:for="{{[1,2,3,4]}}">
-        <scroll-view scroll-y style="height:{{DEFAULT_CONTENT_HEIGHT}}px" class="content_list">
-          <news-card wx:for="{{[1,2,3,4,5,6,7,8,9]}}" _pid="{{_pid}}"></news-card>
-        </scroll-view>
-      </swiper-item>
-      <swiper>
-      </swiper>
-    </swiper>
-  </view>
+
   <view>
   </view>
 </view>

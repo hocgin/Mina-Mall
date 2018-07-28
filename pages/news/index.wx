@@ -1,15 +1,123 @@
 <template>
-  <view></view>
+  <view class="news">
+    <ui-nav-bar slot="nav-bar" class="nav_bar" custom-style="{{ navBarStyle }}">
+      <ui-row height="46">
+        <view class="news-title">
+          <text class="t1">动</text><text class="t2">态</text>
+        </view>
+        <ui-col vertical-align="middle">
+          <ui-tabs
+          ink-bar
+          ink-bar-style="{{ inkBarStyle }}"
+          tab-style="{{tabStyle}}"
+          width="{{ width-140 }}" index="{{ current }}" bindchange="handleChange">
+            <ui-tab>
+                <view class="">推荐</view>
+            </ui-tab>
+            <ui-tab>
+                <view class="">关注</view>
+            </ui-tab>
+            <ui-tab>
+                <view class="">直播</view>
+            </ui-tab>
+            <ui-tab>
+                <view class="">小贴士</view>
+            </ui-tab>
+          </ui-tabs>
+        </ui-col>
+        <ui-col vertical-align="middle" align="center" width="100">
+          <!-- <ui-icon type="more" size="16" color="#fff"></ui-icon> -->
+        </ui-col>
+      </ui-row>
+    </ui-nav-bar>
+    <view style="height:{{NAV_HEIGHT}}"></view>
+    <view class="top-banner"></view>
+    <view class="body">
+      <swiper style="height:{{ contentHeight }}px" class="content" current="{{ current }}" bindchange="handleContentChange">
+        <swiper-item class="content" wx:for="{{[1,2,3,4]}}">
+          <scroll-view scroll-y style="height:{{DEFAULT_CONTENT_HEIGHT}}px" class="content_list">
+              <news-card wx:for="{{[1,2,3,4,5,6,7,8,9]}}"></news-card>
+          </scroll-view>
+        </swiper-item>
+      <swiper>
+    </view>
+  <view>
 </template>
 
 <script>
 export default {
   config: {
-    navigationBarTitleText: '首页'
+    navigationBarTitleText: "动态",
+    usingComponents: {
+      'news-card': '../../packages/news-card'
+    },
+    disableScroll: true
   },
-  data: {}
-}
+  data: {
+    NAV_HEIGHT: wx.STATUS_BAR_HEIGHT + wx.DEFAULT_HEADER_HEIGHT + "px",
+    DEFAULT_CONTENT_HEIGHT: wx.DEFAULT_CONTENT_HEIGHT,
+    contentHeight: wx.DEFAULT_CONTENT_HEIGHT,
+    width: wx.WIN_WIDTH,
+    current: 0,
+    inkBarStyle:{
+      'border-bottom': '2px solid #fff', 
+      'width': '50%' ,
+      'top':'-4px'
+    },
+    tabStyle: {
+      'background-color':'#3A84EF',
+      'color':'#fff'
+    },
+    navBarStyle:{
+      'background-color':'#3A84EF',
+      'color':'#fff'
+    }
+
+  },
+  handleChange (e) {
+    console.log(e)
+    let index = e.detail.index
+    this.setData({
+      current:index
+    })
+  },
+  handleContentChange (e) {
+    let index = e.detail.current
+    this.setData({
+      current:index
+    })
+  }
+
+};
 </script>
 
 <style lang="less">
+@import "static/styles/variables.less";
+.news {
+  .news-title {
+    font-size: 18pt;
+    // font-weight: 900;
+    display: flex;
+    align-items: center;
+    margin-left: 20rpx;
+    color: rgb(3, 97, 179);
+    .t2 {
+      font-size: 10pt;
+    }
+  }
+  .top-banner {
+    position: absolute;
+    width: 100%;
+    background-color: @themeColor;
+    height: 180rpx;
+  }
+  .body {
+    background-color: @bg-color;
+    // padding-left: 20rpx;
+    // padding-right: 20rpx;
+    .content {
+      // background-color: #fff;
+    }
+  }
+}
 </style>

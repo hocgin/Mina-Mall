@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "ui-fixed-view": "../../packages/touchui-wx-components/ui-fixed-view/dist/index",
+    "ui-popup": "../../packages/touchui-wx-components/ui-popup/dist/index",
+    "ui-tags": "../../packages/touchui-wx-components/ui-tags/dist/index",
+    "ui-stepper": "../../packages/touchui-wx-components/ui-stepper/dist/index",
+    "icon-item": "../../packages/icon-item/index"
+  },
+  "navigationBarTitleText": "商品详情"
+}

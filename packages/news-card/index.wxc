@@ -1,0 +1,135 @@
+<template>
+  <view class="news-card">
+    <view class="row head">
+      <image class="shop-image" mode="scaleToFill"
+       src="https://hocg.in/Resume/img/avatar.png"/>
+       <view class="column shop-info">
+          <view class="row">
+            <text class="name">意大利代购小铺</text>
+            <view class="tags">
+              <text class="tag">直播中</text>
+            </view>
+          </view>
+          <text class="attention-number">10个粉丝</text>
+       </view>
+       <view class="btn">关注</view>
+    </view>
+    <view class="column body">
+      <text class="text"> QQ文字表情动态图片 .移动图片位置,直到你满意为止直到你满意为止直到你满意为止直到你满意为止直到你满意为止直到你满意为止直到你满意为止直到你满意为止直到你满意为止直到你满意为止直到你满意为止直到你满意为止!小提示:您还可以 将这些图片发表在QQ空间日</text>
+      <image class="image" mode="center"
+      src="http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg"/>
+    </view>
+    <view class="row footer">
+      <view class="left">10086阅读</view>
+      <view class="row right">
+        <view class="btn">评论</view>
+        <view class="btn">点赞</view>
+        <view class="btn">分享</view>
+      </view>
+    </view>
+  </view>
+</template>
+<script>
+export default {
+  data: {
+    msg: 'This is a test msg!'
+  },
+  methods: {
+    handleTap () {
+      console.log(this.data.msg)
+    }
+  }
+}
+</script>
+<style lang="less">
+.column {
+  display: flex;
+  flex-direction: column;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+}
+.news-card {
+  background-color: #fff;
+  padding: 20rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  margin-bottom: 20rpx;
+  border-radius: 10rpx;
+  border: solid 1px #F0F0F0;
+  box-shadow: 0 5rpx 5rpx 0 rgba(165, 165, 165, 0.16),
+              0 5rpx 10rpx 0 rgba(165, 165, 165, 0.13);
+  .head {
+    align-items: center;
+    justify-content: space-between;
+    .shop-image {
+      width: 128rpx;
+      height: 128rpx;
+      border-radius: 50%;
+      border: solid 4rpx #fff;
+      margin-right: 20rpx;
+    }
+    .shop-info {
+      flex-grow: 1;
+      .name {
+        font-size: 12pt;
+      }
+      .tags {
+        margin-left: 20rpx;
+        .tag {
+          font-size: 8pt;
+          font-weight: 400;
+          padding: 2rpx 20rpx;
+          border-radius: 50rpx;
+          background-color: rgba(58, 133, 239, 0.2);
+          color: #3A84EF;
+        }
+      }
+      .attention-number {
+        color: #A4A4A4;
+        font-size: 9pt;
+      }
+    }
+    .btn {
+      background-color: #3A84EF;
+      color: #fff;
+      padding: 0 20rpx;
+      border-radius: 50rpx;
+    }
+  }
+
+  .body {
+    .text {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: #6F6F6F;
+      font-weight: 400;
+      margin-top: 20rpx;
+      margin-bottom: 20rpx;
+    }
+    .image {
+      width: 100%;
+      height: 350rpx;
+    }
+  }
+  .footer {
+    justify-content: space-between;
+    color: #A4A4A4;
+    font-weight: 350;
+    margin-top: 20rpx;
+    align-items: center;
+    .left {
+      font-size: 9pt;
+    }
+    .right {
+      .btn {
+        margin: 0 10rpx;
+      }
+    }
+  }
+}
+</style>

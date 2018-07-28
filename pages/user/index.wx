@@ -84,7 +84,9 @@
           </navigator>
         </ui-col>
         <ui-col align="center">
-          <icon-item text="待收货"></icon-item>
+          <navigator url="/pages/product-details/index">
+            <icon-item text="商品详情"></icon-item>
+          </navigator>
         </ui-col>
         <ui-col align="center">
           <icon-item text="待评价"></icon-item>

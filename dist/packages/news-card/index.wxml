@@ -1,0 +1,27 @@
+<view class="news-card">
+  <view class="row head">
+    <image class="shop-image" mode="scaleToFill" src="https://hocg.in/Resume/img/avatar.png" />
+    <view class="column shop-info">
+      <view class="row">
+        <text class="name">意大利代购小铺</text>
+        <view class="tags">
+          <text class="tag">直播中</text>
+        </view>
+      </view>
+      <text class="attention-number">10个粉丝</text>
+    </view>
+    <view class="btn">关注</view>
+  </view>
+  <view class="column body">
+    <text class="text"> QQ文字表情动态图片 .移动图片位置,直到你满意为止直到你满意为止直到你满意为止直到你满意为止直到你满意为止直到你满意为止直到你满意为止直到你满意为止直到你满意为止直到你满意为止直到你满意为止直到你满意为止!小提示:您还可以 将这些图片发表在QQ空间日</text>
+    <image class="image" mode="center" src="http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg" />
+  </view>
+  <view class="row footer">
+    <view class="left">10086阅读</view>
+    <view class="row right">
+      <view class="btn">评论</view>
+      <view class="btn">点赞</view>
+      <view class="btn">分享</view>
+    </view>
+  </view>
+</view>

@@ -82,12 +82,10 @@
 
 
   <!-- 工具栏 -->
-  <ui-fixed-view bottom="0" left="0" right="0" _pid="{{_pid}}">
-    <view class="fixed_bottom">
-      <view class="total">
-        <text class="price">¥575.37</text>
-      </view>
-      <navigator class="btn" url="/pages/order-details/index">提交订单</navigator>
+  <view class="fixed_bottom">
+    <view class="total">
+      <text class="price">¥575.37</text>
     </view>
-  </ui-fixed-view>
+    <navigator class="btn" url="/pages/order-details/index">提交订单</navigator>
+  </view>
 </view>

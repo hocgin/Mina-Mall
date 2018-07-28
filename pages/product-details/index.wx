@@ -1,0 +1,496 @@
+<template>
+  <view class="product-details">
+
+    <view class="swiper-container">
+      <view class="topbar" style="padding-top:{{STATUS_BAR_HEIGHT}};height:{{NAV_HEIGHT}}">
+        <view class="arrow-left" bindtap="navigateBack">
+          <ui-icon type="arrow-left" size="16" color="#333"></ui-icon>
+        </view>
+      </view>
+      <swiper indicator-dots="{{true}}"
+        autoplay="{{false}}" interval="{{10000}}" duration="{{1000}}"
+        style="height: {{height}}">
+        <block wx:for="{{urls}}">
+          <swiper-item>
+              <image src="{{item}}" class="slide-image" mode="widthFix" bindload="refreshSwiper"/>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+
+    <view class="details">
+
+      <!-- 价格/收藏/分享 -->
+      <view class="row row-1">
+        <view class="price">¥109.00</view>
+        <view class="row">
+          <icon-item text="举报"></icon-item>
+          <icon-item text="收藏"></icon-item>
+          <icon-item text="分享"></icon-item>
+        </view>
+      </view>
+
+      <!-- 产地/税金 -->
+      <view class="row row-2">
+        <view class="localtion">🇫🇷<text class="text">法国品牌</text></view>
+        <view class="tax">
+          进口税: 卖家承担
+        </view>
+      </view>
+
+      <!-- 标题 -->
+      <view class="line-2-ellipsis title">三星(SAMSUNG) 860 EVO 257G SATA3 固态 (MZ-76-23E56r)</view>
+
+      <!-- 描述 -->
+      <view class="line-2-ellipsis description">
+        玩转速度 新一代技术 V-asnd技术 性能强筋 兼容性完美 多种接口选择
+      </view>
+
+      <!-- 参数属性 -->
+      <view class="row attrs" bindtap="toggleAttrsPopup">
+          <view class="key">商品参数</view>
+          <view class="value">尺寸/流行元素/适合</view>
+      </view>
+
+    </view>
+
+    <!-- 规格 -->
+    <view class="row specification" bindtap="toggleSpecificationPopup">
+        <view class="key">已选</view>
+        <view class="value">860 EVO, SATA-3, 250-259G, 1件</view>
+        <view>></view>
+    </view>
+
+    <!-- 运费 -->
+    <view class="mix-1px-top-1 row freight">
+       <view class="key">运费</view>
+       <view class="value">免运费</view>
+    </view>
+    <view class="mix-1px-bottom-1 row service">
+       <view>店铺发货</view>
+       <view>假一赔十</view>
+       <view>无理由退款</view>
+    </view>
+
+    <!-- 工具栏 -->
+      <ui-fixed-view bottom="0" left="0" right="0">
+        <view class="fixed_bottom">
+          <view class="group">
+            <view>客服</view>
+            <view>店铺</view>
+            <view>购物车</view>
+          </view>
+          <navigator class="btn" url="/pages/order-details/index">加入购物车</navigator>
+        </view>
+      </ui-fixed-view>
+
+      <!-- 属性 -->
+      <ui-popup class="attrs-popup" show="{{ showAttrsPopup }}" 
+      hide-on-tap="{{false}}" 
+      top="100px"
+      background="transparent">
+          <view class="all-attrs">
+              <view class="head">
+                  产品参数
+              </view>
+              <scroll-view class="column body" scroll-y="{{true}}">
+                <view class="row">
+                  <view class="key">保修期</view>
+                  <view class="value">12个月</view>
+                </view>
+                <view class="row">
+                  <view class="key">型号</view>
+                  <view class="value">ALUNA XL-YB 一哭吸收</view>
+                </view>
+                <view class="row">
+                  <view class="key">分类</view>
+                  <view class="value">其他</view>
+                </view>
+                <view class="row" wx:for="{{[1,2,3,4,5,6,7,8,9,12]}}">
+                  <view class="key">涉水披肩批量问好</view>
+                  <view class="value">其他</view>
+                </view>
+              </scroll-view>
+              <view class="footer">
+                <view class="btn" bindtap="toggleAttrsPopup">完成</view>
+              </view>
+            </view>
+      </ui-popup>
+
+      <!-- 规格 -->
+      <ui-popup class="specification-popup" show="{{ showSpecificationPopup }}"
+      hide-on-tap="{{false}}" >
+          <view class="all-specification">
+              <view class="row head">
+                  <image class="image"
+                  mode="scaleToFill"
+                  src="https://hocg.in/Resume/img/avatar.png"/>
+                  <view class="column info">
+                    <view class="price">¥109.00</view>
+                    <view class="sku">商品编号:123456</view>
+                  </view>
+              </view>
+              <scroll-view class="column body" scroll-y="{{true}}">
+                <block wx:for="{{tags}}">
+                  <view class="row category">{{ item.name }}</view>
+                  <view class="row tags">
+                    <ui-tags data="{{ item.list }}" 
+                    col-number="4"></ui-tags>
+                  </view>
+                </block>
+                <view class="row number">
+                  <text class="category">数量</text>
+                  <ui-stepper class="stepper" min="1" value="1"/>
+                </view>
+              </scroll-view>
+              <view class="footer">
+                <view class="row">
+                  <view class="btn" bindtap="toggleSpecificationPopup">取消</view>
+                  <view class="btn" bindtap="toggleSpecificationPopup">完成</view>
+                </view>
+              </view>
+            </view>
+      </ui-popup>
+
+  </view>
+</template>
+
+<script>
+const tagStyle = `
+  border: 1px solid #f1f2f3;
+  border-radius: 3px;
+  text-align: center;
+  line-height: 25px;
+  font-size:12px;
+  padding: 0px 5px;
+  font-weight: 700;
+`;
+
+export default {
+  config: {
+    usingComponents: {
+      'icon-item': '../../packages/icon-item'
+    },
+    navigationBarTitleText: '商品详情'
+  },
+  data: {
+    STATUS_BAR_HEIGHT: wx.STATUS_BAR_HEIGHT+'px',
+    NAV_HEIGHT: wx.STATUS_BAR_HEIGHT + wx.DEFAULT_HEADER_HEIGHT+'px',
+    urls: [
+      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+      'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
+      'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
+    ],
+    height: '800px',
+    showAttrsPopup: false,
+    showSpecificationPopup: true,
+    tags: [
+      {name: '颜色', list: [{text:'908 EVO', tagStyle: tagStyle},{text:'908 PRO', tagStyle: tagStyle}]},
+      {name: '型号', list: [{text:'908-sdk', tagStyle: tagStyle},{text:'908JJX', tagStyle: tagStyle},{text:'908JJX', tagStyle: tagStyle},{text:'908JJX', tagStyle: tagStyle},{text:'908JJX', tagStyle: tagStyle},{text:'908JJX', tagStyle: tagStyle},{text:'908JJX', tagStyle: tagStyle},{text:'908JJX', tagStyle: tagStyle},{text:'908JJX', tagStyle: tagStyle}]},
+      {name: '容量', list: [{text:'908-sdk', tagStyle: tagStyle},{text:'908JJX', tagStyle: tagStyle},{text:'908JJX', tagStyle: tagStyle}]}
+    ]
+  },
+  navigateBack () {
+    wx.navigateBack()
+  },
+  refreshSwiper(e){
+    let w = wx.getSystemInfoSync().windowWidth,
+    height = e.detail.height,
+    width = e.detail.width;
+    let h = w*height/width;
+    this.setData({
+      height: h + 'px'
+    });
+  },
+  toggleAttrsPopup() {
+    let that = this;
+    this.setData({
+      showAttrsPopup: !that.data.showAttrsPopup
+    });
+  },
+  toggleSpecificationPopup() {
+    let that = this;
+    this.setData({
+      showSpecificationPopup: !that.data.showSpecificationPopup
+    });
+  }
+}
+</script>
+<style lang="less">
+@import "static/styles/variables.less";
+
+page {
+  background-color: @bg-color;
+}
+.product-details {
+  .topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding-left: 40rpx;
+    // background-color: #000;
+    .arrow-left {
+      width: 70rpx;
+      height: 70rpx;
+      padding: 10rpx;
+      text-align: center;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.75);
+      .ui-icon {
+        color: #000;
+      }
+    }
+  }
+
+  .swiper-container {
+    box-shadow: 0 5rpx 5rpx 0 rgba(184, 212, 255, 0.16),
+                  0 5rpx 10rpx 0 rgba(174, 209, 255, 0.13);
+    .slide-image {
+      width: 100%;
+    }
+  }
+
+  .details {
+    padding: 10rpx 20rpx;
+    border-bottom: solid 1px #F0F0F0;
+    background-color: #fff;
+    .row-1 {
+      justify-content: space-between;
+      align-items: center;
+      .price {
+        font-size: 18pt;
+      }
+      icon-item {
+        padding: 0 10rpx;
+      }
+    }
+    .row-2 {
+      font-size: 9pt;
+      font-weight: 400;
+      .localtion {
+        .text {
+          margin-left: 10rpx;
+          margin-right: 30rpx;
+        }
+      }
+    }
+    .title {
+      font-weight: 900;
+    }
+    .description {
+      font-size: 9pt;
+      font-weight: 300;
+    }
+    .attrs {
+      padding: 20rpx 0;
+      align-items: center;
+      align-content: center;
+      .key {
+        color: #A5A5A5;
+        font-size: 9pt;
+        margin-right: 30rpx;
+        font-weight: 300;
+      }
+      .value {
+        font-size: 10pt;
+        color: #4A4A4A;
+      }
+    }
+
+  }
+
+  .specification {
+    border-top: solid 1px #F0F0F0;
+    border-bottom: solid 1px #F0F0F0;
+    padding: 20rpx 20rpx;
+    background-color: #fff;
+    margin-top: 20rpx;
+    margin-bottom: 20rpx;
+    .key {
+      color: #A5A5A5;
+      font-size: 9pt;
+      margin-right: 30rpx;
+      font-weight: 300;
+    }
+    .value {
+      flex-grow: 1;
+    }
+  }
+
+    .freight {
+      padding: 20rpx 20rpx;
+      align-items: center;
+      align-content: center;
+      background-color: #fff;
+      .key {
+        color: #A5A5A5;
+        font-size: 9pt;
+        margin-right: 30rpx;
+        font-weight: 300;
+      }
+      .value {
+        font-size: 10pt;
+        color: #4A4A4A;
+      }
+    }
+    .service {
+      padding: 10rpx 0;
+      background-color: #FCFCFC;
+      justify-content: space-around;
+      font-size: 9pt;
+      color: #555454;
+      font-size: 400;
+    }
+
+  .fixed_bottom {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    box-shadow: 0 0px 15rpx 0 #eaeaea;
+    .group {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+    }
+    .btn {
+      background: @themeColor;
+      color: #fff;
+      height: 100rpx;
+      text-align: center;
+      line-height: 100rpx;
+      font-size: 12pt;
+      padding-left: 60rpx;
+      padding-right: 60rpx;
+      width: auto;
+    }
+  }
+}
+
+  .all-attrs {
+    background-color: #fff;
+    border-top-left-radius: 25rpx;
+    border-top-right-radius: 25rpx;
+    position: relative;
+    height: 100%;
+    .head {
+      padding: 20rpx 0 40rpx;
+      font-size: 12pt;
+      font-weight: 500;
+      text-align: center;
+    }
+    .footer {
+      background-color: #fff;
+      position: absolute;
+      bottom: 0;
+      display: block;
+      width: 100%;
+      .btn {
+        color: #fff;
+        text-align: center;
+        border-radius: 20rpx;
+        padding: 20rpx 0;
+        margin: 20rpx 20rpx;
+        background-color: @themeColor;
+      }
+    }
+    .body {
+      padding: 0 20rpx;
+      box-sizing: border-box;
+      margin: 100rpx 0 150rpx;
+      position: absolute;
+      left:0;
+      top:0;
+      right:0;
+      bottom:0;
+      .row {
+        padding: 20rpx 0;
+        align-items: flex-start;
+        border-bottom: solid 1px #F0F0F0;
+        .key {
+          margin-right: 20rpx;
+          width: 140rpx;
+          font-weight: 500;
+        }
+        .value {
+          font-weight: 300;
+        }
+      }
+    }
+  }
+  // 规格
+  .all-specification {
+    position: relative;
+    height: 100%;
+    .head {
+      position: relative;
+      top:-50rpx;
+      .image {
+        border-radius: 25rpx;
+        box-sizing: border-box;
+        height: 180rpx;
+        width: 200rpx;
+        margin: 0 20rpx;
+        border-radius: 2rpx;
+        padding: 6rpx;
+        background: #FAFAFA;
+        border: solid 1rpx #FAFAFA;
+        box-shadow: 0 5rpx 5rpx 0 rgba(184, 212, 255, 0.16),
+                      0 5rpx 10rpx 0 rgba(174, 209, 255, 0.13);
+      }
+      .info {
+        justify-content: flex-end;
+        .price {
+          font-size: 12pt;
+        }
+        .sku {
+          font-weight: 300;
+          font-size: 9pt;
+        }
+      }
+    }
+    .body {
+      box-sizing: border-box;
+      margin-bottom: 40rpx;
+      max-height: 500rpx;
+      // position: absolute;
+      left:0;
+      top:0;
+      right:0;
+      bottom:0;
+      .row {
+        padding: 0 20rpx;
+      }
+      .category {
+        font-size: 10pt;
+        color: #A7A8AE;
+        padding-bottom: 10rpx;
+        padding-top: 10rpx;
+      }
+      .number {
+        justify-content: space-between;
+        align-content: center;
+        align-items: center;
+      }
+    }
+    .footer {
+      .btn {
+        padding: 20rpx 0;
+        width: 50%;
+        text-align: center;
+        color: #fff;
+        font-weight: 700;
+        background-color: @themeColor;
+        &:nth-child(1) {
+          background-color: red;
+        }
+      }
+    }
+  }
+</style>

@@ -105,7 +105,9 @@
       </view>
       <view class="ui-col ui-col-align-center align-center" style="">
         <view class="ui-col-content align-center">
-          <icon-item text="待收货" _pid="{{_pid}}"></icon-item>
+          <navigator url="/pages/product-details/index">
+            <icon-item text="商品详情" _pid="{{_pid}}"></icon-item>
+          </navigator>
         </view>
       </view>
       <view class="ui-col ui-col-align-center align-center" style="">

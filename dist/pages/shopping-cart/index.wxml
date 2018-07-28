@@ -1,7 +1,7 @@
 <view class="body">
 
   <!-- 自定义导航 -->
-  <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#fff'} }}" _pid="{{_pid}}">
+  <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#fff',borderBottom: 'solid 1px #F0F0F0'} }}" _pid="{{_pid}}">
     <view class="ui-row" style="height:46px;">
       <view class="ui-col valign-middle" style="">
         <view class="ui-col-content valign-middle">

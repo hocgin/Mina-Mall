@@ -20,6 +20,8 @@ export default {
       "pages/new-address/index",
       "pages/collection/index",
       "pages/confirm-order/index",
+      "pages/logistics-details/index",
+      "pages/product-details/index",
       "pages/address-list/index"
     ],
     window: {
@@ -43,7 +45,7 @@ export default {
           pagePath: "pages/news/index",
           iconPath: "static/asserts/home.png",
           selectedIconPath: "static/asserts/home_selected.png",
-          text: "最新动态"
+          text: "动态"
         },
         {
           pagePath: "pages/shopping-cart/index",
