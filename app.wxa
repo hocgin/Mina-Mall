@@ -22,6 +22,7 @@ export default {
       "pages/confirm-order/index",
       "pages/logistics-details/index",
       "pages/product-details/index",
+      "pages/shop/index",
       "pages/address-list/index"
     ],
     window: {

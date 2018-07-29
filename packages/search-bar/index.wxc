@@ -1,0 +1,38 @@
+<template>
+  <view class="search-bar">
+      <icon class="icon" type="search" size="14"></icon>
+      <text class="tips">搜索感兴趣的内容</text>
+  </view>
+</template>
+<script>
+export default {
+  data: {
+    msg: 'This is a test msg!'
+  },
+  methods: {
+    handleTap () {
+      console.log(this.data.msg)
+    }
+  }
+}
+</script>
+<style lang="less">
+.search-bar {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, .3);
+    display: flex;
+    align-items: center;
+    color: #B5B5BB;
+    padding-bottom: 15rpx;
+    padding-top: 15rpx;
+    border-radius: 40rpx;
+    .icon {
+        margin-left: 20rpx;
+        margin-right: 20rpx;
+    }
+    .tips {
+        font-size: 11pt;
+    }
+}
+</style>

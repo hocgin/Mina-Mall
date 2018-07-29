@@ -113,11 +113,6 @@ export default {
   }
   .body {
     background-color: @bg-color;
-    // padding-left: 20rpx;
-    // padding-right: 20rpx;
-    .content {
-      // background-color: #fff;
-    }
   }
 }
 </style>

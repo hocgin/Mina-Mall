@@ -1,0 +1,400 @@
+<template>
+  <view class="store">
+
+    <view class="head">
+    <!-- 自定义导航 -->
+    <ui-nav-bar slot="nav-bar">
+      <ui-row height="46">
+          <ui-col vertical-align="middle" align="center" width="60" bindtap="navigateBack">
+              <ui-icon type="arrow-left" size="16" color="#fff"></ui-icon>
+          </ui-col>
+        <ui-col vertical-align="middle">
+          <view>
+            <search-bar></search-bar>
+          </view>
+        </ui-col>
+        <ui-col vertical-align="middle" align="center" width="100"></ui-col>
+      </ui-row>
+    </ui-nav-bar>
+
+    <!-- 设置内容距离nav-bar高度占位 -->
+    <view style="height:{{NAV_HEIGHT}}"></view>
+
+    <!-- 店铺信息 -->
+      <view class="row row1">
+        <image class="image" mode="scaleToFill"
+        src="https://hocg.in/Resume/img/avatar.png"/>
+        <view class="column info">
+            <view class="row store-bar">
+              <view class="row">
+                <text class="name">意大利代购小铺</text>
+                <ui-icon type="arrow-right" size="16" color="#FBF8FD"></ui-icon>
+              </view>
+              <view class="living">
+                直播中
+              </view>
+            </view>
+            <view class="row attention">
+              <view class="row left">
+                <view class="tag">已认证</view>
+                <text class="number">10个粉丝</text>
+              </view>
+              <view class="btn">关注</view>
+            </view>
+        </view>
+      </view>
+
+      <!-- 导航栏 -->
+      <ui-tabs ink-bar
+            ink-bar-style="{{ inkBarStyle }}"
+            tab-style="{{tabStyle}}"
+            index="{{ current }}" bindchange="handleChange">
+          <ui-tab>
+            <view class="">首页</view>
+          </ui-tab>
+          <ui-tab>
+            <view class="">商品</view>
+          </ui-tab>
+          <ui-tab>
+            <view class="">代购</view>
+          </ui-tab>
+          <ui-tab>
+            <view class="">上新</view>
+          </ui-tab>
+          <ui-tab>
+            <view class="">动态</view>
+          </ui-tab>
+       </ui-tabs>
+    </view>
+
+    <!-- 内容 -->
+    <swiper style="height:{{ contentHeight }}px" class="content" current="{{ current }}" bindchange="handleContentChange">
+      <swiper-item>
+        <scroll-view scroll-y style="height:{{DEFAULT_CONTENT_HEIGHT}}px" class="content_list">
+                a
+        </scroll-view >
+      </swiper-item>
+      <swiper-item>
+        <scroll-view scroll-y style="height:{{DEFAULT_CONTENT_HEIGHT}}px" class="content_list">
+          <view class="sticky-in-relative-container" id="suggestion-title">
+            <ui-sticky top="{{NAV_HEIGHT}}" 
+            custom-style="{{ customStyle }}" 
+            class="header header1" 
+            stick-on-tap="stick-on-tap">
+              <view>
+                <ui-row height="46" class="nav_top">
+                  <ui-col vertical-align="middle" align="center" data-idx="{{index}}" bindtap="openPopup" wx:for="{{ navList }}" class="{{ item.active }}">
+                    <ui-row height="46">
+                      <ui-col vertical-align="middle" align="right" space-right="5">
+                        <view>
+                          {{ item.name}}
+                        </view>
+                      </ui-col>
+                      <ui-col vertical-align="middle" align="left" span="4" space-left="5">
+                        <ui-icon type="{{item.arrow}}" size="8" color="#878787;" class="{{ item.active }}"></ui-icon>
+                      </ui-col>
+                    </ui-row>
+                  </ui-col>
+                </ui-row>
+              </view>
+              <view slot="sticky">
+                <ui-row height="46" class="nav_top">
+                  <ui-col vertical-align="middle" align="center" data-idx="{{index}}" bindtap="openPopup" wx:for="{{ navList }}" class="{{ item.active }}">
+                    <ui-row height="46">
+                      <ui-col vertical-align="middle" align="right" space-right="5">
+                        <view>
+                          {{ item.name}}
+                        </view>
+                      </ui-col>
+                      <ui-col vertical-align="middle" align="left" span="4" space-left="5">
+                        <ui-icon type="{{item.arrow}}" size="8" color="#878787;" class="{{ item.active }}"></ui-icon>
+                      </ui-col>
+                    </ui-row>
+                  </ui-col>
+                </ui-row>
+              </view>
+            </ui-sticky>
+          </view>
+          <!-- 弹窗 - 1 -->
+          <ui-popup cropout show="{{ showPopup[0] }}" 
+            top="{{46}}"
+            mask-style="{{ { top: 46+'px' } }}"
+            position="top">
+                <view>
+                  AA
+                </view>
+          </ui-popup>
+          <!-- 弹窗 - 2 -->
+          <ui-popup cropout show="{{ showPopup[1] }}" 
+            top="{{46}}"
+            mask-style="{{ { top: 46+'px' } }}"
+            position="top">
+                <view>
+                  BB
+                </view>
+          </ui-popup>
+          <!-- 弹窗 - 3 -->
+          <ui-popup cropout show="{{ showPopup[2] }}" 
+            top="{{46}}"
+            mask-style="{{ { top: 46+'px' } }}"
+            position="top">
+                <view>
+                  CC
+                </view>
+          </ui-popup>
+          <!-- 弹窗 - 4 -->
+          <ui-popup cropout show="{{ showPopup[3] }}" 
+            top="{{46}}"
+            mask-style="{{ { top: 46+'px' } }}"
+            position="top">
+                <view>
+                  DD
+                </view>
+          </ui-popup>
+        </scroll-view >
+      </swiper-item>
+      <swiper-item>
+        <scroll-view scroll-y style="height:{{DEFAULT_CONTENT_HEIGHT}}px" class="content_list">
+                a
+        </scroll-view >
+      </swiper-item>
+      <swiper-item>
+        <scroll-view scroll-y style="height:{{DEFAULT_CONTENT_HEIGHT}}px" class="content_list">
+                a
+        </scroll-view >
+      </swiper-item>
+      <swiper-item>
+        <scroll-view scroll-y style="height:{{DEFAULT_CONTENT_HEIGHT}}px" class="content_list">
+                a
+        </scroll-view >
+      </swiper-item>
+    </swiper>
+        
+
+    <!-- 工具栏 -->
+    <view class="row footer">
+      <view class="store-link">店铺详情</view>
+      <view class="classify">热门分类</view>
+      <view class="link">客服</view>
+    </view>
+
+
+    <!-- 弹窗 -->
+
+  </view>
+</template>
+
+<script>
+export default {
+  config: {
+    navigationBarTitleText: "店铺主页",
+    usingComponents: {
+      "search-bar": "../../packages/search-bar"
+    },
+    disableScroll: true
+  },
+  data: {
+    NAV_HEIGHT: wx.STATUS_BAR_HEIGHT + wx.DEFAULT_HEADER_HEIGHT + "px",
+    contentHeight: wx.DEFAULT_CONTENT_HEIGHT,
+    DEFAULT_CONTENT_HEIGHT: wx.DEFAULT_CONTENT_HEIGHT,
+    current: 0,
+    inkBarStyle: {
+      "border-bottom": "2px solid #fff",
+      width: "50%",
+      top: "-4px"
+    },
+    tabStyle: {
+      "background-color": "#3A84EF",
+      color: "#fff"
+    },
+    navBarStyle: {
+      "background-color": "#3A84EF",
+      color: "#fff"
+    },
+    // 过滤工具栏
+    popup_NAV_HEIGHT: 180,
+    showPopup: [false, false, false, false],
+    customStyle:{
+        'background-color':'#eee',
+        'height': '46px',
+        'line-height': '46px'
+    },
+    navList: [
+      {
+        name: "推荐",
+        active: "",
+        arrow: "slide_down",
+        bindtap: "openPopup1"
+      },
+      {
+        name: "销量",
+        active: "",
+        arrow: "slide_down",
+        bindtap: "openPopup2"
+      },
+      {
+        name: "价格",
+        active: "",
+        arrow: "slide_down",
+        bindtap: "openPopup3"
+      },
+      {
+        name: "筛选",
+        active: "",
+        arrow: "slide_down",
+        bindtap: "openPopup3"
+      }
+    ]
+  },
+  onLoad (){
+    let that = this,
+        query = wx.createSelectorQuery();
+      query.select('.head').boundingClientRect(function (rect) {
+        that.setData({
+          'popup_NAV_HEIGHT': rect.height
+        });
+      }).exec();
+  },
+  onReady() {
+  },
+  navigateBack() {
+    wx.navigateBack();
+  },
+  handleChange(e) {
+    console.log(e);
+    let index = e.detail.index;
+    this.setData({
+      current: index
+    });
+  },
+  handleContentChange(e) {
+    console.log(e);
+    let index = e.detail.current;
+    this.setData({
+      current: index
+    });
+  },
+  // 过滤工具栏
+  openPopup (e) {
+    let index = e.currentTarget.dataset.idx,
+    states = [false, false, false, false];
+    states[index] = !this.data.showPopup[index];
+    this.setData({
+      'showPopup': states
+    });
+  }
+};
+</script>
+
+<style lang="less">
+@import "static/styles/variables.less";
+.store {
+  background-color: @bg-color;
+  .head {
+    position: relative;
+    z-index: 1;
+    background-color: @themeColor;
+    box-shadow: 0 5rpx 5rpx 0 rgba(87, 129, 193, 0.16),
+      0 5rpx 10rpx 0 rgba(76, 129, 198, 0.13);
+    .nav-bar {
+    }
+    .row1 {
+      margin-right: 20rpx;
+      margin-left: 20rpx;
+      margin-top: 20rpx;
+      .image {
+        width: 128rpx;
+        height: 128rpx;
+        border-radius: 10rpx;
+        margin-right: 20rpx;
+      }
+      .info {
+        flex-grow: 1;
+        align-content: space-around;
+        .store-bar {
+          justify-content: space-between;
+          align-items: center;
+          .name {
+            color: #fbf8fd;
+            font-size: 12pt;
+            margin-right: 10rpx;
+          }
+          .living {
+            color: #fff;
+            font-size: 9pt;
+          }
+        }
+
+        .attention {
+          margin-top: 10rpx;
+          justify-content: space-between;
+          .left {
+            align-items: center;
+            .tag {
+              margin-right: 20rpx;
+              font-size: 8pt;
+              font-weight: 400;
+              padding: 2rpx 20rpx;
+              border-radius: 50rpx;
+              background-color: rgb(0, 99, 238);
+              color: #fff;
+            }
+            .number {
+              color: #fdfcff;
+              font-size: 9pt;
+            }
+          }
+          .btn {
+            background-color: rgb(0, 99, 238);
+            color: #fff;
+            padding: 0 20rpx;
+            border-radius: 50rpx;
+          }
+        }
+      }
+    }
+  }
+
+  .footer {
+    background-color: #fff;
+    width: 100%;
+    position: fixed;
+    height: 100rpx;
+    bottom: 0;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+    border-top: solid 1px #f0f0f0;
+    .store-link,
+    .classify {
+      flex-grow: 1;
+      border-right: solid 1px #f0f0f0;
+    }
+    .link {
+      width: 100rpx;
+    }
+  }
+}
+
+// 弹窗
+.sticky-in-relative-container {
+  border-bottom: solid 1px #F0F0F0;
+  .nav_top{
+    background: #fff;
+    font-size:14px;
+    color:#878787;
+    .ui-col.active{
+      color: #09C2B1;
+    }
+    .ui-row{
+      width: 100%;
+      height: 100%;
+      view{
+        width: 100%;
+        .mix-text-overflow();
+      }
+    }
+  }
+
+}
+</style>
