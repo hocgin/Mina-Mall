@@ -1,0 +1,117 @@
+<template>
+  <view class="search">
+
+    <!-- 自定义导航 -->
+    <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#fff',borderBottom: 'solid 1px #F0F0F0'} }}">
+      <ui-row height="46">
+        <ui-col vertical-align="middle" align="center" width="60" bindtap="navigateBack">
+          <ui-icon type="arrow-left" size="16" color="#333"></ui-icon>
+        </ui-col>
+        <ui-col vertical-align="middle" align="center">
+          <view>搜索</view>
+        </ui-col>
+        <ui-col vertical-align="middle" align="center" width="60"></ui-col>
+      </ui-row>
+    </ui-nav-bar>
+
+    <!-- 设置内容距离nav-bar高度占位 -->
+    <view style="height:{{NAV_HEIGHT}}"></view>
+
+    <!-- 搜索输入框 -->
+    <view class="row search-bar">
+      <view class="row input">
+        <icon class="icon" type="search" size="18"></icon>
+        <input type="text" confirm-type="search" focus="true" placeholder="搜索感兴趣的内容"/>
+      </view>
+      <view class="btn">搜索</view>
+    </view>
+    <view class="title">热搜</view>
+    <view style="padding: 10px 10px;">
+      <ui-tags 
+        data="{{hotSearch}}" 
+        bindchange="singleTap" 
+        ></ui-tags>
+    </view>
+
+  </view>
+</template>
+
+<script>
+const tagStyle = `
+  background: #F6F6F6;
+  color: #393939;
+  padding: 0 10px;
+  border-radius: 20px;
+  text-align: center;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 20px;
+`;
+export default {
+  config: {
+    navigationBarTitleText: '搜索',
+    disableScroll: true
+  },
+  data: {
+    NAV_HEIGHT:wx.STATUS_BAR_HEIGHT+wx.DEFAULT_HEADER_HEIGHT+'px',
+    hotSearch: [{
+      text: '口红',
+      tagStyle: tagStyle
+    }, {
+      text: '香水',
+      tagStyle: tagStyle
+    }, {
+      text: '毛衣',
+      tagStyle: tagStyle
+    }, {
+      text: '围巾',
+      tagStyle: tagStyle
+    }]
+  },
+  navigateBack () {
+    wx.navigateBack()
+  }
+}
+</script>
+
+<style lang="less">
+@import "static/styles/variables.less";
+.search {
+  .search-bar {
+    box-sizing: border-box;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20rpx;
+    margin-top: 10rpx;
+    padding-bottom: 20rpx;
+    .icon {
+      margin: 0 10rpx 0 20rpx;
+    }
+    .input {
+      flex-grow: 1;
+      background-color: #F7F7F7;
+      color: #B5B5BB;
+      padding-bottom: 10rpx;
+      padding-top: 10rpx;
+      border-radius: 40rpx;
+      align-items: center;
+    }
+    .btn {
+      margin: 0 20rpx;
+      padding: 10rpx 20rpx;
+      color: #fff;
+      border-radius: 40rpx;
+      background-color: @themeColor;
+      box-shadow: 0 5rpx 5rpx 0 rgba(87, 129, 193, 0.16),
+                  0 5rpx 10rpx 0 rgba(76, 129, 198, 0.13);
+    }
+  }
+  .title {
+    margin-left: 20rpx;
+    font-weight: 600;
+    font-size: 12pt;
+  }
+}
+</style>

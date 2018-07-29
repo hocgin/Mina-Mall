@@ -1,0 +1,157 @@
+/* 1像素解决方案 */
+/*
+ * 清除1px
+ */
+/*
+ * 清除浮动
+ */
+/*
+ * mobile
+ */
+/*
+ * 1px
+ */
+/*
+ * text
+ */
+/* 垂直居中 */
+/* 水平居中 */
+/* 水平垂直居中 */
+/* 超出部分出省略号 */
+/* 多行文本超出部分省略号 */
+.price {
+  color: #E92E3A;
+  font-weight: 700;
+}
+.line-2-ellipsis {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.line-1-ellipsis {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.mix-1px-bottom {
+  position: relative;
+}
+.mix-1px-bottom:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 300%;
+  height: 300%;
+  border: 0 #ccc solid;
+  box-sizing: border-box;
+  transform-origin: 0 0;
+  transform: scale(0.33333333);
+  pointer-events: none;
+  z-index: 0;
+  border-bottom-width: 1px;
+}
+.mix-1px-bottom-top {
+  position: relative;
+}
+.mix-1px-bottom-top:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 300%;
+  height: 300%;
+  border: 0 #ccc solid;
+  box-sizing: border-box;
+  transform-origin: 0 0;
+  transform: scale(0.33333333);
+  pointer-events: none;
+  z-index: 0;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+}
+.mix-1px-bottom-1 {
+  border-bottom: solid 1px #F0F0F0;
+}
+.mix-1px-top-1 {
+  border-top: solid 1px #F0F0F0;
+}
+.mix-1px-box {
+  border: solid 1px #F0F0F0;
+}
+.bg-white {
+  background-color: #fff;
+}
+.bold-5 {
+  font-weight: 500;
+}
+.margin-top-10 {
+  margin-top: 10rpx;
+}
+.margin-top-20 {
+  margin-top: 20rpx;
+}
+.button-style-1 {
+  background-color: #3A84EF;
+  border-radius: 20rpx;
+  border-color: #3A84EF;
+  box-shadow: 3rpx 3rpx 8rpx #3A84EF;
+  color: #fff;
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+}
+.button-style-1::after {
+  border: none;
+}
+.appbar {
+  margin-top: 1px;
+  border-bottom: solid 1px #F0F0F0;
+}
+navigator {
+  width: 100%;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+}
+.search .search-bar {
+  box-sizing: border-box;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 20rpx;
+  margin-top: 10rpx;
+  padding-bottom: 20rpx;
+}
+.search .search-bar .icon {
+  margin: 0 10rpx 0 20rpx;
+}
+.search .search-bar .input {
+  flex-grow: 1;
+  background-color: #F7F7F7;
+  color: #B5B5BB;
+  padding-bottom: 10rpx;
+  padding-top: 10rpx;
+  border-radius: 40rpx;
+  align-items: center;
+}
+.search .search-bar .btn {
+  margin: 0 20rpx;
+  padding: 10rpx 20rpx;
+  color: #fff;
+  border-radius: 40rpx;
+  background-color: #3A84EF;
+  box-shadow: 0 5rpx 5rpx 0 rgba(87, 129, 193, 0.16), 0 5rpx 10rpx 0 rgba(76, 129, 198, 0.13);
+}
+.search .title {
+  margin-left: 20rpx;
+  font-weight: 600;
+  font-size: 12pt;
+}

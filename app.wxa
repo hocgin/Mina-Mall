@@ -23,6 +23,8 @@ export default {
       "pages/logistics-details/index",
       "pages/product-details/index",
       "pages/shop/index",
+      "pages/classify/index",
+      "pages/search/index",
       "pages/address-list/index"
     ],
     window: {

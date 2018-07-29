@@ -1,0 +1,60 @@
+/* 1像素解决方案 */
+/*
+ * 清除1px
+ */
+/*
+ * 清除浮动
+ */
+/*
+ * mobile
+ */
+/*
+ * 1px
+ */
+/*
+ * text
+ */
+/* 垂直居中 */
+/* 水平居中 */
+/* 水平垂直居中 */
+/* 超出部分出省略号 */
+/* 多行文本超出部分省略号 */
+.container {
+  display: flex;
+}
+.imgbox {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  border-style: rgba(231, 231, 231, 0.6);
+}
+.imgbox .ui-image {
+  width: 100%;
+}
+.small-title {
+  font-size: 24rpx;
+  text-align: center;
+  margin-top: 20rpx;
+}
+.advertising {
+  margin: 15rpx 15rpx 0;
+}
+.advertising .images {
+  height: 100px;
+}
+.advertising .images .image {
+  height: 100px;
+  width: 100%;
+}
+.goods-box {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+.goods-box .goods-list {
+  flex: 0 0 33.33%;
+  margin-top: 40rpx;
+}

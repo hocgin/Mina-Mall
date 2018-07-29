@@ -89,15 +89,21 @@
           </navigator>
         </ui-col>
         <ui-col align="center">
-          <icon-item text="待评价"></icon-item>
+          <navigator url="/pages/shop/index">
+            <icon-item text="店铺"></icon-item>
+          </navigator>
         </ui-col>
         <ui-col align="center">
-          <icon-item text="售后"></icon-item>
+          <navigator url="/pages/classify/index">
+            <icon-item text="平台分类"></icon-item>
+          </navigator>
         </ui-col>
       </ui-row>
       <ui-row class="bg-white">
         <ui-col align="center">
-          <icon-item text="待付款"></icon-item>
+          <navigator url="/pages/search/index">
+            <icon-item text="搜索"></icon-item>
+          </navigator>
         </ui-col>
         <ui-col align="center">
           <icon-item text="待发货"></icon-item>
