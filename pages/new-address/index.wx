@@ -7,7 +7,7 @@
               <ui-icon type="arrow-left" size="16" color="#333"></ui-icon>
           </ui-col>
           <ui-col vertical-align="middle" align="center">
-            <view>新建地址</view>
+            <view class="bar-title">新建地址</view>
           </ui-col>
           <ui-col vertical-align="middle" align="center" width="60"></ui-col>
         </ui-row>
@@ -71,7 +71,8 @@
 <script>
 export default {
   config: {
-    navigationBarTitleText: "新建地址"
+    navigationBarTitleText: "新建地址",
+    disableScroll: true
   },
   data: {
     NAV_HEIGHT: wx.STATUS_BAR_HEIGHT + wx.DEFAULT_HEADER_HEIGHT + "px"
@@ -97,7 +98,7 @@ page {
   .row {
     display: flex;
     flex-direction: row;
-    border-bottom: 1px solid rgba(231, 231, 231, 0.6);
+    border-bottom: 1px solid #F0F0F0;
     padding-top: 20rpx;
     padding-bottom: 20rpx;
     box-sizing: border-box;

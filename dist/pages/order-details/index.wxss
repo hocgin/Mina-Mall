@@ -23,6 +23,10 @@
   color: #E92E3A;
   font-weight: 700;
 }
+.bar-title {
+  font-size: 12pt;
+  font-weight: 450;
+}
 .line-2-ellipsis {
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -112,6 +116,7 @@
   border-bottom: solid 1px #F0F0F0;
 }
 navigator {
+  height: 100%;
   width: 100%;
 }
 .column {
@@ -129,7 +134,7 @@ page {
   height: 180rpx;
   background-color: #3A84EF;
   position: relative;
-  margin-bottom: 80rpx;
+  margin-bottom: 100rpx;
 }
 .order-details .bg .state {
   top: 40rpx;
@@ -152,6 +157,9 @@ page {
 }
 .order-details .bg .logistics .text {
   flex-grow: 1;
+  display: flex;
+  margin-left: 10rpx;
+  align-items: center;
 }
 .order-details .shopping-items {
   margin-bottom: 20rpx;
@@ -165,8 +173,14 @@ page {
   padding-top: 20rpx;
   padding-bottom: 20rpx;
 }
-.order-details .shopping-items .product .head .store-name {
+.order-details .shopping-items .product .head .store {
   font-weight: 700;
+  align-items: center;
+  width: auto;
+}
+.order-details .shopping-items .product .head .store .store-name {
+  margin-left: 10rpx;
+  margin-right: 10rpx;
 }
 .order-details .shopping-items .product .item-group {
   margin-left: 20rpx;
@@ -220,11 +234,18 @@ page {
   box-sizing: border-box;
 }
 .order-details .shopping-items .link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   border-top: solid 1rpx #F0F0F0;
   text-align: center;
   padding-top: 10rpx;
   padding-bottom: 10rpx;
   font-weight: 700;
+}
+.order-details .shopping-items .link text {
+  margin-left: 10rpx;
 }
 .order-details .payment-info {
   background-color: #fff;

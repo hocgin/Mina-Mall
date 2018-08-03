@@ -23,6 +23,10 @@
   color: #E92E3A;
   font-weight: 700;
 }
+.bar-title {
+  font-size: 12pt;
+  font-weight: 450;
+}
 .line-2-ellipsis {
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -112,6 +116,7 @@
   border-bottom: solid 1px #F0F0F0;
 }
 navigator {
+  height: 100%;
   width: 100%;
 }
 .column {
@@ -158,6 +163,11 @@ navigator {
 .store .head .row1 .info .store-bar .living {
   color: #fff;
   font-size: 9pt;
+  margin-right: 10rpx;
+  align-items: center;
+}
+.store .head .row1 .info .store-bar .living .text {
+  margin-left: 10rpx;
 }
 .store .head .row1 .info .attention {
   margin-top: 10rpx;
@@ -169,7 +179,7 @@ navigator {
 .store .head .row1 .info .attention .left .tag {
   margin-right: 20rpx;
   font-size: 8pt;
-  font-weight: 400;
+  font-weight: 450;
   padding: 2rpx 20rpx;
   border-radius: 50rpx;
   background-color: #0063ee;
@@ -182,8 +192,9 @@ navigator {
 .store .head .row1 .info .attention .btn {
   background-color: #0063ee;
   color: #fff;
-  padding: 0 20rpx;
+  padding: 5rpx 30rpx;
   border-radius: 50rpx;
+  box-shadow: 0 5rpx 5rpx 0 rgba(87, 129, 193, 0.16), 0 5rpx 10rpx 0 rgba(76, 129, 198, 0.13);
 }
 .store .footer {
   background-color: #fff;
@@ -198,11 +209,21 @@ navigator {
 }
 .store .footer .store-link,
 .store .footer .classify {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   flex-grow: 1;
+  width: auto;
   border-right: solid 1px #f0f0f0;
 }
 .store .footer .link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100rpx;
+}
+.store .footer .link view {
+  font-size: 22pt;
 }
 .sticky-in-relative-container {
   border-bottom: solid 1px #F0F0F0;

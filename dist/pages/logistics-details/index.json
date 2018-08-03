@@ -4,5 +4,6 @@
     "ui-timeline": "../../packages/touchui-wx-components/ui-timeline/dist/index",
     "ui-timeline-item": "../../packages/touchui-wx-components/ui-timeline-item/dist/index"
   },
-  "navigationBarTitleText": "订单跟踪"
+  "navigationBarTitleText": "订单跟踪",
+  "backgroundColor": "#FAFAFA"
 }

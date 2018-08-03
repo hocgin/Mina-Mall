@@ -6,5 +6,6 @@
     "ui-badge": "../../packages/touchui-wx-components/ui-badge/dist/index",
     "order": "../../packages/order/index"
   },
-  "navigationBarTitleText": "我的订单"
+  "navigationBarTitleText": "我的订单",
+  "disableScroll": true
 }

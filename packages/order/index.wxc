@@ -23,8 +23,7 @@
         <text>共</text><text class="number">1</text><text>件商品</text><text class="price-title">订单金额</text><text class="price">¥1009</text><text class="small">.00</text>
     </view>
     <view class="toolbar">
-        <view class="btn">查看发票</view>
-        <view class="btn">卖了换钱</view>
+        <view class="btn">查看详情</view>
         <view class="btn blue">再次购买</view>
     </view>
   </view>
@@ -46,8 +45,8 @@ export default {
 @bg-color: #F6F6F6;
 @instructions-color: rgba(75, 75, 75, 0.98);
 .order {
-    border-top: 1px solid rgba(231, 231, 231, 0.6);
-    border-bottom: 1px solid rgba(231, 231, 231, 0.6);
+    border-top: solid 1px #F0F0F0;
+    border-bottom: solid 1px #F0F0F0;
     background-color: #fff;
     display: flex;
     margin-top: 15rpx;
@@ -84,7 +83,7 @@ export default {
       display: flex;
       flex-direction: row;
       align-items: center;
-      border-top: 1px solid rgba(231, 231, 231, 0.6);
+      border-top: solid 1px #F0F0F0;
       // background-color: #FAFAFA;
       padding-top: 20rpx;
       padding-bottom: 20rpx;
@@ -129,7 +128,7 @@ export default {
       font-size: 9pt;
       color: #99999A;
       font-weight: 400;
-      border-bottom: dashed 1rpx rgba(231, 231, 231, 1);
+      border-bottom: dashed 1rpx #F0F0F0;
       .number {
         color: #000;
         margin-left: 10rpx;
@@ -172,7 +171,7 @@ export default {
         font-size: 9pt;
         font-weight: 400;
         color: @instructions-color;
-        border: solid 1rpx #F6F6F6;
+        border: solid 1px #F0F0F0;
         &.blue {
           color: @themeColor;
           border: solid 1rpx @themeColor;

@@ -1,0 +1,4 @@
+<view class="image-item {{theme}}">
+  <image class="image" src="{{src}}" />
+  <view class="text">{{ text }}</view>
+</view>

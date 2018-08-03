@@ -1,11 +1,13 @@
 .address {
+  border: solid 1rpx #F0F0F0;
   padding-left: 20rpx;
   padding-right: 20rpx;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   background-color: #fff;
-  margin-bottom: 20rpx;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
 }
 .address .head {
   display: flex;
@@ -47,7 +49,7 @@
   padding-top: 10rpx;
   padding-bottom: 10rpx;
   box-sizing: border-box;
-  border-top: solid 1px rgba(213, 213, 213, 0.31);
+  border-top: solid 1px #F0F0F0;
   display: flex;
   flex-direction: row;
   align-items: center;

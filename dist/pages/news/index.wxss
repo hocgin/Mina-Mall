@@ -23,6 +23,10 @@
   color: #E92E3A;
   font-weight: 700;
 }
+.bar-title {
+  font-size: 12pt;
+  font-weight: 450;
+}
 .line-2-ellipsis {
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -112,6 +116,7 @@
   border-bottom: solid 1px #F0F0F0;
 }
 navigator {
+  height: 100%;
   width: 100%;
 }
 .column {
@@ -140,4 +145,13 @@ navigator {
 }
 .news .body {
   background-color: #FAFAFA;
+  margin-bottom: 80rpx;
+  box-sizing: border-box;
+}
+.news .body .content {
+  z-index: 1;
+  position: relative;
+}
+.news .body .content .last {
+  margin: 50rpx 0;
 }

@@ -7,7 +7,7 @@
               <ui-icon type="arrow-left" size="16" color="#333"></ui-icon>
           </ui-col>
           <ui-col vertical-align="middle" align="center">
-            <view>确认订单</view>
+            <view class="bar-title">确认订单</view>
           </ui-col>
           <ui-col vertical-align="middle" align="center" width="60"></ui-col>
         </ui-row>
@@ -26,7 +26,9 @@
             <text class="bagde">默认</text>福建省厦门市湖里区 木山接到县后舍449号木山接到县后舍449号木山接到县后舍449号
           </view>
         </view>
-        <view class="col-2">></view>
+        <view class="col-2">
+          <ui-icon type="arrow-right" size="16" color="#333"></ui-icon>
+        </view>
       </view>
 
       <!-- 商品/店铺 -->
@@ -34,9 +36,11 @@
         <view class="mix-1px-box product" wx:for="{{ shoppingCarts }}" wx:for-item="item">
           <!-- 店铺名 -->
           <view class="head">
-            <label class="store-name">
-                  {{ item.store.name }}
-            </label>
+            <navigator class="row store" url="/pages/shop/index">
+              <ui-icon type="store" size="20" color="#6F7279"></ui-icon>
+              <text class="store-name">{{ item.store.name }}</text>
+              <ui-icon type="arrow-right" size="11" color="#333"></ui-icon>
+            </navigator>
           </view>
 
           <view class="item-group">
@@ -215,8 +219,14 @@ page {
         padding-left: 20rpx;
         padding-top: 20rpx;
         padding-bottom: 20rpx;
-        .store-name{
+        .store{
           font-weight: 700;
+          align-items: center;
+          width: auto;
+          .store-name {
+            margin-left: 10rpx;
+            margin-right: 10rpx;
+          }
         }
       }
       .item-group {
@@ -227,8 +237,11 @@ page {
           flex-shrink: 1;
           display: flex;
           flex-direction: row;
-          margin-top: 10rpx;
-          margin-bottom: 10rpx;
+          padding-top: 10rpx;
+          padding-bottom: 10rpx;
+          &:not(:last-child) {
+            border-bottom: solid 1px #f0f0f0;
+          }
           .image {
             width:160rpx;
             height:200rpx;

@@ -30,8 +30,9 @@
                 <text class="name">意大利代购小铺</text>
                 <ui-icon type="arrow-right" size="16" color="#FBF8FD"></ui-icon>
               </view>
-              <view class="living">
-                直播中
+              <view class="row living">
+                <text class="custom-icon icon-zhibo"></text>
+                <text class="text">直播中</text>
               </view>
             </view>
             <view class="row attention">
@@ -79,8 +80,7 @@
           <view class="sticky-in-relative-container" id="suggestion-title">
             <ui-sticky top="{{NAV_HEIGHT}}" 
             custom-style="{{ customStyle }}" 
-            class="header header1" 
-            stick-on-tap="stick-on-tap">
+            class="header header1">
               <view>
                 <ui-row height="46" class="nav_top">
                   <ui-col vertical-align="middle" align="center" data-idx="{{index}}" bindtap="openPopup" wx:for="{{ navList }}" class="{{ item.active }}">
@@ -155,7 +155,9 @@
       </swiper-item>
       <swiper-item>
         <scroll-view scroll-y style="height:{{DEFAULT_CONTENT_HEIGHT}}px" class="content_list">
-                a
+                <view wx:for="{{[1,2,3,4,5,6,7,8,9,2,3,4,5,6,7,8,9,2,3,4,5,6,7,8,9,6,7,8,9,2,3,4,5,6,7,8,9,2,3,4,5,6,7,8,9]}}">
+                  <view>11</view>
+                </view>
         </scroll-view >
       </swiper-item>
       <swiper-item>
@@ -173,9 +175,11 @@
 
     <!-- 工具栏 -->
     <view class="row footer">
-      <view class="store-link">店铺详情</view>
-      <view class="classify">热门分类</view>
-      <view class="link">客服</view>
+      <navigator class="store-link" url="/pages/classify/index">店铺详情</navigator>
+      <navigator class="classify" url="/pages/classify/index">热门分类</navigator>
+      <navigator class="link" url="/pages/chat/index">
+        <view class="ui-icon icon-service"></view>
+      </navigator>
     </view>
 
 
@@ -296,8 +300,6 @@ export default {
     background-color: @themeColor;
     box-shadow: 0 5rpx 5rpx 0 rgba(87, 129, 193, 0.16),
       0 5rpx 10rpx 0 rgba(76, 129, 198, 0.13);
-    .nav-bar {
-    }
     .row1 {
       margin-right: 20rpx;
       margin-left: 20rpx;
@@ -322,6 +324,12 @@ export default {
           .living {
             color: #fff;
             font-size: 9pt;
+            margin-right: 10rpx;
+            // color: #F1423C;
+            align-items: center;
+            .text {
+              margin-left: 10rpx;
+            }
           }
         }
 
@@ -333,10 +341,11 @@ export default {
             .tag {
               margin-right: 20rpx;
               font-size: 8pt;
-              font-weight: 400;
+              font-weight: 450;
               padding: 2rpx 20rpx;
               border-radius: 50rpx;
               background-color: rgb(0, 99, 238);
+              // background-color: #F1423C;
               color: #fff;
             }
             .number {
@@ -345,10 +354,12 @@ export default {
             }
           }
           .btn {
-            background-color: rgb(0, 99, 238);
-            color: #fff;
-            padding: 0 20rpx;
-            border-radius: 50rpx;
+              background-color: rgb(0, 99, 238);
+              color: #fff;
+              padding: 5rpx 30rpx;
+              border-radius: 50rpx;
+              box-shadow: 0 5rpx 5rpx 0 rgba(87, 129, 193, 0.16),
+                          0 5rpx 10rpx 0 rgba(76, 129, 198, 0.13);
           }
         }
       }
@@ -367,11 +378,21 @@ export default {
     border-top: solid 1px #f0f0f0;
     .store-link,
     .classify {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       flex-grow: 1;
+      width: auto;
       border-right: solid 1px #f0f0f0;
     }
     .link {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       width: 100rpx;
+      view {
+        font-size: 22pt;
+      }
     }
   }
 }

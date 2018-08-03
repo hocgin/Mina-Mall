@@ -23,6 +23,13 @@
   color: #E92E3A;
   font-weight: 700;
 }
+.bar-title {
+  font-size: 12pt;
+  font-weight: 450;
+}
+.y-center {
+  align-items: center;
+}
 .line-2-ellipsis {
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -112,6 +119,7 @@
   border-bottom: solid 1px #F0F0F0;
 }
 navigator {
+  height: 100%;
   width: 100%;
 }
 .column {
@@ -136,7 +144,7 @@ page {
 .row-list .row {
   display: flex;
   flex-direction: row;
-  border-bottom: 1px solid rgba(231, 231, 231, 0.6);
+  border-bottom: 1px solid #F0F0F0;
   padding-top: 20rpx;
   padding-bottom: 20rpx;
   box-sizing: border-box;

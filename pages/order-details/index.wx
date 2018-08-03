@@ -7,7 +7,7 @@
               <ui-icon type="arrow-left" size="16" color="#333"></ui-icon>
           </ui-col>
           <ui-col vertical-align="middle" align="center">
-            <view>订单详情</view>
+            <view class="bar-title">订单详情</view>
           </ui-col>
           <ui-col vertical-align="middle" align="center" width="60"></ui-col>
         </ui-row>
@@ -19,9 +19,9 @@
       <view class="bg">
         <text class="state">完成</text>
         <view class="logistics">
-          <view>图</view>
+          <ui-icon type="duigou1" size="20" color="#3A84EF"></ui-icon>
           <view class="text">感谢您在代购网购物，欢迎再次光临！</view>
-          <view>></view>
+          <view><ui-icon type="arrow-right" size="16" color="#333"></ui-icon></view>
         </view>
       </view>
 
@@ -30,9 +30,11 @@
         <view class="mix-1px-box product">
           <!-- 店铺名 -->
           <view class="head">
-            <label class="store-name line-1-ellipsis">
-                  {{ order.store.name }}
-            </label>
+              <navigator class="row store" url="/pages/shop/index">
+                <ui-icon type="store" size="20" color="#6F7279"></ui-icon>
+                <text class="store-name">{{ order.store.name }}</text>
+                <ui-icon type="arrow-right" size="11" color="#333"></ui-icon>
+              </navigator>
           </view>
 
           <view class="item-group">
@@ -53,9 +55,10 @@
             </view>
           </view>
           
-          <view class="link">
-            联系客服
-          </view>
+          <navigator class="link" url="/pages/chat/index">
+            <ui-icon type="service" size="22" color="#3A84EF"></ui-icon>
+            <text>联系客服</text>
+          </navigator>
         </view>
       </view>
 
@@ -101,7 +104,7 @@
         </view>
       </view>
 
-      <ui-divider>我是有底线的</ui-divider>
+      <ui-divider>彩蛋</ui-divider>
 
     </view>
 
@@ -114,7 +117,9 @@ export default {
     usingComponents: {
       'address-one': '../../packages/address-one'
     },
-    navigationBarTitleText: '订单详情'
+    navigationBarTitleText: '订单详情',
+    enablePullDownRefresh: false,
+    backgroundColor: '#FAFAFA'
   },
   data: {
     NAV_HEIGHT:wx.STATUS_BAR_HEIGHT+wx.DEFAULT_HEADER_HEIGHT+'px',
@@ -154,7 +159,7 @@ page {
     height: 180rpx;
     background-color: @themeColor;
     position: relative;
-    margin-bottom: 80rpx;
+    margin-bottom: 100rpx;
     .state {
       top: 40rpx;
       position: relative;
@@ -176,6 +181,9 @@ page {
                   0 5rpx 10rpx 0 rgba(174, 209, 255, 0.13);
       .text {
         flex-grow: 1;
+        display: flex;
+        margin-left: 10rpx;
+        align-items: center;
       }
     }
   }
@@ -189,8 +197,14 @@ page {
         padding-left: 20rpx;
         padding-top: 20rpx;
         padding-bottom: 20rpx;
-        .store-name{
-          font-weight: 700;
+        .store {
+            font-weight: 700;
+            align-items: center;
+            width: auto;
+            .store-name {
+              margin-left: 10rpx;
+              margin-right: 10rpx;
+            }
         }
       }
       .item-group {
@@ -247,11 +261,18 @@ page {
 
     }
     .link {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
       border-top: solid 1rpx #F0F0F0;
       text-align: center;
       padding-top: 10rpx;
       padding-bottom: 10rpx;
       font-weight: 700;
+      text {
+        margin-left: 10rpx;
+      }
     }
   }
 

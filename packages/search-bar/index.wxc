@@ -23,7 +23,7 @@ export default {
     background-color: rgba(255, 255, 255, .3);
     display: flex;
     align-items: center;
-    color: #B5B5BB;
+    color: rgba(181, 181, 187, 0.9);
     padding-bottom: 15rpx;
     padding-top: 15rpx;
     border-radius: 40rpx;

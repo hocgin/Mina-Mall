@@ -8,37 +8,42 @@
           <text class="edit">编辑</text>
         </ui-col>
         <ui-col vertical-align="middle" align="center">
-          <view>购物车</view>
+          <view class="bar-title">购物车</view>
         </ui-col>
         <ui-col></ui-col>
       </ui-row>
     </ui-nav-bar>
 
     <!-- 设置内容距离nav-bar高度占位 -->
-    <view class="appbar" style="height:{{NAV_HEIGHT}}"></view>
+    <view style="height:{{NAV_HEIGHT}}"></view>
 
-    <!-- 商品项 -->
-    <view class="shopping-cart-items">
-      <view class="product" wx:for="{{ shoppingCarts }}" wx:for-item="item">
-        <ui-row-list class="mix-1px-bottom-top" style="margin-top:10px">
-          <ui-row height="40">
-            <ui-col align="left" vertical-align="middle" space-left="10">
-              <label class="store-name">
-                <radio class="mini" value="{{ item.store.id }}"/>{{ item.store.name }}
+      <!-- 商品/店铺 -->
+      <view class="shopping-items">
+        <view class="mix-1px-box product" wx:for="{{ shoppingCarts }}" wx:for-item="item">
+          <!-- 店铺名 -->
+          <view class="mix-1px-bottom-1 head">
+              <label>
+                <radio class="mini" value="{{ item.store.id }}"/> 
               </label>
-            </ui-col>
-          </ui-row>
-          <!-- 商品单项 -->
-          <ui-row height="120"  wx:for="{{ item.productes }}" wx:for-item="product">
-            <ui-col vertical-align="middle" align="left" space-left="10" width="40">
+              <navigator class="row store" url="/pages/shop/index">
+                <ui-icon type="store" size="20" color="#6F7279"></ui-icon>
+                <text class="store-name">{{ item.store.name }}</text>
+                <ui-icon type="arrow-right" size="11" color="#333"></ui-icon>
+              </navigator>
+          </view>
+
+          <view class="item-group">
+            <!-- 商品单项 -->
+            <view class="item"
+            wx:for="{{ item.productes }}" 
+            wx:for-item="product">
+              <view class="radio">
                 <radio value="{{ product.id }}"/>
-            </ui-col>
-            <ui-col vertical-align="middle" align="center" width="100">
-                <image class="image" src="http://placehold.it/80x100" model="aspectFill"
-                style="width:80px;height:100px">
-            </ui-col>
-            <ui-col vertical-align="middle" align="left">
-              <view style="height: 100px" class="info">
+              </view>
+              <image class="image" 
+              src="http://placehold.it/80x100" 
+              model="aspectFill"/>
+              <view class="details">
                   <view class="line-2-ellipsis title">{{ product.name }}</view>
                   <view class="tags"> {{ product.tags }} </view>
                   <view class="price-pannel">
@@ -46,12 +51,10 @@
                     <ui-stepper class="stepper" min="1" value="{{ product.number }}"/>
                   </view>
               </view>
-            </ui-col>
-          </ui-row>
-          <!-- /商品单项 -->
-        </ui-row-list>
+            </view>
+          </view>
+        </view>
       </view>
-    </view>
 
     <!-- 工具栏 -->
     <ui-fixed-view bottom="0" left="0" right="0">
@@ -79,8 +82,7 @@
 <script>
 export default {
   config: {
-    usingComponents: {
-    },
+    usingComponents: {},
     navigationBarTitleText: "首页",
     backgroundColor: "#F7F7F7",
     navigationBarTextStyle: "black"
@@ -88,43 +90,56 @@ export default {
   data: {
     NAV_HEIGHT: wx.STATUS_BAR_HEIGHT + wx.DEFAULT_HEADER_HEIGHT + "px",
     isShow: false,
-    shoppingCarts: [{
-      store: {
-        id: "1",
-        name: "康爱多大药房旗舰店"
+    shoppingCarts: [
+      {
+        store: {
+          id: "1",
+          name: "康爱多大药房旗舰店"
+        },
+        productes: [
+          {
+            id: "1",
+            name:
+              "挺好用,就是 vscode 中 tab 变成ab了,不知道你是不是也挺好用,就是 vscode 中 tab 变成ab了,不知道你是不是也挺好用,就是 vscode 中 tab 变成ab了,不知道你是不是也",
+            tags: ["XXL", "黑色"],
+            price: 575.34,
+            number: 12
+          },
+          {
+            id: "1",
+            name:
+              "挺好用,就是 vscode 中 tab 变成ab了,不知道你是不是也挺好用,就是 vscode 中 tab 变成ab了,不知道你是不是也挺好用,就是 vscode 中 tab 变成ab了,不知道你是不是也",
+            tags: ["XXL", "黑色"],
+            price: 575.34,
+            number: 12
+          }
+        ]
       },
-      productes: [{
-        id: "1",
-        name: "挺好用,就是 vscode 中 tab 变成ab了,不知道你是不是也挺好用,就是 vscode 中 tab 变成ab了,不知道你是不是也挺好用,就是 vscode 中 tab 变成ab了,不知道你是不是也",
-        tags: ["XXL", "黑色"],
-        price: 575.34,
-        number: 12
-      },{
-        id: "1",
-        name: "挺好用,就是 vscode 中 tab 变成ab了,不知道你是不是也挺好用,就是 vscode 中 tab 变成ab了,不知道你是不是也挺好用,就是 vscode 中 tab 变成ab了,不知道你是不是也",
-        tags: ["XXL", "黑色"],
-        price: 575.34,
-        number: 12
-      }]
-    },{
-      store: {
-        id: "1",
-        name: "康爱多大药房旗舰店"
-      },
-      productes: [{
-        id: "1",
-        name: "挺好用,就是 vscode 中 tab 变成ab了,不知道你是不是也挺好用,就是 vscode 中 tab 变成ab了,不知道你是不是也挺好用,就是 vscode 中 tab 变成ab了,不知道你是不是也",
-        tags: ["XXL", "黑色"],
-        price: 575.34,
-        number: 12
-      },{
-        id: "1",
-        name: "挺好用,就是 vscode 中 tab 变成ab了,不知道你是不是也挺好用,就是 vscode 中 tab 变成ab了,不知道你是不是也挺好用,就是 vscode 中 tab 变成ab了,不知道你是不是也",
-        tags: ["XXL", "黑色"],
-        price: 575.34,
-        number: 12
-      }]
-    }]
+      {
+        store: {
+          id: "1",
+          name: "康爱多大药房旗舰店"
+        },
+        productes: [
+          {
+            id: "1",
+            name:
+              "挺好用,就是 vscode 中 tab 变成ab了,不知道你是不是也挺好用,就是 vscode 中 tab 变成ab了,不知道你是不是也挺好用,就是 vscode 中 tab 变成ab了,不知道你是不是也",
+            tags: ["XXL", "黑色"],
+            price: 575.34,
+            number: 12
+          },
+          {
+            id: "1",
+            name:
+              "挺好用,就是 vscode 中 tab 变成ab了,不知道你是不是也挺好用,就是 vscode 中 tab 变成ab了,不知道你是不是也挺好用,就是 vscode 中 tab 变成ab了,不知道你是不是也",
+            tags: ["XXL", "黑色"],
+            price: 575.34,
+            number: 12
+          }
+        ]
+      }
+    ]
   },
   navigateBack() {
     wx.navigateBack();
@@ -147,32 +162,69 @@ page {
   margin-left: 20rpx;
   font-size: 12pt;
 }
-.shopping-cart-items {
-  padding-bottom: 50px;
+
+.shopping-items {
+  margin-top: 10rpx;
+  padding-bottom: 100rpx;
   .product {
+    margin-bottom: 20rpx;
     background-color: #fff;
-    .store-name{
-        font-weight: 700;
-    }
-    .info {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-content: space-between;
-      .title {
-          padding-left: 20rpx;
-      }
-      .tags {
-        color: #B6B7B6;
-      }
-      .price-pannel {
-          display: flex;
-          flex-direction: row;
+    .head {
+      display: flex;
+      flex-direction: row;
+      padding-left: 20rpx;
+      padding-top: 20rpx;
+      padding-bottom: 20rpx;
+      .store {
+          font-weight: 700;
           align-items: center;
-          justify-content: space-between;
-          .stepper {
-            margin-right: 30rpx;
+          width: auto;
+          .store-name {
+            margin-left: 10rpx;
+            margin-right: 10rpx;
           }
+      }
+    }
+    .item-group {
+      margin-left: 20rpx;
+      margin-right: 20rpx;
+      .item {
+        flex-grow: 1;
+        flex-shrink: 1;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding-top: 10rpx;
+        padding-bottom: 10rpx;
+        &:not(:last-child) {
+          border-bottom: solid 1px #f0f0f0;
+        }
+
+        .radio {
+          margin-right: 10rpx;
+        }
+        .image {
+          width: 160rpx;
+          height: 200rpx;
+          flex-grow: 0;
+          flex-shrink: 0;
+        }
+        .details {
+          margin-left: 20rpx;
+          display: flex;
+          flex-direction: column;
+          .tags {
+            color: #b6b7b6;
+          }
+          .price-pannel {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            .stepper {
+              margin-right: 30rpx;
+            }
+          }
+        }
       }
     }
   }

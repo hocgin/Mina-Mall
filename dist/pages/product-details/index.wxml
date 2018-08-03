@@ -7,7 +7,7 @@
       </view>
     </view>
     <swiper indicator-dots="{{true}}" autoplay="{{false}}" interval="{{10000}}" duration="{{1000}}" style="height: {{height}}" indicator-active-color="#3A84EF">
-      <block wx:for="{{urls}}">
+      <block wx:for="{{product.urls}}">
         <swiper-item>
           <image src="{{item}}" class="slide-image" mode="widthFix" bindload="refreshSwiper" />
         </swiper-item>
@@ -21,9 +21,9 @@
     <view class="row row-1">
       <view class="price">¥109.00</view>
       <view class="row">
-        <icon-item text="举报" _pid="{{_pid}}"></icon-item>
-        <icon-item text="收藏" _pid="{{_pid}}"></icon-item>
-        <icon-item text="分享" _pid="{{_pid}}"></icon-item>
+        <icon-item text="举报" theme="default" icon="custom-icon icon-jubao1" _pid="{{_pid}}"></icon-item>
+        <icon-item text="收藏" theme="default" icon="ui-icon icon-favorite" _pid="{{_pid}}"></icon-item>
+        <icon-item text="分享" theme="default" icon="ui-icon icon-share" _pid="{{_pid}}"></icon-item>
       </view>
     </view>
 
@@ -57,7 +57,9 @@
   <view class="row specification" bindtap="toggleSpecificationPopup">
     <view class="key">已选</view>
     <view class="value">860 EVO, SATA-3, 250-259G, 1件</view>
-    <view>></view>
+    <view>
+      <span type="arrow-right" size="16" color="#333" class="ui-icon icon-arrow-right" style="color: #333;font-size: 16px;"></span>
+    </view>
   </view>
 
   <!-- 运费 -->
@@ -66,18 +68,31 @@
     <view class="value">免运费</view>
   </view>
   <view class="mix-1px-bottom-1 row service">
-    <view>店铺发货</view>
-    <view>假一赔十</view>
-    <view>无理由退款</view>
+    <view class="row y-center" wx:for="{{product.services}}">
+      <span type="duigou1" size="16" color="#3A84EF" class="ui-icon icon-duigou1" style="color: #3A84EF;font-size: 16px;"></span>
+      <text>{{item}}</text>
+    </view>
+  </view>
+
+  <ui-divider _pid="{{_pid}}">商品详情</ui-divider>
+  <!-- 内容 -->
+  <view class="product-images">
+    <image wx:for="{{product.descriptionImages}}" src="{{item}}" data-index="{{ index }}" bindload="imageLoad" mode="widthFix" style="width:100%; height:{{ images[index].height }}rpx;" />
   </view>
 
   <!-- 工具栏 -->
   <ui-fixed-view bottom="0" left="0" right="0" _pid="{{_pid}}">
     <view class="fixed_bottom">
       <view class="group">
-        <view>客服</view>
-        <view>店铺</view>
-        <view>购物车</view>
+        <view>
+          <icon-item text="客服" theme="default" icon="ui-icon icon-service" _pid="{{_pid}}"></icon-item>
+        </view>
+        <view>
+          <icon-item text="店铺" theme="default" icon="ui-icon icon-store" _pid="{{_pid}}"></icon-item>
+        </view>
+        <view>
+          <icon-item text="购物车" theme="default" icon="ui-icon icon-jd-cart" _pid="{{_pid}}"></icon-item>
+        </view>
       </view>
       <navigator class="btn" url="/pages/order-details/index">加入购物车</navigator>
     </view>
@@ -124,7 +139,7 @@
         </view>
       </view>
       <scroll-view class="column body" scroll-y="{{true}}">
-        <block wx:for="{{tags}}">
+        <block wx:for="{{product.tags}}">
           <view class="row category">{{ item.name }}</view>
           <view class="row tags">
             <ui-tags data="{{ item.list }}" col-number="4" _pid="{{_pid}}"></ui-tags>

@@ -34,8 +34,9 @@
             <text class="name">意大利代购小铺</text>
             <span type="arrow-right" size="16" color="#FBF8FD" class="ui-icon icon-arrow-right" style="color: #FBF8FD;font-size: 16px;"></span>
           </view>
-          <view class="living">
-            直播中
+          <view class="row living">
+            <text class="custom-icon icon-zhibo"></text>
+            <text class="text">直播中</text>
           </view>
         </view>
         <view class="row attention">
@@ -78,7 +79,7 @@
     <swiper-item>
       <scroll-view scroll-y style="height:{{DEFAULT_CONTENT_HEIGHT}}px" class="content_list">
         <view class="sticky-in-relative-container" id="suggestion-title">
-          <ui-sticky top="{{NAV_HEIGHT}}" custom-style="{{ customStyle }}" class="header header1" stick-on-tap="stick-on-tap" _pid="{{_pid}}">
+          <ui-sticky top="{{NAV_HEIGHT}}" custom-style="{{ customStyle }}" class="header header1" _pid="{{_pid}}">
             <view>
               <view class="nav_top ui-row" style="height:46px;">
                 <view data-idx="{{index}}" bindtap="openPopup" wx:for="{{ navList }}" class="{{ item.active }} ui-col ui-col-align-center align-center valign-middle" style="">
@@ -153,7 +154,9 @@
     </swiper-item>
     <swiper-item>
       <scroll-view scroll-y style="height:{{DEFAULT_CONTENT_HEIGHT}}px" class="content_list">
-        a
+        <view wx:for="{{[1,2,3,4,5,6,7,8,9,2,3,4,5,6,7,8,9,2,3,4,5,6,7,8,9,6,7,8,9,2,3,4,5,6,7,8,9,2,3,4,5,6,7,8,9]}}">
+          <view>11</view>
+        </view>
       </scroll-view>
     </swiper-item>
     <swiper-item>
@@ -171,9 +174,11 @@
 
   <!-- 工具栏 -->
   <view class="row footer">
-    <view class="store-link">店铺详情</view>
-    <view class="classify">热门分类</view>
-    <view class="link">客服</view>
+    <navigator class="store-link" url="/pages/classify/index">店铺详情</navigator>
+    <navigator class="classify" url="/pages/classify/index">热门分类</navigator>
+    <navigator class="link" url="/pages/chat/index">
+      <view class="ui-icon icon-service"></view>
+    </navigator>
   </view>
 
 

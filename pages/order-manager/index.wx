@@ -7,7 +7,7 @@
               <ui-icon type="arrow-left" size="16" color="#333"></ui-icon>
           </ui-col>
           <ui-col vertical-align="middle" align="center">
-            <view>我的订单</view>
+            <view class="bar-title">我的订单</view>
           </ui-col>
           <ui-col vertical-align="middle" align="center" width="60"></ui-col>
         </ui-row>
@@ -60,13 +60,19 @@ export default {
     usingComponents: {
       'order': '../../packages/order'
     },
-    navigationBarTitleText: '我的订单'
+    navigationBarTitleText: '我的订单',
+    disableScroll: true
   },
   data: {
       current: 0,
       height: wx.DEFAULT_CONTENT_HEIGHT,
       NAV_HEIGHT:wx.STATUS_BAR_HEIGHT+wx.DEFAULT_HEADER_HEIGHT+'px'
     },
+  onLoad: function(options) {  
+    this.setData({  
+      current: options.tab||0
+    });
+  },
   navigateBack () {
     wx.navigateBack()
   },
@@ -92,6 +98,7 @@ export default {
 </script>
 
 <style lang="less">
+@import "static/styles/variables.less";
 page {
    background-color: #F2F4F6;
 }

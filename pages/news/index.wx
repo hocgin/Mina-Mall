@@ -26,7 +26,6 @@
           </ui-tabs>
         </ui-col>
         <ui-col vertical-align="middle" align="center" width="100">
-          <!-- <ui-icon type="more" size="16" color="#fff"></ui-icon> -->
         </ui-col>
       </ui-row>
     </ui-nav-bar>
@@ -36,7 +35,8 @@
       <swiper style="height:{{ contentHeight }}px" class="content" current="{{ current }}" bindchange="handleContentChange">
         <swiper-item class="content" wx:for="{{[1,2,3,4]}}">
           <scroll-view scroll-y style="height:{{DEFAULT_CONTENT_HEIGHT}}px" class="content_list">
-              <news-card wx:for="{{[1,2,3,4,5,6,7,8,9]}}"></news-card>
+              <news-card wx:for="{{[1,2]}}"></news-card>
+              <view class="last" decode="true"><ui-divider>彩蛋</ui-divider></view>
           </scroll-view>
         </swiper-item>
       <swiper>
@@ -113,6 +113,15 @@ export default {
   }
   .body {
     background-color: @bg-color;
+    margin-bottom: 80rpx;
+    box-sizing: border-box;
+    .content {
+      z-index: 1;
+      position: relative;
+      .last {
+        margin: 50rpx 0;
+      }
+    }
   }
 }
 </style>

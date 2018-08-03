@@ -1,15 +1,15 @@
 <template>
   <view>
 
-    <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#fff'} }}">
+    <ui-nav-bar slot="nav-bar" custom-style="{{ {backgroundColor:'#fff',borderBottom: 'solid 1px #F0F0F0'} }}">
         <ui-row height="46">
-          <ui-col vertical-align="middle" align="center" width="60" bindtap="navigateBack">
+          <ui-col vertical-align="middle" align="center" width="40" bindtap="navigateBack">
               <ui-icon type="arrow-left" size="16" color="#333"></ui-icon>
           </ui-col>
           <ui-col vertical-align="middle" align="center">
-            <view>康爱多大药房旗舰店<ui-badge text="店" custom-style="{{badgeStyle}}" maxlength = 3></ui-badge></view>
+            <view class="row y-center"><text class="bar-title">康爱多大药房旗舰店</text><ui-badge text="店" custom-style="{{badgeStyle}}" maxlength = 3></ui-badge></view>
           </ui-col>
-          <ui-col vertical-align="middle" align="center" width="60"></ui-col>
+          <ui-col vertical-align="middle" align="center" width="40"></ui-col>
         </ui-row>
     </ui-nav-bar>
     <view class="appbar" style="height:{{NAV_HEIGHT}}"></view>
@@ -36,7 +36,7 @@
         <view class="tool-2">
           <view class="text">
             <input type="text" confirm-type="发送" cursor-spacing="10" placeholder="请输入您要咨询的问题"/>
-            <view class="phiz">图</view>
+            <view class="ui-icon icon-phiz phiz"></view>
           </view>
           <view class="other">
             <!-- <view>发送</view> -->
@@ -163,8 +163,10 @@ page {
           border-radius: 50%;
           height: 60rpx;
           width: 60rpx;
+          font-size: 22pt;
           line-height: 60rpx;
-          background-color: yellow;
+          // background-color: #333;
+          color: #666876;
           text-align: center;
         }
       }

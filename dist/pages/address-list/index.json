@@ -3,5 +3,6 @@
     "ui-nav-bar": "../../packages/touchui-wx-components/ui-nav-bar/dist/index",
     "address-item": "../../packages/address-item/index"
   },
-  "navigationBarTitleText": "我的地址"
+  "navigationBarTitleText": "我的地址",
+  "backgroundColor": "#FAFAFA"
 }

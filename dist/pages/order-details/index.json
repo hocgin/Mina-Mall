@@ -4,5 +4,7 @@
     "ui-divider": "../../packages/touchui-wx-components/ui-divider/dist/index",
     "address-one": "../../packages/address-one/index"
   },
-  "navigationBarTitleText": "订单详情"
+  "navigationBarTitleText": "订单详情",
+  "enablePullDownRefresh": false,
+  "backgroundColor": "#FAFAFA"
 }

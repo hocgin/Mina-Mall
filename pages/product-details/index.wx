@@ -10,7 +10,7 @@
       <swiper indicator-dots="{{true}}"
         autoplay="{{false}}" interval="{{10000}}" duration="{{1000}}"
         style="height: {{height}}">
-        <block wx:for="{{urls}}">
+        <block wx:for="{{product.urls}}">
           <swiper-item>
               <image src="{{item}}" class="slide-image" mode="widthFix" bindload="refreshSwiper"/>
           </swiper-item>
@@ -24,9 +24,9 @@
       <view class="row row-1">
         <view class="price">¥109.00</view>
         <view class="row">
-          <icon-item text="举报"></icon-item>
-          <icon-item text="收藏"></icon-item>
-          <icon-item text="分享"></icon-item>
+          <icon-item text="举报" theme="default" icon="custom-icon icon-jubao1"></icon-item>
+          <icon-item text="收藏" theme="default" icon="ui-icon icon-favorite"></icon-item>
+          <icon-item text="分享" theme="default" icon="ui-icon icon-share"></icon-item>
         </view>
       </view>
 
@@ -58,7 +58,7 @@
     <view class="row specification" bindtap="toggleSpecificationPopup">
         <view class="key">已选</view>
         <view class="value">860 EVO, SATA-3, 250-259G, 1件</view>
-        <view>></view>
+        <view><ui-icon type="arrow-right" size="16" color="#333"></ui-icon></view>
     </view>
 
     <!-- 运费 -->
@@ -67,18 +67,29 @@
        <view class="value">免运费</view>
     </view>
     <view class="mix-1px-bottom-1 row service">
-       <view>店铺发货</view>
-       <view>假一赔十</view>
-       <view>无理由退款</view>
+       <view class="row y-center" wx:for="{{product.services}}"><ui-icon type="duigou1" size="16" color="#3A84EF"></ui-icon><text>{{item}}</text></view>
+    </view>
+
+    <ui-divider>商品详情</ui-divider>
+    <!-- 内容 -->
+    <view class="product-images">
+      <image wx:for="{{product.descriptionImages}}" src={{item}} data-index="{{ index }}" bindload="imageLoad" mode="widthFix" 
+      style="width:100%; height:{{ images[index].height }}rpx;"/>
     </view>
 
     <!-- 工具栏 -->
       <ui-fixed-view bottom="0" left="0" right="0">
         <view class="fixed_bottom">
           <view class="group">
-            <view>客服</view>
-            <view>店铺</view>
-            <view>购物车</view>
+            <view>
+              <icon-item text="客服" theme="default" icon="ui-icon icon-service"></icon-item>
+            </view>
+            <view>
+              <icon-item text="店铺" theme="default" icon="ui-icon icon-store"></icon-item>
+            </view>
+            <view>
+              <icon-item text="购物车" theme="default" icon="ui-icon icon-jd-cart"></icon-item>
+            </view>
           </view>
           <navigator class="btn" url="/pages/order-details/index">加入购物车</navigator>
         </view>
@@ -131,7 +142,7 @@
                   </view>
               </view>
               <scroll-view class="column body" scroll-y="{{true}}">
-                <block wx:for="{{tags}}">
+                <block wx:for="{{product.tags}}">
                   <view class="row category">{{ item.name }}</view>
                   <view class="row tags">
                     <ui-tags data="{{ item.list }}" 
@@ -176,22 +187,52 @@ export default {
   data: {
     STATUS_BAR_HEIGHT: wx.STATUS_BAR_HEIGHT+'px',
     NAV_HEIGHT: wx.STATUS_BAR_HEIGHT + wx.DEFAULT_HEADER_HEIGHT+'px',
-    urls: [
-      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
-    ],
     height: '800px',
     showAttrsPopup: false,
     showSpecificationPopup: true,
-    tags: [
-      {name: '颜色', list: [{text:'908 EVO', tagStyle: tagStyle},{text:'908 PRO', tagStyle: tagStyle}]},
-      {name: '型号', list: [{text:'908-sdk', tagStyle: tagStyle},{text:'908JJX', tagStyle: tagStyle},{text:'908JJX', tagStyle: tagStyle},{text:'908JJX', tagStyle: tagStyle},{text:'908JJX', tagStyle: tagStyle},{text:'908JJX', tagStyle: tagStyle},{text:'908JJX', tagStyle: tagStyle},{text:'908JJX', tagStyle: tagStyle},{text:'908JJX', tagStyle: tagStyle}]},
-      {name: '容量', list: [{text:'908-sdk', tagStyle: tagStyle},{text:'908JJX', tagStyle: tagStyle},{text:'908JJX', tagStyle: tagStyle}]}
-    ]
+    images:[],
+    product: {
+      urls: [
+        'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+        'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
+        'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
+      ],
+      tags: [
+        {name: '颜色', list: [{text:'908 EVO', tagStyle: tagStyle},{text:'908 PRO', tagStyle: tagStyle}]},
+        {name: '型号', list: [{text:'908-sdk', tagStyle: tagStyle},{text:'908JJX', tagStyle: tagStyle},{text:'908JJX', tagStyle: tagStyle},{text:'908JJX', tagStyle: tagStyle},{text:'908JJX', tagStyle: tagStyle},{text:'908JJX', tagStyle: tagStyle},{text:'908JJX', tagStyle: tagStyle},{text:'908JJX', tagStyle: tagStyle},{text:'908JJX', tagStyle: tagStyle}]},
+        {name: '容量', list: [{text:'908-sdk', tagStyle: tagStyle},{text:'908JJX', tagStyle: tagStyle},{text:'908JJX', tagStyle: tagStyle}]}
+      ],
+      descriptionImages: [
+        'http://qiniu.remmoe.com/1.jpg',
+        'http://qiniu.remmoe.com/2.jpg',
+        'http://qiniu.remmoe.com/3.jpg'
+      ],
+      services: [
+        '店铺发货',
+        '假一赔十',
+        '无理由退款'
+      ]
+    }
   },
   navigateBack () {
     wx.navigateBack()
+  },
+  imageLoad(e){
+    var $width=e.detail.width,    //获取图片真实宽度
+         $height=e.detail.height,
+         ratio=$width/$height;    //图片的真实宽高比例
+     var viewWidth=718,           //设置图片显示宽度，左右留有16rpx边距
+         viewHeight=718/ratio;    //计算的高度值
+      var image = this.data.images; 
+      //将图片的datadata-index作为image对象的key,然后存储图片的宽高值
+      image[e.target.dataset.index]={
+         width:viewWidth,
+         height:viewHeight
+      };
+      this.setData({
+           images:image
+      });
+
   },
   refreshSwiper(e){
     let w = wx.getSystemInfoSync().windowWidth,
@@ -346,6 +387,11 @@ page {
       font-size: 400;
     }
 
+  // 商品图片
+  .product-images {
+    margin-bottom: 100rpx;
+  }
+
   .fixed_bottom {
     display: flex;
     flex-direction: row;
@@ -371,6 +417,7 @@ page {
       width: auto;
     }
   }
+
 }
 
   .all-attrs {
@@ -493,4 +540,6 @@ page {
       }
     }
   }
+
+
 </style>

@@ -17,3 +17,6 @@ https://marketplace.visualstudio.com/items?itemName=qiang014.vetur-e
 ## 默认
 - font-weight: 400;
 - font-size: 10pt;
+
+
+@import "static/styles/icon.less";

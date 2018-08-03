@@ -9,7 +9,7 @@
       </view>
       <view class="ui-col ui-col-align-center align-center valign-middle" style="">
         <view class="ui-col-content align-center valign-middle">
-          <view>我的消息</view>
+          <view class="bar-title">我的消息</view>
         </view>
       </view>
       <view class="ui-col ui-col-align-center align-center valign-middle" style="flex:0 0 60px;">

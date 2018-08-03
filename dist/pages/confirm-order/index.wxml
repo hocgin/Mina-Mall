@@ -9,7 +9,7 @@
       </view>
       <view class="ui-col ui-col-align-center align-center valign-middle" style="">
         <view class="ui-col-content align-center valign-middle">
-          <view>确认订单</view>
+          <view class="bar-title">确认订单</view>
         </view>
       </view>
       <view class="ui-col ui-col-align-center align-center valign-middle" style="flex:0 0 60px;">
@@ -31,7 +31,9 @@
           <text class="bagde">默认</text>福建省厦门市湖里区 木山接到县后舍449号木山接到县后舍449号木山接到县后舍449号
         </view>
       </view>
-      <view class="col-2">></view>
+      <view class="col-2">
+        <span type="arrow-right" size="16" color="#333" class="ui-icon icon-arrow-right" style="color: #333;font-size: 16px;"></span>
+      </view>
     </view>
 
     <!-- 商品/店铺 -->
@@ -39,9 +41,11 @@
       <view class="mix-1px-box product" wx:for="{{ shoppingCarts }}" wx:for-item="item">
         <!-- 店铺名 -->
         <view class="head">
-          <label class="store-name">
-            {{ item.store.name }}
-          </label>
+          <navigator class="row store" url="/pages/shop/index">
+            <span type="store" size="20" color="#6F7279" class="ui-icon icon-store" style="color: #6F7279;font-size: 20px;"></span>
+            <text class="store-name">{{ item.store.name }}</text>
+            <span type="arrow-right" size="11" color="#333" class="ui-icon icon-arrow-right" style="color: #333;font-size: 11px;"></span>
+          </navigator>
         </view>
 
         <view class="item-group">

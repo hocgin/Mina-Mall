@@ -35,6 +35,7 @@ export default {
   align-items: flex-start;
   .user {
     image {
+      background-color: #FAFAFA;
       border-radius: 50%;
       width: 100rpx;
       height: 100rpx;
@@ -61,7 +62,7 @@ export default {
         border-color: #fff transparent transparent;
         transform: rotateZ(90deg);
         overflow: hidden;
-        border-width: 10rpx;
+        border-width: 12rpx;
     }
     &:not(.reverse){
       &::after{

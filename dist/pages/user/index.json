@@ -1,9 +1,10 @@
 {
   "usingComponents": {
     "ui-nav-bar": "../../packages/touchui-wx-components/ui-nav-bar/dist/index",
-    "icon-item": "../../packages/icon-item/index"
+    "icon-item": "../../packages/icon-item/index",
+    "image-item": "../../packages/image-item/index"
   },
-  "navigationBarTitleText": "首页",
+  "navigationBarTitleText": "个人中心",
   "backgroundColor": "#3A84EF",
   "navigationBarBackgroundColor": "#3A84EF",
   "navigationBarTextStyle": "black",

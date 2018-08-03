@@ -25,7 +25,6 @@
       </view>
       <view class="ui-col ui-col-align-center align-center valign-middle" style="flex:0 0 100px;">
         <view class="ui-col-content align-center valign-middle">
-          <!-- <ui-icon type="more" size="16" color="#fff"></ui-icon> -->
         </view>
       </view>
     </view>
@@ -36,7 +35,10 @@
     <swiper style="height:{{ contentHeight }}px" class="content" current="{{ current }}" bindchange="handleContentChange">
       <swiper-item class="content" wx:for="{{[1,2,3,4]}}">
         <scroll-view scroll-y style="height:{{DEFAULT_CONTENT_HEIGHT}}px" class="content_list">
-          <news-card wx:for="{{[1,2,3,4,5,6,7,8,9]}}" _pid="{{_pid}}"></news-card>
+          <news-card wx:for="{{[1,2]}}" _pid="{{_pid}}"></news-card>
+          <view class="last" decode="true">
+            <ui-divider _pid="{{_pid}}">彩蛋</ui-divider>
+          </view>
         </scroll-view>
       </swiper-item>
       <swiper>

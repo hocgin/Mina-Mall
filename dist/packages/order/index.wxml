@@ -27,8 +27,7 @@
     <text class="small">.00</text>
   </view>
   <view class="toolbar">
-    <view class="btn">查看发票</view>
-    <view class="btn">卖了换钱</view>
+    <view class="btn">查看详情</view>
     <view class="btn blue">再次购买</view>
   </view>
 </view>

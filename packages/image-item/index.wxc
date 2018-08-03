@@ -1,0 +1,59 @@
+<template>
+  <view class="image-item {{theme}}">
+    <image class="image" src="{{src}}"/>
+    <view class="text">{{ text }}</view>
+  </view>
+</template>
+<script>
+export default {
+  data: {
+  },
+  properties: {
+    text: String,
+    theme: {
+      type: String,
+      value: 'default'
+    },
+    src: {
+      type: String,
+      value: 'http://qiniu.remmoe.com/pending_pay.png'
+    }
+  },
+  methods: {
+  }
+}
+</script>
+<style lang="less">
+.image-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 10rpx;
+  padding-top: 10rpx;
+  text-align: center;
+  align-items: center;
+  .text {
+    color: #6B6B6B;
+    margin-top:10rpx;
+  }
+}
+
+.default {
+  .image {
+    height: 30px;
+    width: 30px;
+  }
+  .text {
+    font-size: 25rpx;
+  }
+}
+
+.lg {
+  .image {
+  }
+  .text {
+    color: #000;
+    font-size: 25rpx;
+  }
+}
+</style>

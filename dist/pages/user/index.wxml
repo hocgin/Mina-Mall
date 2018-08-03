@@ -4,7 +4,7 @@
     <view class="ui-row" style="height:46px;">
       <view class="ui-col ui-col-align-center align-center valign-middle" style="">
         <view class="ui-col-content align-center valign-middle">
-          <view>个人中心</view>
+          <view class="bar-title">个人中心</view>
         </view>
       </view>
     </view>
@@ -39,120 +39,75 @@
   </view>
 
   <!-- 订单工具栏 -->
-  <view class="my-order bg-white ui-row-list ui-row-list-border-indent" style="">
-    <view class="ui-row" style="height:40px;">
-      <view class="bold-5 ui-col valign-middle" style="">
-        <view class="ui-col-content valign-middle">我的订单</view>
-      </view>
-      <view class="more ui-col ui-col-align-right align-right valign-middle" style="flex:0 0 30px;">
-        <view class="ui-col-content align-right valign-middle">
-          <navigator url="/pages/order-manager/index">更多</navigator>
-        </view>
-      </view>
+  <navigator url="/pages/order-manager/index?tab=0" class="mix-1px-bottom-1 tool-title my-order bg-white">
+    <view class="bold-5">我的订单</view>
+    <view class="more">
+      更多
     </view>
-  </view>
-  <view class="mix-1px-bottom-1 bg-white ui-row" style="">
-    <view class="ui-col ui-col-align-center align-center" style="">
-      <view class="ui-col-content align-center">
-        <icon-item text="待付款" _pid="{{_pid}}"></icon-item>
-      </view>
-    </view>
-    <view class="ui-col ui-col-align-center align-center" style="">
-      <view class="ui-col-content align-center">
-        <icon-item text="待发货" _pid="{{_pid}}"></icon-item>
-      </view>
-    </view>
-    <view class="ui-col ui-col-align-center align-center" style="">
-      <view class="ui-col-content align-center">
-        <icon-item text="待收货" _pid="{{_pid}}"></icon-item>
-      </view>
-    </view>
-    <view class="ui-col ui-col-align-center align-center" style="">
-      <view class="ui-col-content align-center">
-        <icon-item text="待评价" _pid="{{_pid}}"></icon-item>
-      </view>
-    </view>
-    <view class="ui-col ui-col-align-center align-center" style="">
-      <view class="ui-col-content align-center">
-        <icon-item text="售后" _pid="{{_pid}}"></icon-item>
-      </view>
+  </navigator>
+
+  <view class="mix-1px-bottom-1 bg-white column">
+    <view class="row mix-1px-bottom-1">
+      <navigator url="/pages/order-manager/index?tab=1">
+        <image-item src="http://qiniu.remmoe.com/pending_pay.png" text="待付款" _pid="{{_pid}}">
+        </image-item>
+      </navigator>
+      <navigator url="/pages/order-manager/index?tab=2">
+        <image-item src="http://qiniu.remmoe.com/pending_send.png" text="待发货" _pid="{{_pid}}">
+        </image-item>
+      </navigator>
+      <navigator url="/pages/order-manager/index?tab=3">
+        <image-item src="http://qiniu.remmoe.com/pending_goods.png" text="待收货" _pid="{{_pid}}">
+        </image-item>
+      </navigator>
+      <navigator url="/pages/order-manager/index">
+        <image-item src="http://qiniu.remmoe.com/pending_comment.png" text="待评价" _pid="{{_pid}}">
+        </image-item>
+      </navigator>
+      <navigator url="/pages/order-manager/index">
+        <image-item src="http://qiniu.remmoe.com/sale_order.png" text="售后" _pid="{{_pid}}"></image-item>
+      </navigator>
     </view>
   </view>
 
   <!-- 其他入口栏 -->
-  <view class="bg-white margin-top-20 ui-row-list ui-row-list-border-indent" style="">
-    <view class="ui-row" style="height:40px;">
-      <view class="bold-5 ui-col valign-middle" style="">
-        <view class="ui-col-content valign-middle">工具栏</view>
-      </view>
-    </view>
+  <view class="mix-1px-bottom-1 mix-1px-top-1 bg-white tool-title margin-top-20 bold-5">
+    工具栏
   </view>
-  <view class="mix-1px-top-1 mix-1px-bottom-1  ui-row-list" style="">
-    <view class="bg-white ui-row" style="">
-      <view class="ui-col ui-col-align-center align-center" style="">
-        <view class="ui-col-content align-center">
-          <navigator url="/pages/address-list/index">
-            <icon-item text="收货地址" _pid="{{_pid}}"></icon-item>
-          </navigator>
-        </view>
-      </view>
-      <view class="ui-col ui-col-align-center align-center" style="">
-        <view class="ui-col-content align-center">
-          <navigator url="/pages/logistics-details/index">
-            <icon-item text="物流跟踪" _pid="{{_pid}}"></icon-item>
-          </navigator>
-        </view>
-      </view>
-      <view class="ui-col ui-col-align-center align-center" style="">
-        <view class="ui-col-content align-center">
-          <navigator url="/pages/product-details/index">
-            <icon-item text="商品详情" _pid="{{_pid}}"></icon-item>
-          </navigator>
-        </view>
-      </view>
-      <view class="ui-col ui-col-align-center align-center" style="">
-        <view class="ui-col-content align-center">
-          <navigator url="/pages/shop/index">
-            <icon-item text="店铺" _pid="{{_pid}}"></icon-item>
-          </navigator>
-        </view>
-      </view>
-      <view class="ui-col ui-col-align-center align-center" style="">
-        <view class="ui-col-content align-center">
-          <navigator url="/pages/classify/index">
-            <icon-item text="平台分类" _pid="{{_pid}}"></icon-item>
-          </navigator>
-        </view>
-      </view>
+  <view class="bg-white column">
+    <view class="row mix-1px-bottom-1">
+      <navigator url="/pages/address-list/index">
+        <icon-item text="收货地址" _pid="{{_pid}}"></icon-item>
+      </navigator>
+      <navigator url="/pages/logistics-details/index">
+        <icon-item text="物流跟踪" _pid="{{_pid}}"></icon-item>
+      </navigator>
+      <navigator url="/pages/product-details/index">
+        <icon-item text="商品详情" _pid="{{_pid}}"></icon-item>
+      </navigator>
+      <navigator url="/pages/shop/index">
+        <icon-item text="店铺" _pid="{{_pid}}"></icon-item>
+      </navigator>
+      <navigator url="/pages/classify/index">
+        <icon-item text="平台分类" _pid="{{_pid}}"></icon-item>
+      </navigator>
     </view>
-    <view class="bg-white ui-row" style="">
-      <view class="ui-col ui-col-align-center align-center" style="">
-        <view class="ui-col-content align-center">
-          <navigator url="/pages/search/index">
-            <icon-item text="搜索" _pid="{{_pid}}"></icon-item>
-          </navigator>
-        </view>
-      </view>
-      <view class="ui-col ui-col-align-center align-center" style="">
-        <view class="ui-col-content align-center">
-          <icon-item text="待发货" _pid="{{_pid}}"></icon-item>
-        </view>
-      </view>
-      <view class="ui-col ui-col-align-center align-center" style="">
-        <view class="ui-col-content align-center">
-          <icon-item text="待收货" _pid="{{_pid}}"></icon-item>
-        </view>
-      </view>
-      <view class="ui-col ui-col-align-center align-center" style="">
-        <view class="ui-col-content align-center">
-          <icon-item text="待评价" _pid="{{_pid}}"></icon-item>
-        </view>
-      </view>
-      <view class="ui-col ui-col-align-center align-center" style="">
-        <view class="ui-col-content align-center">
-          <icon-item text="售后" _pid="{{_pid}}"></icon-item>
-        </view>
-      </view>
+    <view class="row mix-1px-bottom-1">
+      <navigator url="/pages/search/index">
+        <icon-item text="搜索" _pid="{{_pid}}"></icon-item>
+      </navigator>
+      <navigator url="/pages/logistics-details/index">
+        <icon-item text="暂无" _pid="{{_pid}}"></icon-item>
+      </navigator>
+      <navigator url="/pages/product-details/index">
+        <icon-item text="暂无" _pid="{{_pid}}"></icon-item>
+      </navigator>
+      <navigator url="/pages/shop/index">
+        <icon-item text="暂无" _pid="{{_pid}}"></icon-item>
+      </navigator>
+      <navigator url="/pages/classify/index">
+        <icon-item text="暂无" _pid="{{_pid}}"></icon-item>
+      </navigator>
     </view>
   </view>
 

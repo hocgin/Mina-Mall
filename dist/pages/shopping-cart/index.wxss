@@ -23,6 +23,10 @@
   color: #E92E3A;
   font-weight: 700;
 }
+.bar-title {
+  font-size: 12pt;
+  font-weight: 450;
+}
 .line-2-ellipsis {
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -112,6 +116,7 @@
   border-bottom: solid 1px #F0F0F0;
 }
 navigator {
+  height: 100%;
   width: 100%;
 }
 .column {
@@ -130,34 +135,69 @@ page {
   margin-left: 20rpx;
   font-size: 12pt;
 }
-.shopping-cart-items {
-  padding-bottom: 50px;
+.shopping-items {
+  margin-top: 10rpx;
+  padding-bottom: 100rpx;
 }
-.shopping-cart-items .product {
+.shopping-items .product {
+  margin-bottom: 20rpx;
   background-color: #fff;
 }
-.shopping-cart-items .product .store-name {
-  font-weight: 700;
-}
-.shopping-cart-items .product .info {
+.shopping-items .product .head {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-content: space-between;
-}
-.shopping-cart-items .product .info .title {
+  flex-direction: row;
   padding-left: 20rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
 }
-.shopping-cart-items .product .info .tags {
-  color: #B6B7B6;
+.shopping-items .product .head .store {
+  font-weight: 700;
+  align-items: center;
+  width: auto;
 }
-.shopping-cart-items .product .info .price-pannel {
+.shopping-items .product .head .store .store-name {
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+}
+.shopping-items .product .item-group {
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+}
+.shopping-items .product .item-group .item {
+  flex-grow: 1;
+  flex-shrink: 1;
   display: flex;
   flex-direction: row;
   align-items: center;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+}
+.shopping-items .product .item-group .item:not(:last-child) {
+  border-bottom: solid 1px #f0f0f0;
+}
+.shopping-items .product .item-group .item .radio {
+  margin-right: 10rpx;
+}
+.shopping-items .product .item-group .item .image {
+  width: 160rpx;
+  height: 200rpx;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+.shopping-items .product .item-group .item .details {
+  margin-left: 20rpx;
+  display: flex;
+  flex-direction: column;
+}
+.shopping-items .product .item-group .item .details .tags {
+  color: #b6b7b6;
+}
+.shopping-items .product .item-group .item .details .price-pannel {
+  display: flex;
+  flex-direction: row;
   justify-content: space-between;
 }
-.shopping-cart-items .product .info .price-pannel .stepper {
+.shopping-items .product .item-group .item .details .price-pannel .stepper {
   margin-right: 30rpx;
 }
 .fixed_bottom {

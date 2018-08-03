@@ -7,9 +7,13 @@ exports.default = Component({
   data: {},
   properties: {
     text: String,
+    theme: {
+      type: String,
+      value: 'lg'
+    },
     icon: {
       type: String,
-      value: 'icon-shoucang'
+      value: 'ui-icon icon-weixin'
     }
   },
   methods: {}

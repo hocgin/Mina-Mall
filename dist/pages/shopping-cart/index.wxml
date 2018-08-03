@@ -10,7 +10,7 @@
       </view>
       <view class="ui-col ui-col-align-center align-center valign-middle" style="">
         <view class="ui-col-content align-center valign-middle">
-          <view>购物车</view>
+          <view class="bar-title">购物车</view>
         </view>
       </view>
       <view class="ui-col" style="">
@@ -20,50 +20,42 @@
   </ui-nav-bar>
 
   <!-- 设置内容距离nav-bar高度占位 -->
-  <view class="appbar" style="height:{{NAV_HEIGHT}}"></view>
+  <view style="height:{{NAV_HEIGHT}}"></view>
 
-  <!-- 商品项 -->
-  <view class="shopping-cart-items">
-    <view class="product" wx:for="{{ shoppingCarts }}" wx:for-item="item">
-      <view class="mix-1px-bottom-top ui-row-list" style="margin-top:10px;">
-        <view class="ui-row" style="height:40px;">
-          <view class="ui-col ui-col-align-left align-left valign-middle" style="padding-left: 10px;">
-            <view class="ui-col-content align-left valign-middle">
-              <label class="store-name">
-                <radio class="mini" value="{{ item.store.id }}" color="#3A84EF">{{ item.store.name }}
-                </radio>
-              </label>
-            </view>
-          </view>
-        </view>
+  <!-- 商品/店铺 -->
+  <view class="shopping-items">
+    <view class="mix-1px-box product" wx:for="{{ shoppingCarts }}" wx:for-item="item">
+      <!-- 店铺名 -->
+      <view class="mix-1px-bottom-1 head">
+        <label>
+          <radio class="mini" value="{{ item.store.id }}" color="#3A84EF">
+          </radio>
+        </label>
+        <navigator class="row store" url="/pages/shop/index">
+          <span type="store" size="20" color="#6F7279" class="ui-icon icon-store" style="color: #6F7279;font-size: 20px;"></span>
+          <text class="store-name">{{ item.store.name }}</text>
+          <span type="arrow-right" size="11" color="#333" class="ui-icon icon-arrow-right" style="color: #333;font-size: 11px;"></span>
+        </navigator>
+      </view>
+
+      <view class="item-group">
         <!-- 商品单项 -->
-        <view wx:for="{{ item.productes }}" wx:for-item="product" class="ui-row" style="height:120px;">
-          <view class="ui-col ui-col-align-left align-left valign-middle" style="padding-left: 10px;flex:0 0 40px;">
-            <view class="ui-col-content align-left valign-middle">
-              <radio value="{{ product.id }}" color="#3A84EF">
-              </radio>
-            </view>
+        <view class="item" wx:for="{{ item.productes }}" wx:for-item="product">
+          <view class="radio">
+            <radio value="{{ product.id }}" color="#3A84EF">
+            </radio>
           </view>
-          <view class="ui-col ui-col-align-center align-center valign-middle" style="flex:0 0 100px;">
-            <view class="ui-col-content align-center valign-middle">
-              <image class="image" src="http://placehold.it/80x100" model="aspectFill" style="width:80px;height:100px" />
-            </view>
-          </view>
-          <view class="ui-col ui-col-align-left align-left valign-middle" style="">
-            <view class="ui-col-content align-left valign-middle">
-              <view style="height: 100px" class="info">
-                <view class="line-2-ellipsis title">{{ product.name }}</view>
-                <view class="tags"> {{ product.tags }} </view>
-                <view class="price-pannel">
-                  <text class="price">¥{{ product.price }}</text>
-                  <ui-stepper class="stepper" min="1" value="{{ product.number }}" _pid="{{_pid}}">
-                  </ui-stepper>
-                </view>
-              </view>
+          <image class="image" src="http://placehold.it/80x100" model="aspectFill" />
+          <view class="details">
+            <view class="line-2-ellipsis title">{{ product.name }}</view>
+            <view class="tags"> {{ product.tags }} </view>
+            <view class="price-pannel">
+              <text class="price">¥{{ product.price }}</text>
+              <ui-stepper class="stepper" min="1" value="{{ product.number }}" _pid="{{_pid}}">
+              </ui-stepper>
             </view>
           </view>
         </view>
-        <!-- /商品单项 -->
       </view>
     </view>
   </view>

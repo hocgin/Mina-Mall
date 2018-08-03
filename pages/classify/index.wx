@@ -6,7 +6,7 @@
             <ui-icon type="arrow-left" size="16" color="#fff"></ui-icon>
         </ui-col>
         <ui-col vertical-align="middle" align="center">
-          <view>分类</view>
+          <view class="bar-title">分类</view>
         </ui-col>
         <ui-col vertical-align="middle" align="center" width="60">
         </ui-col>
@@ -412,6 +412,7 @@ export default {
 </script>
 
 <style lang="less">
+@import "static/styles/variables.less";
 .container {
   display: flex;
 }

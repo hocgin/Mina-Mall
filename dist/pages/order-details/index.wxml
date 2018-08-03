@@ -9,7 +9,7 @@
       </view>
       <view class="ui-col ui-col-align-center align-center valign-middle" style="">
         <view class="ui-col-content align-center valign-middle">
-          <view>订单详情</view>
+          <view class="bar-title">订单详情</view>
         </view>
       </view>
       <view class="ui-col ui-col-align-center align-center valign-middle" style="flex:0 0 60px;">
@@ -24,9 +24,11 @@
     <view class="bg">
       <text class="state">完成</text>
       <view class="logistics">
-        <view>图</view>
+        <span type="duigou1" size="20" color="#3A84EF" class="ui-icon icon-duigou1" style="color: #3A84EF;font-size: 20px;"></span>
         <view class="text">感谢您在代购网购物，欢迎再次光临！</view>
-        <view>></view>
+        <view>
+          <span type="arrow-right" size="16" color="#333" class="ui-icon icon-arrow-right" style="color: #333;font-size: 16px;"></span>
+        </view>
       </view>
     </view>
 
@@ -35,9 +37,11 @@
       <view class="mix-1px-box product">
         <!-- 店铺名 -->
         <view class="head">
-          <label class="store-name line-1-ellipsis">
-            {{ order.store.name }}
-          </label>
+          <navigator class="row store" url="/pages/shop/index">
+            <span type="store" size="20" color="#6F7279" class="ui-icon icon-store" style="color: #6F7279;font-size: 20px;"></span>
+            <text class="store-name">{{ order.store.name }}</text>
+            <span type="arrow-right" size="11" color="#333" class="ui-icon icon-arrow-right" style="color: #333;font-size: 11px;"></span>
+          </navigator>
         </view>
 
         <view class="item-group">
@@ -54,9 +58,10 @@
           </view>
         </view>
 
-        <view class="link">
-          联系客服
-        </view>
+        <navigator class="link" url="/pages/chat/index">
+          <span type="service" size="22" color="#3A84EF" class="ui-icon icon-service" style="color: #3A84EF;font-size: 22px;"></span>
+          <text>联系客服</text>
+        </navigator>
       </view>
     </view>
 
@@ -103,7 +108,7 @@
       </view>
     </view>
 
-    <ui-divider _pid="{{_pid}}">我是有底线的</ui-divider>
+    <ui-divider _pid="{{_pid}}">彩蛋</ui-divider>
 
   </view>
 

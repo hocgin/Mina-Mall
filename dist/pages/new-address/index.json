@@ -2,5 +2,6 @@
   "usingComponents": {
     "ui-nav-bar": "../../packages/touchui-wx-components/ui-nav-bar/dist/index"
   },
-  "navigationBarTitleText": "新建地址"
+  "navigationBarTitleText": "新建地址",
+  "disableScroll": true
 }

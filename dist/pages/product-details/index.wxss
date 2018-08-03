@@ -23,6 +23,13 @@
   color: #E92E3A;
   font-weight: 700;
 }
+.bar-title {
+  font-size: 12pt;
+  font-weight: 450;
+}
+.y-center {
+  align-items: center;
+}
 .line-2-ellipsis {
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -112,6 +119,7 @@
   border-bottom: solid 1px #F0F0F0;
 }
 navigator {
+  height: 100%;
   width: 100%;
 }
 .column {
@@ -237,6 +245,9 @@ page {
   font-size: 9pt;
   color: #555454;
   font-size: 400;
+}
+.product-details .product-images {
+  margin-bottom: 100rpx;
 }
 .product-details .fixed_bottom {
   display: flex;

@@ -5,6 +5,7 @@
   align-items: flex-start;
 }
 .message .user image {
+  background-color: #FAFAFA;
   border-radius: 50%;
   width: 100rpx;
   height: 100rpx;
@@ -30,7 +31,7 @@
   border-color: #fff transparent transparent;
   transform: rotateZ(90deg);
   overflow: hidden;
-  border-width: 10rpx;
+  border-width: 12rpx;
 }
 .message .text:not(.reverse)::after {
   left: -20rpx;

@@ -127,11 +127,11 @@ export default {
 <style lang="less">
 @import "static/styles/variables.less";
 page {
-  background-color: #F3F3F3;
+  background-color: #FAFAFA;
 }
 .collection {
   .tabs {
-    border-bottom: 1px solid rgba(231, 231, 231, 0.6);
+    border-bottom: 1px solid #F0F0F0;
   }
   .content {
     z-index: -1;

@@ -7,7 +7,7 @@
               <ui-icon type="arrow-left" size="16" color="#333"></ui-icon>
           </ui-col>
           <ui-col vertical-align="middle" align="center">
-            <view>订单跟踪</view>
+            <view class="bar-title">订单跟踪</view>
           </ui-col>
           <ui-col vertical-align="middle" align="center" width="60"></ui-col>
         </ui-row>
@@ -60,7 +60,8 @@
 <script>
 export default {
   config: {
-    navigationBarTitleText: '订单跟踪'
+    navigationBarTitleText: '订单跟踪',
+    backgroundColor: '#FAFAFA'
   },
   data: {
     NAV_HEIGHT:wx.STATUS_BAR_HEIGHT+wx.DEFAULT_HEADER_HEIGHT+'px',

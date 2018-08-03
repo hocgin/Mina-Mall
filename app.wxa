@@ -46,21 +46,21 @@ export default {
         },
         {
           pagePath: "pages/news/index",
-          iconPath: "static/asserts/home.png",
-          selectedIconPath: "static/asserts/home_selected.png",
+          iconPath: "static/asserts/trends.png",
+          selectedIconPath: "static/asserts/trends_selected.png",
           text: "动态"
         },
         {
           pagePath: "pages/shopping-cart/index",
-          iconPath: "static/asserts/home.png",
-          selectedIconPath: "static/asserts/home_selected.png",
+          iconPath: "static/asserts/shopping_cart.png",
+          selectedIconPath: "static/asserts/shopping_cart_selected.png",
           text: "购物车"
         },
         {
           pagePath: "pages/user/index",
-          iconPath: "static/asserts/home.png",
-          selectedIconPath: "static/asserts/home_selected.png",
-          text: "我"
+          iconPath: "static/asserts/personal_center.png",
+          selectedIconPath: "static/asserts/personal_center_selected.png",
+          text: "个人中心"
         }
       ]
     },

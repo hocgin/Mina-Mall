@@ -1,8 +1,7 @@
 <template>
       <!-- 地址信息 -->
       <view class="mix-1px-box address">
-        <view class="col-1">
-          图
+        <view class="ui-icon icon-map col-1">
         </view>
         <view class="col-2">
           <view class="head">
@@ -25,7 +24,7 @@ export default {
 };
 </script>
 <style lang="less">
-
+@import "static/styles/icon.less";
 .mix-1px-box {
     border: solid 1px #F0F0F0;
 }

@@ -9,6 +9,11 @@ exports.default = Page({
     height: wx.DEFAULT_CONTENT_HEIGHT,
     NAV_HEIGHT: wx.STATUS_BAR_HEIGHT + wx.DEFAULT_HEADER_HEIGHT + 'px'
   },
+  onLoad: function onLoad(options) {
+    this.setData({
+      current: options.tab || 0
+    });
+  },
   navigateBack: function navigateBack() {
     wx.navigateBack();
   },
