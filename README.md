@@ -1,5 +1,5 @@
 ## 商城(小程序)
-[Touch UI 官方文档](http://www.wetouch.net/touchwx_doc/quickstart/project/code)
+> 基于[Touch UI 官方文档](http://www.wetouch.net/touchwx_doc/quickstart/project/code)开发
 
 ## 界面
 ![image](https://github.com/hocgin/Mina-Mall/blob/master/docs/show.gif?raw=true)
