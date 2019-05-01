@@ -2,6 +2,7 @@
 [Touch UI 官方文档](http://www.wetouch.net/touchwx_doc/quickstart/project/code)
 
 ## 界面
+![image](https://github.com/hocgin/Mina-Mall/blob/master/docs/show.gif?raw=true)
 
 ## Start
 1. 安装完插件，重启 VSCode
