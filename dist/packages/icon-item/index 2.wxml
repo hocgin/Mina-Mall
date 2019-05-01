@@ -1,4 +1,0 @@
-<view class="icon-item default">
-  <view class="{{ icon }}"></view>
-  <view class="text">{{ text }}</view>
-</view>

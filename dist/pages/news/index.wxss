@@ -27,6 +27,9 @@
   font-size: 12pt;
   font-weight: 450;
 }
+.y-center {
+  align-items: center;
+}
 .line-2-ellipsis {
   display: -webkit-box;
   -webkit-box-orient: vertical;
