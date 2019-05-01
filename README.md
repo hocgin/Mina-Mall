@@ -1,22 +1,17 @@
-## 代购么-买家端
+## 商城(小程序)
 [Touch UI 官方文档](http://www.wetouch.net/touchwx_doc/quickstart/project/code)
+
+## 界面
 
 ## Start
 1. 安装完插件，重启 VSCode
 2. 目录右键 TouchWX启动开发服务
-
-## 插件
-https://marketplace.visualstudio.com/items?itemName=uileader.touchuiwx
-https://marketplace.visualstudio.com/items?itemName=qiang014.vetur-e
+3. 微信开发工具需加载 dist/ 目录
 
 ## 开发
-### 占位图
-- http://placehold.it/350x150
+### 插件
+- https://marketplace.visualstudio.com/items?itemName=uileader.touchuiwx
+- https://marketplace.visualstudio.com/items?itemName=qiang014.vetur-e
 
-
-## 默认
-- font-weight: 400;
-- font-size: 10pt;
-
-
-@import "static/styles/icon.less";
+## LICENSE
+Apache 2.0
